@@ -1,0 +1,6 @@
+framework module EasyFiles {
+  umbrella header "EasyFiles-umbrella.h"
+
+  export *
+  module * { export * }
+}
