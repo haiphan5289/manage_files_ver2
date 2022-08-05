@@ -7,5 +7,6 @@
 
 import Foundation
 enum PushNotificationKeys : String {
-    case addedProject = "addedProject"
+    case addedFolder = "addedProject"
+    case deleteFolder = "deleteFolder"
 }

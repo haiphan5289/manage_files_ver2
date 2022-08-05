@@ -9,6 +9,8 @@
 import Foundation
 import RealmSwift
 import Realm
+import EasyFiles
+import EasyBaseCodes
 
 class RealmManager {
     
@@ -55,7 +57,7 @@ class RealmManager {
                 NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.addedFolder.rawValue), object: model, userInfo: nil)
             }
         } else {
-            let itemAdd = FolderRealm.init(model: model)
+            let itemAdd = FolderRealm.init(value: model)
             try! realm.write {
                 realm.add(itemAdd)
                 NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.addedFolder.rawValue), object: model, userInfo: nil)

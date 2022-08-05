@@ -13,15 +13,28 @@
 		3EBAF49A289D1E2300C59679 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBAF498289D1E2300C59679 /* Main.storyboard */; };
 		3EBAF49C289D1E2400C59679 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBAF49B289D1E2400C59679 /* Assets.xcassets */; };
 		3EBAF49F289D1E2400C59679 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBAF49D289D1E2400C59679 /* LaunchScreen.storyboard */; };
-		939DA465289D571A00AEEF49 /* TransferWifi in Resources */ = {isa = PBXBuildFile; fileRef = 939DA464289D571A00AEEF49 /* TransferWifi */; };
-		939DA467289D572F00AEEF49 /* Helper in Resources */ = {isa = PBXBuildFile; fileRef = 939DA466289D572F00AEEF49 /* Helper */; };
-		939DA469289D574300AEEF49 /* Networking in Resources */ = {isa = PBXBuildFile; fileRef = 939DA468289D574300AEEF49 /* Networking */; };
-		939DA46B289D576100AEEF49 /* Common in Resources */ = {isa = PBXBuildFile; fileRef = 939DA46A289D576100AEEF49 /* Common */; };
-		939DA46F289D583E00AEEF49 /* Library in Resources */ = {isa = PBXBuildFile; fileRef = 939DA46E289D583E00AEEF49 /* Library */; };
 		939DA475289D594A00AEEF49 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 939DA472289D594A00AEEF49 /* HomeVC.xib */; };
 		939DA476289D594A00AEEF49 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA473289D594A00AEEF49 /* HomeVM.swift */; };
 		939DA477289D594A00AEEF49 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA474289D594A00AEEF49 /* HomeVC.swift */; };
 		939DA479289D59C400AEEF49 /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA478289D59C400AEEF49 /* TabbarVC.swift */; };
+		939DA47E289D5C6B00AEEF49 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA47D289D5C6B00AEEF49 /* UIFont+Extension.swift */; };
+		939DA483289D5CA600AEEF49 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA480289D5CA600AEEF49 /* Constant.swift */; };
+		939DA484289D5CA600AEEF49 /* GetHeightSafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA481289D5CA600AEEF49 /* GetHeightSafeArea.swift */; };
+		939DA485289D5CA600AEEF49 /* SettingDefaultFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA482289D5CA600AEEF49 /* SettingDefaultFont.swift */; };
+		939DA48E289D5CEB00AEEF49 /* APILink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA489289D5CEB00AEEF49 /* APILink.swift */; };
+		939DA48F289D5CEB00AEEF49 /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA48A289D5CEB00AEEF49 /* ErrorTracker.swift */; };
+		939DA490289D5CEB00AEEF49 /* OptionalMessageDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA48B289D5CEB00AEEF49 /* OptionalMessageDTO.swift */; };
+		939DA491289D5CEB00AEEF49 /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA48C289D5CEB00AEEF49 /* ReadJson.swift */; };
+		939DA492289D5CEB00AEEF49 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA48D289D5CEB00AEEF49 /* Request.swift */; };
+		939DA495289D5D0300AEEF49 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA494289D5D0200AEEF49 /* RealmManager.swift */; };
+		939DA497289D5D1F00AEEF49 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA496289D5D1F00AEEF49 /* RealmModel.swift */; };
+		939DA499289D5D8B00AEEF49 /* Encode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA498289D5D8B00AEEF49 /* Encode+Extension.swift */; };
+		939DA49C289D5D9A00AEEF49 /* PropertyWapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA49A289D5D9A00AEEF49 /* PropertyWapper.swift */; };
+		939DA49D289D5D9A00AEEF49 /* Obserable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA49B289D5D9A00AEEF49 /* Obserable+Extension.swift */; };
+		939DA49F289D5DA000AEEF49 /* PushNotificationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA49E289D5DA000AEEF49 /* PushNotificationKeys.swift */; };
+		939DA4A5289D604800AEEF49 /* ListFontVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 939DA4A2289D604800AEEF49 /* ListFontVC.xib */; };
+		939DA4A6289D604800AEEF49 /* ListFontVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA4A3289D604800AEEF49 /* ListFontVM.swift */; };
+		939DA4A7289D604800AEEF49 /* ListFontVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA4A4289D604800AEEF49 /* ListFontVC.swift */; };
 		BB3EC696ADB130C5D448D548 /* Pods_ManageFiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38D181B8E17A7419E334DA3 /* Pods_ManageFiles.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,15 +47,28 @@
 		3EBAF49B289D1E2400C59679 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EBAF49E289D1E2400C59679 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EBAF4A0289D1E2400C59679 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		939DA464289D571A00AEEF49 /* TransferWifi */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TransferWifi; sourceTree = "<group>"; };
-		939DA466289D572F00AEEF49 /* Helper */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Helper; sourceTree = "<group>"; };
-		939DA468289D574300AEEF49 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Networking; sourceTree = "<group>"; };
-		939DA46A289D576100AEEF49 /* Common */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Common; sourceTree = "<group>"; };
-		939DA46E289D583E00AEEF49 /* Library */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Library; sourceTree = "<group>"; };
 		939DA472289D594A00AEEF49 /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 		939DA473289D594A00AEEF49 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		939DA474289D594A00AEEF49 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		939DA478289D59C400AEEF49 /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarVC.swift; sourceTree = "<group>"; };
+		939DA47D289D5C6B00AEEF49 /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		939DA480289D5CA600AEEF49 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		939DA481289D5CA600AEEF49 /* GetHeightSafeArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHeightSafeArea.swift; sourceTree = "<group>"; };
+		939DA482289D5CA600AEEF49 /* SettingDefaultFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDefaultFont.swift; sourceTree = "<group>"; };
+		939DA489289D5CEB00AEEF49 /* APILink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APILink.swift; sourceTree = "<group>"; };
+		939DA48A289D5CEB00AEEF49 /* ErrorTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
+		939DA48B289D5CEB00AEEF49 /* OptionalMessageDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalMessageDTO.swift; sourceTree = "<group>"; };
+		939DA48C289D5CEB00AEEF49 /* ReadJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadJson.swift; sourceTree = "<group>"; };
+		939DA48D289D5CEB00AEEF49 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		939DA494289D5D0200AEEF49 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		939DA496289D5D1F00AEEF49 /* RealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		939DA498289D5D8B00AEEF49 /* Encode+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encode+Extension.swift"; sourceTree = "<group>"; };
+		939DA49A289D5D9A00AEEF49 /* PropertyWapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyWapper.swift; sourceTree = "<group>"; };
+		939DA49B289D5D9A00AEEF49 /* Obserable+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Obserable+Extension.swift"; sourceTree = "<group>"; };
+		939DA49E289D5DA000AEEF49 /* PushNotificationKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationKeys.swift; sourceTree = "<group>"; };
+		939DA4A2289D604800AEEF49 /* ListFontVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListFontVC.xib; sourceTree = "<group>"; };
+		939DA4A3289D604800AEEF49 /* ListFontVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFontVM.swift; sourceTree = "<group>"; };
+		939DA4A4289D604800AEEF49 /* ListFontVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFontVC.swift; sourceTree = "<group>"; };
 		9BF0BBE1F270D4042C173C58 /* Pods-ManageFiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManageFiles.debug.xcconfig"; path = "Target Support Files/Pods-ManageFiles/Pods-ManageFiles.debug.xcconfig"; sourceTree = "<group>"; };
 		A2DADE88449BC81FDEA7B3C6 /* Pods-ManageFiles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManageFiles.release.xcconfig"; path = "Target Support Files/Pods-ManageFiles/Pods-ManageFiles.release.xcconfig"; sourceTree = "<group>"; };
 		F38D181B8E17A7419E334DA3 /* Pods_ManageFiles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ManageFiles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,12 +124,11 @@
 		3EBAF491289D1E2300C59679 /* ManageFiles */ = {
 			isa = PBXGroup;
 			children = (
-				939DA464289D571A00AEEF49 /* TransferWifi */,
-				939DA466289D572F00AEEF49 /* Helper */,
-				939DA468289D574300AEEF49 /* Networking */,
-				939DA46A289D576100AEEF49 /* Common */,
-				939DA46E289D583E00AEEF49 /* Library */,
+				939DA47C289D5C5B00AEEF49 /* Library */,
+				939DA488289D5CD800AEEF49 /* Network */,
+				939DA47F289D5C9300AEEF49 /* Constant */,
 				939DA46C289D57A700AEEF49 /* Base */,
+				939DA4A0289D5E3F00AEEF49 /* Manage */,
 				939DA46D289D57C000AEEF49 /* Modules */,
 				3EBAF492289D1E2300C59679 /* AppDelegate.swift */,
 				3EBAF494289D1E2300C59679 /* SceneDelegate.swift */,
@@ -126,6 +151,7 @@
 		939DA46D289D57C000AEEF49 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				939DA4A1289D603700AEEF49 /* ListFont */,
 				939DA471289D593700AEEF49 /* Home */,
 				939DA470289D58CA00AEEF49 /* Tabbar */,
 			);
@@ -148,6 +174,67 @@
 				939DA474289D594A00AEEF49 /* HomeVC.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		939DA47C289D5C5B00AEEF49 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				939DA498289D5D8B00AEEF49 /* Encode+Extension.swift */,
+				939DA47D289D5C6B00AEEF49 /* UIFont+Extension.swift */,
+				939DA49B289D5D9A00AEEF49 /* Obserable+Extension.swift */,
+				939DA49A289D5D9A00AEEF49 /* PropertyWapper.swift */,
+				939DA49E289D5DA000AEEF49 /* PushNotificationKeys.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		939DA47F289D5C9300AEEF49 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				939DA480289D5CA600AEEF49 /* Constant.swift */,
+				939DA481289D5CA600AEEF49 /* GetHeightSafeArea.swift */,
+				939DA482289D5CA600AEEF49 /* SettingDefaultFont.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		939DA488289D5CD800AEEF49 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				939DA489289D5CEB00AEEF49 /* APILink.swift */,
+				939DA48A289D5CEB00AEEF49 /* ErrorTracker.swift */,
+				939DA48B289D5CEB00AEEF49 /* OptionalMessageDTO.swift */,
+				939DA48C289D5CEB00AEEF49 /* ReadJson.swift */,
+				939DA48D289D5CEB00AEEF49 /* Request.swift */,
+				939DA494289D5D0200AEEF49 /* RealmManager.swift */,
+				939DA493289D5CF400AEEF49 /* Realm */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		939DA493289D5CF400AEEF49 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				939DA496289D5D1F00AEEF49 /* RealmModel.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		939DA4A0289D5E3F00AEEF49 /* Manage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manage;
+			sourceTree = "<group>";
+		};
+		939DA4A1289D603700AEEF49 /* ListFont */ = {
+			isa = PBXGroup;
+			children = (
+				939DA4A2289D604800AEEF49 /* ListFontVC.xib */,
+				939DA4A3289D604800AEEF49 /* ListFontVM.swift */,
+				939DA4A4289D604800AEEF49 /* ListFontVC.swift */,
+			);
+			path = ListFont;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,13 +297,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				939DA469289D574300AEEF49 /* Networking in Resources */,
-				939DA467289D572F00AEEF49 /* Helper in Resources */,
-				939DA465289D571A00AEEF49 /* TransferWifi in Resources */,
 				3EBAF49F289D1E2400C59679 /* LaunchScreen.storyboard in Resources */,
 				939DA475289D594A00AEEF49 /* HomeVC.xib in Resources */,
-				939DA46F289D583E00AEEF49 /* Library in Resources */,
-				939DA46B289D576100AEEF49 /* Common in Resources */,
+				939DA4A5289D604800AEEF49 /* ListFontVC.xib in Resources */,
 				3EBAF49C289D1E2400C59679 /* Assets.xcassets in Resources */,
 				3EBAF49A289D1E2300C59679 /* Main.storyboard in Resources */,
 			);
@@ -271,12 +354,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				939DA47E289D5C6B00AEEF49 /* UIFont+Extension.swift in Sources */,
+				939DA499289D5D8B00AEEF49 /* Encode+Extension.swift in Sources */,
+				939DA485289D5CA600AEEF49 /* SettingDefaultFont.swift in Sources */,
+				939DA490289D5CEB00AEEF49 /* OptionalMessageDTO.swift in Sources */,
+				939DA4A7289D604800AEEF49 /* ListFontVC.swift in Sources */,
 				3EBAF497289D1E2300C59679 /* ViewController.swift in Sources */,
 				939DA477289D594A00AEEF49 /* HomeVC.swift in Sources */,
+				939DA491289D5CEB00AEEF49 /* ReadJson.swift in Sources */,
+				939DA48E289D5CEB00AEEF49 /* APILink.swift in Sources */,
+				939DA492289D5CEB00AEEF49 /* Request.swift in Sources */,
+				939DA483289D5CA600AEEF49 /* Constant.swift in Sources */,
+				939DA49C289D5D9A00AEEF49 /* PropertyWapper.swift in Sources */,
+				939DA4A6289D604800AEEF49 /* ListFontVM.swift in Sources */,
+				939DA495289D5D0300AEEF49 /* RealmManager.swift in Sources */,
 				939DA479289D59C400AEEF49 /* TabbarVC.swift in Sources */,
+				939DA49F289D5DA000AEEF49 /* PushNotificationKeys.swift in Sources */,
+				939DA48F289D5CEB00AEEF49 /* ErrorTracker.swift in Sources */,
+				939DA497289D5D1F00AEEF49 /* RealmModel.swift in Sources */,
+				939DA49D289D5D9A00AEEF49 /* Obserable+Extension.swift in Sources */,
 				3EBAF493289D1E2300C59679 /* AppDelegate.swift in Sources */,
 				3EBAF495289D1E2300C59679 /* SceneDelegate.swift in Sources */,
 				939DA476289D594A00AEEF49 /* HomeVM.swift in Sources */,
+				939DA484289D5CA600AEEF49 /* GetHeightSafeArea.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +452,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -406,7 +506,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -432,6 +532,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,6 +562,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

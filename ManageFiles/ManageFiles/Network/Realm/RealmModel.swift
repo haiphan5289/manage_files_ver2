@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import EasyFiles
 
 class FolderRealm: Object {
     @objc dynamic var data: Data?
