@@ -13,6 +13,11 @@
 		3EBAF49A289D1E2300C59679 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBAF498289D1E2300C59679 /* Main.storyboard */; };
 		3EBAF49C289D1E2400C59679 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBAF49B289D1E2400C59679 /* Assets.xcassets */; };
 		3EBAF49F289D1E2400C59679 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBAF49D289D1E2400C59679 /* LaunchScreen.storyboard */; };
+		939DA465289D571A00AEEF49 /* TransferWifi in Resources */ = {isa = PBXBuildFile; fileRef = 939DA464289D571A00AEEF49 /* TransferWifi */; };
+		939DA467289D572F00AEEF49 /* Helper in Resources */ = {isa = PBXBuildFile; fileRef = 939DA466289D572F00AEEF49 /* Helper */; };
+		939DA469289D574300AEEF49 /* Networking in Resources */ = {isa = PBXBuildFile; fileRef = 939DA468289D574300AEEF49 /* Networking */; };
+		939DA46B289D576100AEEF49 /* Common in Resources */ = {isa = PBXBuildFile; fileRef = 939DA46A289D576100AEEF49 /* Common */; };
+		939DA46F289D583E00AEEF49 /* Library in Resources */ = {isa = PBXBuildFile; fileRef = 939DA46E289D583E00AEEF49 /* Library */; };
 		BB3EC696ADB130C5D448D548 /* Pods_ManageFiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38D181B8E17A7419E334DA3 /* Pods_ManageFiles.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +30,11 @@
 		3EBAF49B289D1E2400C59679 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EBAF49E289D1E2400C59679 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EBAF4A0289D1E2400C59679 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		939DA464289D571A00AEEF49 /* TransferWifi */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TransferWifi; sourceTree = "<group>"; };
+		939DA466289D572F00AEEF49 /* Helper */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Helper; sourceTree = "<group>"; };
+		939DA468289D574300AEEF49 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Networking; sourceTree = "<group>"; };
+		939DA46A289D576100AEEF49 /* Common */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Common; sourceTree = "<group>"; };
+		939DA46E289D583E00AEEF49 /* Library */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Library; sourceTree = "<group>"; };
 		9BF0BBE1F270D4042C173C58 /* Pods-ManageFiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManageFiles.debug.xcconfig"; path = "Target Support Files/Pods-ManageFiles/Pods-ManageFiles.debug.xcconfig"; sourceTree = "<group>"; };
 		A2DADE88449BC81FDEA7B3C6 /* Pods-ManageFiles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManageFiles.release.xcconfig"; path = "Target Support Files/Pods-ManageFiles/Pods-ManageFiles.release.xcconfig"; sourceTree = "<group>"; };
 		F38D181B8E17A7419E334DA3 /* Pods_ManageFiles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ManageFiles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,7 +66,6 @@
 				9BF0BBE1F270D4042C173C58 /* Pods-ManageFiles.debug.xcconfig */,
 				A2DADE88449BC81FDEA7B3C6 /* Pods-ManageFiles.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -81,6 +90,13 @@
 		3EBAF491289D1E2300C59679 /* ManageFiles */ = {
 			isa = PBXGroup;
 			children = (
+				939DA464289D571A00AEEF49 /* TransferWifi */,
+				939DA466289D572F00AEEF49 /* Helper */,
+				939DA468289D574300AEEF49 /* Networking */,
+				939DA46A289D576100AEEF49 /* Common */,
+				939DA46E289D583E00AEEF49 /* Library */,
+				939DA46C289D57A700AEEF49 /* Base */,
+				939DA46D289D57C000AEEF49 /* Modules */,
 				3EBAF492289D1E2300C59679 /* AppDelegate.swift */,
 				3EBAF494289D1E2300C59679 /* SceneDelegate.swift */,
 				3EBAF496289D1E2300C59679 /* ViewController.swift */,
@@ -90,6 +106,20 @@
 				3EBAF4A0289D1E2400C59679 /* Info.plist */,
 			);
 			path = ManageFiles;
+			sourceTree = "<group>";
+		};
+		939DA46C289D57A700AEEF49 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		939DA46D289D57C000AEEF49 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,7 +182,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				939DA469289D574300AEEF49 /* Networking in Resources */,
+				939DA467289D572F00AEEF49 /* Helper in Resources */,
+				939DA465289D571A00AEEF49 /* TransferWifi in Resources */,
 				3EBAF49F289D1E2400C59679 /* LaunchScreen.storyboard in Resources */,
+				939DA46F289D583E00AEEF49 /* Library in Resources */,
+				939DA46B289D576100AEEF49 /* Common in Resources */,
 				3EBAF49C289D1E2400C59679 /* Assets.xcassets in Resources */,
 				3EBAF49A289D1E2300C59679 /* Main.storyboard in Resources */,
 			);
