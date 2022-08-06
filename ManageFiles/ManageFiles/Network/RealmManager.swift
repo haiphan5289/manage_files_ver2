@@ -43,13 +43,13 @@ class RealmManager {
         RLMRealm.default()
     }
     
-    private func getFoldersRealm() -> [FolderRealm]  {
+    private func getRealm() -> [FolderRealm]  {
         let arr = realm.objects(FolderRealm.self).toArray(ofType: FolderRealm.self)
         return arr
     }
 
-    func updateOrInsertConfig(model: FolderModel) {
-        let list = self.getFoldersRealm()
+    func editFolder(model: FolderModel) {
+        let list = self.getRealm()
 
         if let index = list.firstIndex(where: { $0.id == model.id  }) {
             try! realm.write {
@@ -57,7 +57,7 @@ class RealmManager {
                 NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.addedFolder.rawValue), object: model, userInfo: nil)
             }
         } else {
-            let itemAdd = FolderRealm.init(value: model)
+            let itemAdd = FolderRealm.init(model: model)
             try! realm.write {
                 realm.add(itemAdd)
                 NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.addedFolder.rawValue), object: model, userInfo: nil)
@@ -65,8 +65,18 @@ class RealmManager {
         }
     }
     
+    func deleteAllFolders() {
+        self.getRealm().forEach { model in
+            try! realm.write {
+                realm.delete(model)
+                NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.deleteFolder.rawValue), object: nil, userInfo: nil)
+            }
+        }
+        
+    }
+    
     func deleteFolder(model: FolderModel) {
-        let list = self.getFoldersRealm()
+        let list = self.getRealm()
         if let index = list.firstIndex(where: { $0.id == model.id  }) {
             try! realm.write {
                 realm.delete(list[index])
@@ -76,7 +86,7 @@ class RealmManager {
     }
     
     func getFolders() -> [FolderModel] {
-        let listRealm = self.getFoldersRealm()
+        let listRealm = self.getRealm()
         var list: [FolderModel] = []
         
         listRealm.forEach { model in

@@ -45,7 +45,19 @@ class TabbarVC: UITabBarController {
         }
         
         var viewcontroller: UIViewController {
-            return HomeVC.createVC()
+            switch self {
+            case .home:
+                return HomeVC.createVC()
+            case .files:
+                return FilesVC.createVC()
+            case .center:
+                return HomeVC.createVC()
+            case .tools:
+                return HomeVC.createVC()
+            case .setting:
+                return HomeVC.createVC()
+            }
+            
         }
     }
 

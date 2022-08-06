@@ -11,7 +11,7 @@ import RealmSwift
 import EasyFiles
 
 class FolderRealm: Object {
-    @objc dynamic var data: Data?
+    @objc dynamic var data: Data? = nil
     @objc dynamic var id: Double = 0
 
     init(model: FolderModel) {

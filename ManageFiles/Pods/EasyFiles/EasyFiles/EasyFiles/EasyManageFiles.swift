@@ -12,7 +12,7 @@ import UIKit
 
 public protocol ManageAppDelegate: AnyObject {
     func pinHomes(pins: [FolderModel])
-    func updateFirstApp(isFirst: Bool)
+    func updateFirstApp(folders: [FolderModel])
     func callAgain()
     func updateOrInsertConfig(folder: FolderModel)
     func deleteFolder(folder: FolderModel)
@@ -72,7 +72,7 @@ public class ManageApp {
 
     }
     
-    static var shared = ManageApp()
+    static public var shared = ManageApp()
     public var delegate: ManageAppDelegate?
     public var folders: [FolderModel] = []
     public var foldersRoot: [FolderModel] = []
@@ -194,8 +194,8 @@ public class ManageApp {
     }
     
     //MARK: DEFAULT VALUE FOLDERS
-    private func defaultValueFolders(isFirstApp: Bool, icons: [String], folders: [String]) {
-        if isFirstApp {
+    public func defaultValueFolders(icons: [String], folders: [String]) {
+//        if isFirstApp {
             var l: [FolderModel] = []
             folders.enumerated().forEach { item in
                 let offset = item.offset
@@ -205,7 +205,7 @@ public class ManageApp {
                 l.append(f)
             }
             self.pinHomes = l
-            self.delegate?.updateFirstApp(isFirst: false)
+            self.delegate?.updateFirstApp(folders: l)
 //            let photos = FolderModel(imgName: "ic_photos_folder",
 //                                     url: self.getUrlFolder(folder: ConstantApp.shared.folderPhotos),
 //                                     id: Date().convertDateToLocalTime().timeIntervalSince1970)
@@ -230,7 +230,7 @@ public class ManageApp {
 //            self.pinHomes = [photos, videos, music, docs, trash]
 //            self.dataDefault()
 //            AppSettings.isFirstApp = false
-        }
+//        }
     }
     
     func dataDefault() {
