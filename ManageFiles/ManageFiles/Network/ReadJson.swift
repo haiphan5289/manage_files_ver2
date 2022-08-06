@@ -10,9 +10,25 @@ import SwiftyJSON
 import RxSwift
 import RxCocoa
 
-class ReadJSONFallLove {
-    static var shared = ReadJSONFallLove()
+class ReadJSON {
+    static var shared = ReadJSON()
     private let disposeBag = DisposeBag()
+    func parseToDate(name: String, type: String) -> Observable<Data> {
+        return Observable.create { (observe) -> Disposable in
+            if let path = Bundle.main.path(forResource: name, ofType: type) {
+                do {
+                    let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+                    observe.onNext((data))
+                } catch let error {
+                    observe.onError(error)
+                }
+            } else {
+                print("Invalid filename/path.")
+            }
+            return Disposables.create()
+        }
+    }
+    
     func readJSONObs<T: Codable>(offType: T.Type, name: String, type: String) -> Observable<T> {
         return Observable.create { (observe) -> Disposable in
             if let path = Bundle.main.path(forResource: name, ofType: type) {

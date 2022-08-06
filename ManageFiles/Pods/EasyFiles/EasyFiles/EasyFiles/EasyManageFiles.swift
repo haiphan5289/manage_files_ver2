@@ -23,6 +23,11 @@ public struct FolderModel: Codable {
     public let imgName: String?
     public let url: URL
     public let id: Double
+    public init(imgName: String?, url: URL, id: Double ) {
+        self.imgName = imgName
+        self.url = url
+        self.id = id
+    }
 }
 
 public struct SortModel {

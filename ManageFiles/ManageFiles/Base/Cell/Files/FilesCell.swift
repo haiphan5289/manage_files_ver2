@@ -39,6 +39,10 @@ extension FilesCell {
         
     }
     
+    func setValueTools(folđer: FolderModel, toolFile: ToolsVC.ToolsFile) {
+        cellView.setValueTools(folder: folđer, toolFile: toolFile)
+    }
+    
     func setValueFiles(folđer: FolderModel?) {
         if let f = folđer {
             cellView.setValueFiles(folder: f)

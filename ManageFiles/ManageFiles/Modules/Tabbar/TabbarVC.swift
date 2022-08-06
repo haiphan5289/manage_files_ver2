@@ -53,9 +53,9 @@ class TabbarVC: UITabBarController {
             case .center:
                 return HomeVC.createVC()
             case .tools:
-                return HomeVC.createVC()
+                return ToolsVC.createVC()
             case .setting:
-                return HomeVC.createVC()
+                return SettingVC.createVC()
             }
             
         }

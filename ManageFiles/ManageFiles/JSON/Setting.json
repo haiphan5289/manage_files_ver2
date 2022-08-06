@@ -1,0 +1,24 @@
+[
+    {
+        "icon": "ic_help",
+        "name": "Help & Support",
+    },
+    {
+        "icon": "ic_privacy",
+        "name": "Privacy Policy",
+    },
+    {
+        "icon": "ic_term",
+        "name": "Term of Use",
+    },
+    {
+        "icon": "ic_rate",
+        "name": "Rate Us",
+    },
+    {
+        "icon": "ic_share",
+        "name": "Share this App",
+    },
+   
+]
+

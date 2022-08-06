@@ -19,7 +19,6 @@ class HomeVC: BaseTabbarVC {
     
     // Add here your view model
     private var viewModel: HomeVM = HomeVM()
-    private let searchView: SearchView = .loadXib()
     
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {

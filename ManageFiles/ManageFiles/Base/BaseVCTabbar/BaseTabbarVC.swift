@@ -11,9 +11,10 @@ import EasyBaseCodes
 import RxSwift
 import RxCocoa
 
-class BaseTabbarVC: BaseVC {
+class BaseTabbarVC: BaseVC, SetupTableView {
 
-    let tableView: UITableView = UITableView(frame: .zero, style: .plain)
+    let searchView: SearchView = .loadXib()
+    var tableView: UITableView = UITableView(frame: .zero, style: .plain)
     let source: BehaviorRelay<[FolderModel]> = BehaviorRelay.init(value: [])
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -26,13 +27,7 @@ class BaseTabbarVC: BaseVC {
 extension BaseTabbarVC {
     
     private func setupUI() {
-        self.tableView.separatorStyle = .none
-        self.tableView.backgroundColor = .clear
-        self.tableView.delegate = self
-        if #available(iOS 15.0, *) {
-            self.tableView.sectionHeaderTopPadding = 0
-        }
-        self.tableView.register(nibWithCellClass: FilesCell.self)
+        self.setupTableView(delegate: self, name: FilesCell.self)
     }
     
     private func setupRX() {
@@ -42,7 +37,11 @@ extension BaseTabbarVC {
                 switch self.screenType {
                 case .files:
                     cell.setValueFiles(folđer: element)
-                case .tabbar: break
+                case .tools:
+                    if let toolFile = ToolsVC.ToolsFile.allCases.safe[row] {
+                        cell.setValueTools(folđer: element, toolFile: toolFile)
+                    }
+                case .tabbar, .setting: break
                 }
             }.disposed(by: disposeBag)
     }

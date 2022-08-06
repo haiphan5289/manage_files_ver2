@@ -23,12 +23,21 @@ class FilesCellView: UIView, BaseViewSetUp {
 }
 extension FilesCellView {
     
-    internal func setupUI() {
+    func setupUI() {
         
     }
     
-    internal func setupRX() {
+    func setupRX() {
         
+    }
+    
+    func setValueTools(folder: FolderModel, toolFile: ToolsVC.ToolsFile) {
+        self.lbTitle.text = toolFile.title
+        self.lbSubtitle.text = toolFile.subTitle
+        if let img = folder.imgName {
+            self.img.image = UIImage(named: img)
+        }
+        self.btMore.isHidden = true
     }
     
     func setValueFiles(folder: FolderModel) {

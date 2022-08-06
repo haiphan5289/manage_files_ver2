@@ -10,7 +10,7 @@ import UIKit
 class BaseVC: UIViewController {
     
     enum ScreenType {
-        case tabbar, files
+        case tabbar, files, tools, setting
     }
     
     var screenType: ScreenType = .tabbar
@@ -22,7 +22,7 @@ class BaseVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         switch screenType {
-        case .tabbar, .files:
+        case .tabbar, .files, .tools, .setting:
             self.navigationController?.isNavigationBarHidden = true
         }
     }
