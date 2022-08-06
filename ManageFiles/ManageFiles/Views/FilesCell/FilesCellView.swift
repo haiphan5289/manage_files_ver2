@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import EasyFiles
 
 class FilesCellView: UIView, BaseViewSetUp {
 
@@ -28,6 +29,28 @@ extension FilesCellView {
     
     internal func setupRX() {
         
+    }
+    
+    func setValueFiles(folder: FolderModel) {
+        if let img = folder.imgName {
+            self.lbTitle.text = folder.url.getName()
+            self.img.image = UIImage(named: img)
+        } else {
+            self.lbTitle.text = "\(folder.url.getName()).\(folder.url.getType() ?? "")"
+            ManageApp.shared.loadImage(imgThumbnail: img,
+                                       lbName: lbTitle,
+                                       file: folder)
+            
+        }
+        
+        if let name = folder.imgName {
+            let count = ManageApp.shared.getItemsFolder(folder: name).count
+            self.updateSubTitle(count: count)
+        }
+    }
+    
+    private func updateSubTitle(count: Int) {
+        lbSubtitle.text = (count <= 0) ? "No Items" : "\(count) Items"
     }
     
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EasyFiles
 
 class FilesCell: UITableViewCell, BaseViewSetUp {
 
@@ -36,6 +37,12 @@ extension FilesCell {
     
     func setupRX() {
         
+    }
+    
+    func setValueFiles(folđer: FolderModel?) {
+        if let f = folđer {
+            cellView.setValueFiles(folder: f)
+        }
     }
     
 }

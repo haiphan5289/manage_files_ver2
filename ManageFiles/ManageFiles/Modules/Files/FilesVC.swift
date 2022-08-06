@@ -35,6 +35,7 @@ extension FilesVC {
     
     private func setupUI() {
         // Add here the setup for the UI
+        self.screenType = .files
         self.contentSearchView.addSubview(self.searchView)
         self.searchView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -51,8 +52,7 @@ extension FilesVC {
         GlobalApp.shared.$files.bind(to: self.source).disposed(by: disposeBag)
         
         self.source
-            .withUnretained(self)
-            .map { $0.1 }
+            .witElementhUnretained(self)
             .bind { list in
                 print("======= Files \(list.count)")
             }.disposed(by: disposeBag)

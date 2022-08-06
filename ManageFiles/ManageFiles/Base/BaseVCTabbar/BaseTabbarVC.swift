@@ -18,7 +18,6 @@ class BaseTabbarVC: BaseVC {
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.screenType = .tabbar
         self.setupUI()
         self.setupRX()
     }
@@ -38,8 +37,13 @@ extension BaseTabbarVC {
     
     private func setupRX() {
         self.source
+            .witElementhUnretained(self)
             .bind(to: tableView.rx.items(cellIdentifier: FilesCell.identifier, cellType: FilesCell.self)) {(row, element, cell) in
-                
+                switch self.screenType {
+                case .files:
+                    cell.setValueFiles(folđer: element)
+                case .tabbar: break
+                }
             }.disposed(by: disposeBag)
     }
     

@@ -57,6 +57,16 @@ public class ManageApp {
             }
         }
         
+        public var nameImage: String {
+            switch self {
+            case .jpeg, .png, .jpg: return ""
+            case .zip: return "ic_zip"
+            case .video, .mp4, .mp3, .m4a, .wav, .m4r: return "ic_music"
+            case .pdf: return "ic_pdf"
+            case .txt: return "ic_text"
+            }
+        }
+        
         public var value: String {
             return text.replacingOccurrences(of: ".", with: "")
         }
@@ -96,6 +106,41 @@ public class ManageApp {
         folders.forEach { folder in
             self.createFolder(path: folder, success: nil, failure: nil)
         }
+    }
+    
+    public func loadImage(imgThumbnail: UIImageView,
+                          lbName: UILabel,
+                          file: FolderModel) {
+        let type = ManageApp.shared.detectFile(url: file.url)
+        switch type {
+        case .pdf:
+            imgThumbnail.image = UIImage(named: type?.nameImage ?? "")
+        case .jpg, .png, .jpeg:
+            do {
+                let data = try Data(contentsOf: file.url)
+                imgThumbnail.image = UIImage(data: data)
+            } catch {
+                print(error)
+            }
+        case .zip:
+            imgThumbnail.image = UIImage(named: type?.nameImage ?? "")
+        case .video, .mp4, .wav, .m4r, .m4a, .mp3:
+            if let image = file.url.getThumbnailImage() {
+                imgThumbnail.image = image
+            } else {
+                imgThumbnail.image = UIImage(named: type?.nameImage ?? "")
+            }
+        case .txt:
+            imgThumbnail.image = UIImage(named: type?.nameImage ?? "")
+        case .none:
+            if let image = file.url.getThumbnailImage() {
+                imgThumbnail.image = image
+            } else {
+                imgThumbnail.image = UIImage(named: type?.nameImage ?? "")
+            }
+            
+        }
+        lbName.text = file.url.lastPathComponent
     }
     
 //    private func setupRX() {
@@ -521,7 +566,8 @@ public class ManageApp {
             let onlyFileNames = directoryContents.filter{ !$0.hasDirectoryPath }
             let _ = onlyFileNames.map { $0.lastPathComponent }
 
-            let subdirs = directoryContents.filter{ $0.hasDirectoryPath }
+            let subdirs = directoryContents
+                .filter{ $0.hasDirectoryPath }
                 .filter{ !$0.absoluteString.contains(text) }
             let _ = subdirs.map{ $0.lastPathComponent }
             return self.convertToURLwithoutPrivate(list: subdirs)

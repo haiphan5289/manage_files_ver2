@@ -54,9 +54,8 @@ final class GlobalApp {
             .notification(NSNotification.Name(PushNotificationKeys.deleteFolder.rawValue))
             .map { _ in RealmManager.shared.getFolders() }
         Observable.merge(get, update, delete)
-            .withUnretained(self)
-            .bind { item in
-                let list = item.1
+            .witElementhUnretained(self)
+            .bind { list in
                 self.files = list
         }.disposed(by: disposeBag)
         

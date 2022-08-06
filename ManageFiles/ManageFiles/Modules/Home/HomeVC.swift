@@ -42,8 +42,7 @@ extension HomeVC {
     private func setupRX() {
         // Add here the setup for the RX
         self.source
-            .withUnretained(self)
-            .map { $0.1 }
+            .witElementhUnretained(self)
             .bind { list in
                 print("======= Home \(list.count)")
             }.disposed(by: disposeBag)
