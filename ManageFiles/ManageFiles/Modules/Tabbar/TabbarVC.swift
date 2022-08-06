@@ -14,6 +14,16 @@ class TabbarVC: UITabBarController {
     enum TabbarStyle: Int, CaseIterable {
         case home, files, center, tools, setting
         
+        var title: String {
+            switch self {
+            case .home: return "Home"
+            case .files: return "Files"
+            case .center: return ""
+            case .tools: return "Tools"
+            case .setting: return "Settings"
+            }
+        }
+        
         var viewcontroller: UIViewController {
             return HomeVC.createVC()
         }
@@ -28,36 +38,33 @@ class TabbarVC: UITabBarController {
 extension TabbarVC {
     
     private func setupUI() {
+        Ulitity.removeBorderTabbar(tabBar: tabBar)
+        
         self.viewControllers = TabbarStyle.allCases.map { $0.viewcontroller }
         TabbarStyle.allCases.forEach { (type) in
             if let vc = self.viewControllers?[type.rawValue] {
-                vc.tabBarItem.title = "Home"
+                vc.tabBarItem.title = type.title
             }
         }
         self.setupIamge()
     }
     
     private func setupIamge() {
-        guard let view = self.tabBar.items?[3].value(forKey: "view") as? UIView else  { return }
-        
-        let imgNewFeatures: UIImageView = UIImageView(frame: .zero)
-        imgNewFeatures.backgroundColor = .red
-        let frame = view.frame
-        self.view.bringSubviewToFront(imgNewFeatures)
-        self.view.addSubview(imgNewFeatures)
-        
-        let lastPoint = frame.origin.x + (frame.size.width / 2)
-        // layout for new features
-        //let originX = lastPoint - Constant.widthIamge + Constant.dispaceImageToTrailing
-        
-        //layout for new face
-        let originX = lastPoint - (50 / 2)
-        imgNewFeatures.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(originX)
-            make.bottom.equalToSuperview().inset(self.tabBar.frame.height)
-            make.height.equalTo(36)
-            make.width.equalTo(50)
-        }
+        let button = UIButton(type: .custom)
+           var toMakeButtonUp = 40
+           button.frame = CGRect(x: 0.0, y: 0.0, width: 65, height: 65)
+//           button.setBackgroundImage(ADD, for: .normal)
+//           button.setBackgroundImage(ADD, for: .highlighted)
+        button.backgroundColor = .red
+           let heightDifference: CGFloat = CGFloat(toMakeButtonUp)
+           if heightDifference < 0 {
+               button.center = tabBar.center
+           } else {
+               var center: CGPoint = tabBar.center
+               center.y = center.y - heightDifference / 2.0
+               button.center = center
+           }
+           view.addSubview(button)
     }
     
 }

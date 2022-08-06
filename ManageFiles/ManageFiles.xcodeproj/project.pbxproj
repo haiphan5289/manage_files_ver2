@@ -35,6 +35,9 @@
 		939DA4A5289D604800AEEF49 /* ListFontVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 939DA4A2289D604800AEEF49 /* ListFontVC.xib */; };
 		939DA4A6289D604800AEEF49 /* ListFontVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA4A3289D604800AEEF49 /* ListFontVM.swift */; };
 		939DA4A7289D604800AEEF49 /* ListFontVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA4A4289D604800AEEF49 /* ListFontVC.swift */; };
+		93B663F4289E582F001BFA47 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B663F3289E582F001BFA47 /* Utility.swift */; };
+		93B663F8289E5C32001BFA47 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 93B663F7289E5C32001BFA47 /* swiftgen.yml */; };
+		93B663FB289E5D9D001BFA47 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B663FA289E5D9D001BFA47 /* Assets.swift */; };
 		BB3EC696ADB130C5D448D548 /* Pods_ManageFiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38D181B8E17A7419E334DA3 /* Pods_ManageFiles.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +72,9 @@
 		939DA4A2289D604800AEEF49 /* ListFontVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListFontVC.xib; sourceTree = "<group>"; };
 		939DA4A3289D604800AEEF49 /* ListFontVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFontVM.swift; sourceTree = "<group>"; };
 		939DA4A4289D604800AEEF49 /* ListFontVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFontVC.swift; sourceTree = "<group>"; };
+		93B663F3289E582F001BFA47 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		93B663F7289E5C32001BFA47 /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		93B663FA289E5D9D001BFA47 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		9BF0BBE1F270D4042C173C58 /* Pods-ManageFiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManageFiles.debug.xcconfig"; path = "Target Support Files/Pods-ManageFiles/Pods-ManageFiles.debug.xcconfig"; sourceTree = "<group>"; };
 		A2DADE88449BC81FDEA7B3C6 /* Pods-ManageFiles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManageFiles.release.xcconfig"; path = "Target Support Files/Pods-ManageFiles/Pods-ManageFiles.release.xcconfig"; sourceTree = "<group>"; };
 		F38D181B8E17A7419E334DA3 /* Pods_ManageFiles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ManageFiles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +112,7 @@
 		3EBAF486289D1E2300C59679 = {
 			isa = PBXGroup;
 			children = (
+				93B663F7289E5C32001BFA47 /* swiftgen.yml */,
 				3EBAF491289D1E2300C59679 /* ManageFiles */,
 				3EBAF490289D1E2300C59679 /* Products */,
 				3520E02609D6439083E0299D /* Pods */,
@@ -124,6 +131,7 @@
 		3EBAF491289D1E2300C59679 /* ManageFiles */ = {
 			isa = PBXGroup;
 			children = (
+				93B663F9289E5D7E001BFA47 /* SwiftGen */,
 				939DA47C289D5C5B00AEEF49 /* Library */,
 				939DA488289D5CD800AEEF49 /* Network */,
 				939DA47F289D5C9300AEEF49 /* Constant */,
@@ -223,6 +231,7 @@
 		939DA4A0289D5E3F00AEEF49 /* Manage */ = {
 			isa = PBXGroup;
 			children = (
+				93B663F3289E582F001BFA47 /* Utility.swift */,
 			);
 			path = Manage;
 			sourceTree = "<group>";
@@ -235,6 +244,14 @@
 				939DA4A4289D604800AEEF49 /* ListFontVC.swift */,
 			);
 			path = ListFont;
+			sourceTree = "<group>";
+		};
+		93B663F9289E5D7E001BFA47 /* SwiftGen */ = {
+			isa = PBXGroup;
+			children = (
+				93B663FA289E5D9D001BFA47 /* Assets.swift */,
+			);
+			path = SwiftGen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +319,7 @@
 				939DA4A5289D604800AEEF49 /* ListFontVC.xib in Resources */,
 				3EBAF49C289D1E2400C59679 /* Assets.xcassets in Resources */,
 				3EBAF49A289D1E2300C59679 /* Main.storyboard in Resources */,
+				93B663F8289E5C32001BFA47 /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +380,7 @@
 				3EBAF497289D1E2300C59679 /* ViewController.swift in Sources */,
 				939DA477289D594A00AEEF49 /* HomeVC.swift in Sources */,
 				939DA491289D5CEB00AEEF49 /* ReadJson.swift in Sources */,
+				93B663FB289E5D9D001BFA47 /* Assets.swift in Sources */,
 				939DA48E289D5CEB00AEEF49 /* APILink.swift in Sources */,
 				939DA492289D5CEB00AEEF49 /* Request.swift in Sources */,
 				939DA483289D5CA600AEEF49 /* Constant.swift in Sources */,
@@ -374,6 +393,7 @@
 				939DA497289D5D1F00AEEF49 /* RealmModel.swift in Sources */,
 				939DA49D289D5D9A00AEEF49 /* Obserable+Extension.swift in Sources */,
 				3EBAF493289D1E2300C59679 /* AppDelegate.swift in Sources */,
+				93B663F4289E582F001BFA47 /* Utility.swift in Sources */,
 				3EBAF495289D1E2300C59679 /* SceneDelegate.swift in Sources */,
 				939DA476289D594A00AEEF49 /* HomeVM.swift in Sources */,
 				939DA484289D5CA600AEEF49 /* GetHeightSafeArea.swift in Sources */,
