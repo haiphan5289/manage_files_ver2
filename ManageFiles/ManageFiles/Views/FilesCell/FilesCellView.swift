@@ -15,6 +15,9 @@ class FilesCellView: UIView, BaseViewSetUp {
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbSubtitle: UILabel!
     @IBOutlet weak var btMore: UIButton!
+    @IBOutlet weak var bottomStackView: NSLayoutConstraint!
+    @IBOutlet weak var leftStackView: NSLayoutConstraint!
+    @IBOutlet weak var rightStackView: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setupUI()
@@ -37,7 +40,25 @@ extension FilesCellView {
         if let img = folder.imgName {
             self.img.image = UIImage(named: img)
         }
+        self.hideButonMore()
+    }
+    
+    func setValueAdd(model: BaseSettingModel) {
+        if let img = model.icon {
+            self.img.image = UIImage(named: img)
+            self.lbTitle.text = model.name
+            self.lbSubtitle.text = model.subName
+        }
+    }
+    
+    func hideButonMore() {
         self.btMore.isHidden = true
+    }
+    
+    func setValueBottom(value: CGFloat) {
+        self.bottomStackView.constant = value
+        self.leftStackView.constant = value
+        self.rightStackView.constant = value
     }
     
     func setValueFiles(folder: FolderModel) {

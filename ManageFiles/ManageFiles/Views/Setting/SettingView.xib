@@ -19,6 +19,13 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tx9-cj-V7G">
                     <rect key="frame" x="16" y="0.0" width="382" height="56"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tHq-Gq-EMn">
+                            <rect key="frame" x="0.0" y="55" width="382" height="1"/>
+                            <color key="backgroundColor" name="black6"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="z7w-ml-Cm6"/>
+                            </constraints>
+                        </view>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="WjZ-T8-9hj">
                             <rect key="frame" x="16" y="0.0" width="350" height="56"/>
                             <subviews>
@@ -39,13 +46,6 @@
                                 </imageView>
                             </subviews>
                         </stackView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tHq-Gq-EMn">
-                            <rect key="frame" x="0.0" y="55" width="382" height="1"/>
-                            <color key="backgroundColor" name="black6"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="1" id="z7w-ml-Cm6"/>
-                            </constraints>
-                        </view>
                     </subviews>
                     <color key="backgroundColor" name="FAFAFA"/>
                     <constraints>
@@ -86,7 +86,7 @@
             <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="black6">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.059999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.059999998658895493" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

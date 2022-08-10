@@ -65,10 +65,13 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="bottomStackView" destination="BgV-Yq-NAw" id="Adl-1d-UgR"/>
                 <outlet property="btMore" destination="Gi6-Wg-d44" id="Btp-I2-8kD"/>
                 <outlet property="img" destination="z3i-Qy-UVx" id="Ocj-u3-qNC"/>
                 <outlet property="lbSubtitle" destination="swy-bu-3G7" id="T5Z-FV-V08"/>
                 <outlet property="lbTitle" destination="CBc-aB-qPn" id="JZ1-43-HKb"/>
+                <outlet property="leftStackView" destination="P0X-3N-8RQ" id="llQ-Ir-BmA"/>
+                <outlet property="rightStackView" destination="kbc-yd-6xd" id="g24-ya-4h9"/>
             </connections>
             <point key="canvasLocation" x="132" y="131"/>
         </view>
@@ -77,7 +80,7 @@
         <image name="ic_more_button" width="24" height="24"/>
         <image name="img_archives" width="48" height="48"/>
         <namedColor name="black40">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.40000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

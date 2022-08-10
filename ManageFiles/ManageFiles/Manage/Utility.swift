@@ -8,7 +8,17 @@
 import Foundation
 import UIKit
 
-public struct Ulitity {
+public struct GlobalCommon {
+    
+     static func topMostController() -> UIViewController? {
+      if var topController: UIViewController = UIApplication.shared.keyWindow?.rootViewController {
+        while (topController.presentedViewController != nil) {
+          topController = topController.presentedViewController!
+        }
+        return topController
+      }
+      return nil
+    }
     
     static public func removeBorderTabbar(tabBar: UITabBar) {
         tabBar.backgroundColor = UIColor.white

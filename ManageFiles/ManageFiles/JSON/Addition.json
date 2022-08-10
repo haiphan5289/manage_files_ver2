@@ -1,0 +1,40 @@
+[
+    {
+        "icon": "img_import",
+        "name": "Import File",
+        "subName": "Import files from your device",
+        "type": "importAdd",
+    },
+    {
+        "icon": "img_folder",
+        "name": "Folder",
+        "subName": "Create new folder",
+        "type": "folder",
+    },
+    {
+        "icon": "img_photo",
+        "name": "Photo",
+        "subName": "Import from Photo Library",
+        "type": "photo",
+    },
+    {
+        "icon": "img_camera",
+        "name": "Camera",
+        "subName": "Take photo then import in",
+        "type": "camera",
+    },
+    {
+        "icon": "img_text",
+        "name": "Text File",
+        "subName": "Create new text file",
+        "type": "text",
+    },
+    {
+        "icon": "img_scan",
+        "name": "Scan Document",
+        "subName": "Scan & turn your document to PDF",
+        "type": "scan",
+    },
+   
+]
+

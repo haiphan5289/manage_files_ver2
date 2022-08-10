@@ -8,6 +8,7 @@
 import UIKit
 import EasyBaseCodes
 import SnapKit
+import RxSwift
 
 class TabbarVC: UITabBarController {
     
@@ -61,9 +62,15 @@ class TabbarVC: UITabBarController {
         }
     }
 
+    private let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        GlobalCommon.removeBorderTabbar(tabBar: self.tabBar)
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -111,6 +118,14 @@ extension TabbarVC {
         center.y = tabBar.frame.origin.y
         button.center = center
         view.addSubview(button)
+        button.rx.tap
+            .withUnretained(self)
+            .bind { owner, _ in
+                let vc = AdditionVC.createVC()
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .overFullScreen
+                owner.present(vc, animated: true, completion: nil)
+            }.disposed(by: disposeBag)
     }
     
 }
