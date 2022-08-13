@@ -47,7 +47,7 @@ extension BaseTabbarVC {
                     if let toolFile = ToolsVC.ToolsFile.allCases.safe[row] {
                         cell.setValueTools(folđer: element, toolFile: toolFile)
                     }
-                case .tabbar, .setting: break
+                case .tabbar, .setting, .action: break
                 }
             }.disposed(by: disposeBag)
     }

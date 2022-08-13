@@ -121,11 +121,28 @@ extension TabbarVC {
         button.rx.tap
             .withUnretained(self)
             .bind { owner, _ in
+                guard let topController = GlobalCommon.topViewController() else {
+                    return
+                }
                 let vc = AdditionVC.createVC()
                 vc.modalTransitionStyle = .crossDissolve
                 vc.modalPresentationStyle = .overFullScreen
-                owner.present(vc, animated: true, completion: nil)
+                vc.delegate = self
+                topController.present(vc, animated: true, completion: nil)
             }.disposed(by: disposeBag)
     }
     
+    private func moveToActionFiles() {
+        guard let topVC = GlobalCommon.topViewController() else {
+            return
+        }
+        let vc = ActionFilesVC.createVC()
+        topVC.navigationController?.pushViewController(vc)
+    }
+    
+}
+extension TabbarVC: AdditionDelegate {
+    func moveToAction() {
+        self.moveToActionFiles()
+    }
 }

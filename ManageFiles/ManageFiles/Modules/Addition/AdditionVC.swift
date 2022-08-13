@@ -13,11 +13,17 @@ import RxSwift
 import VisionKit
 import MobileCoreServices
 
+protocol AdditionDelegate: AnyObject {
+    func moveToAction()
+}
+
 class AdditionVC: BaseVC, AdditionProtocol {
     
     enum Addtion: String {
         case importAdd, folder, photo, camera, text, scan
     }
+    
+    var delegate: AdditionDelegate?
     
     // Add here outlets
     @IBOutlet weak var btClose: UIButton!
@@ -40,6 +46,11 @@ extension AdditionVC {
     private func setupUI() {
         // Add here the setup for the UI
         self.btClose.contentHorizontalAlignment = .right
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.dismiss(animated: true) {
+                self.delegate?.moveToAction()
+            }
+        }
     }
     
     private func setupRX() {
@@ -88,6 +99,7 @@ extension AdditionVC {
             .bind(to: self.source)
             .disposed(by: disposeBag)
     }
+        
 }
 extension AdditionVC: VNDocumentCameraViewControllerDelegate {
     func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
@@ -98,11 +110,11 @@ extension AdditionVC: VNDocumentCameraViewControllerDelegate {
             images.append(image)
         }
         
-       
+        
         // You are responsible for dismissing the controller.
         controller.dismiss(animated: true) {
             if let pdfData = images.makePDF()?.dataRepresentation() {
-//                self.showCreatePDF(pdfData: pdfData)
+                //                self.showCreatePDF(pdfData: pdfData)
             }
         }
     }
@@ -115,7 +127,7 @@ extension AdditionVC: VNDocumentCameraViewControllerDelegate {
     func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFailWithError error: Error) {
         // You should handle errors appropriately in your app.
         print(error)
-
+        
         // You are responsible for dismissing the controller.
         controller.dismiss(animated: true)
     }
@@ -131,23 +143,26 @@ extension AdditionVC: UIDocumentPickerDelegate {
 }
 extension AdditionVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        self.dismiss(animated: true) {
-            if let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL {
-    //            ManageApp.shared.secureCopyItemfromLibrary(at: imageURL, folderName: ConstantApp.shared.folderPhotos) { outputURL in
-    //                picker.dismiss(animated: true) {
-    //                    ManageApp.shared.createFolderModeltoFiles(url: outputURL)
-    //                }
-    //            } failure: { [weak self] text in
-    //                guard let wSelf = self else { return }
-    //                wSelf.msgError.onNext(text)
-    //            }
+        picker.dismiss(animated: true) {
+//            self.moveToActionFiles()
+//            self.dismiss(animated: true) {
+//                if let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL {
+//            ManageApp.shared.secureCopyItemfromLibrary(at: imageURL, folderName: ConstantApp.shared.folderPhotos) { outputURL in
+//                picker.dismiss(animated: true) {
+//                    ManageApp.shared.createFolderModeltoFiles(url: outputURL)
+//                }
+//            } failure: { [weak self] text in
+//                guard let wSelf = self else { return }
+//                wSelf.msgError.onNext(text)
+//            }
 //                let vc = ImportFilesVC.createVC()
 //                vc.modalTransitionStyle = .crossDissolve
 //                vc.modalPresentationStyle = .overFullScreen
 //                vc.inputURL = imageURL
 //                self.present(vc, animated: true, completion: nil)
-
-            }
+                    
+//                }
+//            }
         }
     }
 }

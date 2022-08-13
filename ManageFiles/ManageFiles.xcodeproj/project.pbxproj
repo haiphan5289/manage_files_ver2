@@ -13,6 +13,11 @@
 		3EBAF49A289D1E2300C59679 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBAF498289D1E2300C59679 /* Main.storyboard */; };
 		3EBAF49C289D1E2400C59679 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBAF49B289D1E2400C59679 /* Assets.xcassets */; };
 		3EBAF49F289D1E2400C59679 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBAF49D289D1E2400C59679 /* LaunchScreen.storyboard */; };
+		9386D44128A78BBA00CC9335 /* ActionFilesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9386D43E28A78BBA00CC9335 /* ActionFilesVC.xib */; };
+		9386D44228A78BBA00CC9335 /* ActionFilesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9386D43F28A78BBA00CC9335 /* ActionFilesVM.swift */; };
+		9386D44328A78BBA00CC9335 /* ActionFilesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9386D44028A78BBA00CC9335 /* ActionFilesVC.swift */; };
+		9386D44628A7905F00CC9335 /* NavigationActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9386D44528A7905F00CC9335 /* NavigationActionView.xib */; };
+		9386D44828A790D000CC9335 /* NavigationActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9386D44728A790D000CC9335 /* NavigationActionView.swift */; };
 		939DA475289D594A00AEEF49 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 939DA472289D594A00AEEF49 /* HomeVC.xib */; };
 		939DA476289D594A00AEEF49 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA473289D594A00AEEF49 /* HomeVM.swift */; };
 		939DA477289D594A00AEEF49 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA474289D594A00AEEF49 /* HomeVC.swift */; };
@@ -82,6 +87,11 @@
 		3EBAF49B289D1E2400C59679 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EBAF49E289D1E2400C59679 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EBAF4A0289D1E2400C59679 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9386D43E28A78BBA00CC9335 /* ActionFilesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionFilesVC.xib; sourceTree = "<group>"; };
+		9386D43F28A78BBA00CC9335 /* ActionFilesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionFilesVM.swift; sourceTree = "<group>"; };
+		9386D44028A78BBA00CC9335 /* ActionFilesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionFilesVC.swift; sourceTree = "<group>"; };
+		9386D44528A7905F00CC9335 /* NavigationActionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationActionView.xib; sourceTree = "<group>"; };
+		9386D44728A790D000CC9335 /* NavigationActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationActionView.swift; sourceTree = "<group>"; };
 		939DA472289D594A00AEEF49 /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 		939DA473289D594A00AEEF49 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		939DA474289D594A00AEEF49 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -215,6 +225,25 @@
 			path = ManageFiles;
 			sourceTree = "<group>";
 		};
+		9386D43D28A78BA500CC9335 /* ActionFiles */ = {
+			isa = PBXGroup;
+			children = (
+				9386D43E28A78BBA00CC9335 /* ActionFilesVC.xib */,
+				9386D43F28A78BBA00CC9335 /* ActionFilesVM.swift */,
+				9386D44028A78BBA00CC9335 /* ActionFilesVC.swift */,
+			);
+			path = ActionFiles;
+			sourceTree = "<group>";
+		};
+		9386D44428A78ED300CC9335 /* NavigationActionFiles */ = {
+			isa = PBXGroup;
+			children = (
+				9386D44528A7905F00CC9335 /* NavigationActionView.xib */,
+				9386D44728A790D000CC9335 /* NavigationActionView.swift */,
+			);
+			path = NavigationActionFiles;
+			sourceTree = "<group>";
+		};
 		939DA46C289D57A700AEEF49 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +260,7 @@
 		939DA46D289D57C000AEEF49 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9386D43D28A78BA500CC9335 /* ActionFiles */,
 				93A847F628A3FE30004519CF /* Addition */,
 				93B66434289ECD14001BFA47 /* Setting */,
 				939DA4A1289D603700AEEF49 /* ListFont */,
@@ -362,6 +392,7 @@
 		93B663FD289E70EB001BFA47 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9386D44428A78ED300CC9335 /* NavigationActionFiles */,
 				93B6642F289ECC7D001BFA47 /* Setting */,
 				93B6640B289E781D001BFA47 /* FilesCell */,
 				93B663FE289E70FD001BFA47 /* Search */,
@@ -564,10 +595,12 @@
 				93B6640D289E7887001BFA47 /* FilesCellView.xib in Resources */,
 				939DA4A5289D604800AEEF49 /* ListFontVC.xib in Resources */,
 				93A847FA28A3FE48004519CF /* AdditionVC.xib in Resources */,
+				9386D44128A78BBA00CC9335 /* ActionFilesVC.xib in Resources */,
 				3EBAF49C289D1E2400C59679 /* Assets.xcassets in Resources */,
 				3EBAF49A289D1E2300C59679 /* Main.storyboard in Resources */,
 				93B663F8289E5C32001BFA47 /* swiftgen.yml in Resources */,
 				93B66433289ECCCD001BFA47 /* SettingView.xib in Resources */,
+				9386D44628A7905F00CC9335 /* NavigationActionView.xib in Resources */,
 				93B6642E289ECC41001BFA47 /* SettingCell.xib in Resources */,
 				93B66424289EC327001BFA47 /* ToolsVC.xib in Resources */,
 				93B66444289ED586001BFA47 /* Setting.json in Resources */,
@@ -651,6 +684,7 @@
 				939DA4A6289D604800AEEF49 /* ListFontVM.swift in Sources */,
 				939DA495289D5D0300AEEF49 /* RealmManager.swift in Sources */,
 				93A847FF28A40E07004519CF /* AdditionProtocol.swift in Sources */,
+				9386D44828A790D000CC9335 /* NavigationActionView.swift in Sources */,
 				93B6643A289ECD22001BFA47 /* SettingVC.swift in Sources */,
 				939DA479289D59C400AEEF49 /* TabbarVC.swift in Sources */,
 				939DA49F289D5DA000AEEF49 /* PushNotificationKeys.swift in Sources */,
@@ -663,7 +697,9 @@
 				93B6641B289E87AC001BFA47 /* BaseTabbarVC.swift in Sources */,
 				3EBAF493289D1E2300C59679 /* AppDelegate.swift in Sources */,
 				93B663F4289E582F001BFA47 /* Utility.swift in Sources */,
+				9386D44328A78BBA00CC9335 /* ActionFilesVC.swift in Sources */,
 				3EBAF495289D1E2300C59679 /* SceneDelegate.swift in Sources */,
+				9386D44228A78BBA00CC9335 /* ActionFilesVM.swift in Sources */,
 				93B66407289E75CF001BFA47 /* FilesVM.swift in Sources */,
 				93B66417289E7F8D001BFA47 /* FilesCell.swift in Sources */,
 				939DA476289D594A00AEEF49 /* HomeVM.swift in Sources */,
