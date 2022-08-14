@@ -11,6 +11,9 @@ public class CopyView: UIView {
     
     struct Constant {
         static let distanceToLeft: Int = 25
+        static let heightView: CGFloat = 68
+        static let heightImage: CGFloat = 36
+        static let heightImageArrow: CGFloat = 24
     }
     
     public let url: URL
@@ -18,15 +21,15 @@ public class CopyView: UIView {
     
     public var actionTap: ((Bool) -> Void)?
     private let stackParent: UIStackView = UIStackView(arrangedSubviews: [],
-                                         axis: .vertical,
-                                         spacing: 0,
-                                         alignment: .fill,
-                                         distribution: .fill)
+                                                       axis: .vertical,
+                                                       spacing: 0,
+                                                       alignment: .fill,
+                                                       distribution: .fill)
     private let stackExplain: UIStackView = UIStackView(arrangedSubviews: [],
-                                         axis: .vertical,
-                                         spacing: 0,
-                                         alignment: .fill,
-                                         distribution: .fill)
+                                                        axis: .vertical,
+                                                        spacing: 0,
+                                                        alignment: .fill,
+                                                        distribution: .fill)
     private let btPress: UIButton = UIButton(frame: .zero)
     private let checkImg: UIImageView
     private let imgArrow: UIImageView
@@ -34,20 +37,26 @@ public class CopyView: UIView {
     private let imgArrowRight: UIImage
     private let imDrop: UIImage
     private let icOtherFolder: UIImage
+    private let lineColor: UIColor
+    private let folders: [FolderModel]
     
     public required init(url: URL,
-                  numberOffoldes: Int,
-                  imgCheck: String,
-                  imgArrowRight: String,
-                  imgDrop: String,
-                  icOtherFolder: String) {
+                         numberOffoldes: Int,
+                         imgCheck: String,
+                         imgArrowRight: UIImage,
+                         imgDrop: UIImage,
+                         icOtherFolder: UIImage,
+                         lineColor: UIColor,
+                         folders: [FolderModel]) {
         self.url = url
         self.numberOffoldes = numberOffoldes
-        self.imgArrowRight = UIImage(named: imgArrowRight) ?? UIImage.init()
-        self.imDrop = UIImage(named: imgDrop) ?? UIImage.init()
-        self.icOtherFolder = UIImage(named: icOtherFolder) ?? UIImage.init()
+        self.imgArrowRight = imgArrowRight
+        self.imDrop = imgDrop
+        self.icOtherFolder = icOtherFolder
         self.checkImg = UIImageView(image: UIImage(named: imgCheck))
-        self.imgArrow = UIImageView(image: UIImage(named: imgArrowRight))
+        self.imgArrow = UIImageView(image: imgArrowRight)
+        self.lineColor = lineColor
+        self.folders = folders
         super.init(frame: .zero)
         self.setupUI()
         self.setupRX()
@@ -86,13 +95,13 @@ extension CopyView {
     }
     
     public func hideCheckImg() {
-        self.checkImg.isHidden = true
+        //        self.checkImg.isHidden = true
         self.imgArrow.image = self.imgArrowRight
         self.btPress.isSelected = false
     }
     
     public func showCheckImg() {
-        self.checkImg.isHidden = false
+        //        self.checkImg.isHidden = false
         self.imgArrow.image = self.imDrop
         self.btPress.isSelected = true
     }
@@ -109,26 +118,26 @@ extension CopyView {
     
     private func setupView(url: URL) {
         let v: UIView = UIView(frame: .zero)
-//        v.snp.makeConstraints { make in
-//            make.height.equalTo(48)
-//        }
-        v.addHeight().addValueConstraint(value: 48)
+        //        v.snp.makeConstraints { make in
+        //            make.height.equalTo(48)
+        //        }
+        v.addHeight().addValueConstraint(value: Constant.heightView)
         
         let stackView: UIStackView = UIStackView(arrangedSubviews: [],
                                                  axis: .horizontal,
                                                  spacing: 12,
                                                  alignment: .center,
                                                  distribution: .fill)
-//        self.imgArrow.snp.makeConstraints { make in
-//            make.height.width.equalTo(16)
-//        }
-        self.imgArrow.addHeight().addWidth().addValueConstraint(value: 16)
+        //        self.imgArrow.snp.makeConstraints { make in
+        //            make.height.width.equalTo(16)
+        //        }
+        self.imgArrow.addHeight().addWidth().addValueConstraint(value: Constant.heightImageArrow)
         
         let img: UIImageView = UIImageView(image: self.uploadImage(url: url))
-//        img.snp.makeConstraints { make in
-//            make.height.width.equalTo(28)
-//        }
-        img.addHeight().addWidth().addValueConstraint(value: 28)
+        //        img.snp.makeConstraints { make in
+        //            make.height.width.equalTo(28)
+        //        }
+        img.addHeight().addWidth().addValueConstraint(value: Constant.heightImage)
         
         let lbName: UILabel = UILabel(frame: .zero)
         lbName.font = UIFont.systemFont(ofSize: 17)
@@ -136,71 +145,70 @@ extension CopyView {
         lbName.text = "\(url.lastPathComponent)"
         lbName.textAlignment = .left
         
-//        self.checkImg.snp.makeConstraints { make in
-//            make.height.width.equalTo(20)
-//        }
-        self.checkImg.addHeight().addWidth().addValueConstraint(value: 20)
-                
-        stackView.addArrangedSubview(imgArrow)
+        //        self.checkImg.snp.makeConstraints { make in
+        //            make.height.width.equalTo(20)
+        //        }
+        //        self.checkImg.addHeight().addWidth().addValueConstraint(value: 20)
         stackView.addArrangedSubview(img)
         stackView.addArrangedSubview(lbName)
-        stackView.addArrangedSubview(self.checkImg)
+        stackView.addArrangedSubview(imgArrow)
+        //        stackView.addArrangedSubview(self.checkImg)
         v.addSubview(stackView)
-//        stackView.snp.makeConstraints { make in
-//            make.bottom.top.equalToSuperview()
-//            make.right.equalToSuperview().inset(16)
-//            make.left.equalToSuperview().inset(8)
-//        }
+        //        stackView.snp.makeConstraints { make in
+        //            make.bottom.top.equalToSuperview()
+        //            make.right.equalToSuperview().inset(16)
+        //            make.left.equalToSuperview().inset(8)
+        //        }
         stackView.addTopArea().addBottomArea().addValueArea()
         stackView.addRightArea().addValueArea(value: 16)
-        stackView.addLeftArea().addValueArea(value: 8)
+        stackView.addLeftArea().addValueArea(value: 16)
         
         let lineView: UIView = UIView(frame: .zero)
-        lineView.backgroundColor = .gray
+        lineView.backgroundColor = self.lineColor
         v.addSubview(lineView)
-//        lineView.snp.makeConstraints { make in
-//            make.right.bottom.equalToSuperview()
-//            make.height.equalTo(1)
-//            make.left.equalTo(lbName)
-//        }
+        //        lineView.snp.makeConstraints { make in
+        //            make.right.bottom.equalToSuperview()
+        //            make.height.equalTo(1)
+        //            make.left.equalTo(lbName)
+        //        }
         lineView.addRightArea().addBottomArea().addValueArea()
         lineView.addHeight().addValueConstraint(value: 1)
-        lineView.addLeftArea().addValueArea(view: lbName)
+        lineView.addLeftArea().addValueArea()
         
         v.addSubview(self.btPress)
-//        self.btPress.snp.makeConstraints { make in
-//            make.edges.equalToSuperview()
-//        }
+        //        self.btPress.snp.makeConstraints { make in
+        //            make.edges.equalToSuperview()
+        //        }
         self.btPress.addEdges()
         
         stackParent.addArrangedSubview(v)
         
         self.explainView.isHidden = true
         self.explainView.addSubview(self.stackExplain)
-//        self.stackExplain.snp.makeConstraints { make in
-//            make.edges.equalToSuperview()
-//        }
+        //        self.stackExplain.snp.makeConstraints { make in
+        //            make.edges.equalToSuperview()
+        //        }
         self.stackExplain.addEdges()
         
         self.stackParent.addArrangedSubview(self.explainView)
-//        self.explainView.snp.makeConstraints { make in
-//        }
+        //        self.explainView.snp.makeConstraints { make in
+        //        }
         
         self.addSubview(self.stackParent)
-//        self.stackParent.snp.makeConstraints { make in
-//            make.right.bottom.top.equalToSuperview()
-//            make.left.equalToSuperview().inset(self.numberOffoldes * Constant.distanceToLeft)
-//        }
+        //        self.stackParent.snp.makeConstraints { make in
+        //            make.right.bottom.top.equalToSuperview()
+        //            make.left.equalToSuperview().inset(self.numberOffoldes * Constant.distanceToLeft)
+        //        }
         self.stackParent.addRightArea().addBottomArea().addTopArea().addValueArea()
         self.stackParent.addLeftArea().addValueArea(value: CGFloat(self.numberOffoldes * Constant.distanceToLeft))
     }
     
     private func uploadImage(url: URL) -> UIImage {
-        if let index = ManageApp.shared.folders.firstIndex(where: { $0.url.getNamePath().uppercased().contains(url.getNamePath().uppercased())}),
-           let name = ManageApp.shared.folders[index].imgName {
+        if let index = folders.firstIndex(where: { $0.url.getNamePath().uppercased().contains(url.getNamePath().uppercased())}),
+           let name = folders[index].imgName {
             return UIImage(named: name) ?? icOtherFolder
         }
-
+        
         return icOtherFolder
     }
     

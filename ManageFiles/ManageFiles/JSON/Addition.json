@@ -1,6 +1,6 @@
 [
     {
-        "icon": "img_import",
+        "icon": "img_import_addtion",
         "name": "Import File",
         "subName": "Import files from your device",
         "type": "importAdd",

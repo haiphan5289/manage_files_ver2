@@ -33,6 +33,7 @@ final class GlobalApp {
     
     static var shared = GlobalApp()
     @VariableReplay var files: [FolderModel] = []
+    @VariableReplay var folders: [FolderModel] = []
     
     private let disposeBag = DisposeBag()
     private init() {}
@@ -59,6 +60,7 @@ final class GlobalApp {
         Observable.merge(get, update, delete)
             .witElementhUnretained(self)
             .bind { list in
+                self.folders = list
                 self.files = list
         }.disposed(by: disposeBag)
         

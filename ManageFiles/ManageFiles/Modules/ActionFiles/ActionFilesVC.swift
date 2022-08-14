@@ -27,9 +27,11 @@ class ActionFilesVC: BaseVC {
     private var parentView: CopyView = CopyView(url: URL(fileURLWithPath: ""),
                                                 numberOffoldes: 0,
                                                 imgCheck: "img_check",
-                                                imgArrowRight: "img_arrow_right",
-                                                imgDrop: "img_drop",
-                                                icOtherFolder: "ic_other_folder")
+                                                imgArrowRight: Asset.imgArrowRight.image,
+                                                imgDrop: Asset.imgDrop.image,
+                                                icOtherFolder: Asset.imgFolder.image,
+                                                lineColor: Asset.black10.color,
+                                                folders: GlobalApp.shared.folders)
     
     // Add here your view model
     private var viewModel: ActionFilesVM = ActionFilesVM()
@@ -91,9 +93,11 @@ extension ActionFilesVC {
         let v: CopyView = CopyView(url: url,
                                    numberOffoldes: numberOffoldes,
                                    imgCheck: "img_check",
-                                   imgArrowRight: "img_arrow_right",
-                                   imgDrop: "img_drop",
-                                   icOtherFolder: "ic_other_folder")
+                                   imgArrowRight: Asset.imgArrowRight.image,
+                                   imgDrop: Asset.imgDrop.image,
+                                   icOtherFolder: Asset.imgFolder.image,
+                                   lineColor: Asset.black10.color,
+                                   folders: GlobalApp.shared.folders)
         v.actionTap = { [weak self] isShow in
             guard let wSelf = self else { return }
             wSelf.stackView.subviews.forEach { vi in
