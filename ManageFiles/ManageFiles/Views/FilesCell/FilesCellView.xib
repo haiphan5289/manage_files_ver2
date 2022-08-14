@@ -61,6 +61,7 @@
                 <constraint firstAttribute="bottom" secondItem="56s-Rb-tvn" secondAttribute="bottom" constant="24" id="BgV-Yq-NAw"/>
                 <constraint firstItem="56s-Rb-tvn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="P0X-3N-8RQ"/>
                 <constraint firstItem="56s-Rb-tvn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WZM-aJ-Zju"/>
+                <constraint firstItem="56s-Rb-tvn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gLf-Kh-gyu"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="56s-Rb-tvn" secondAttribute="trailing" constant="16" id="kbc-yd-6xd"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -72,6 +73,7 @@
                 <outlet property="lbTitle" destination="CBc-aB-qPn" id="JZ1-43-HKb"/>
                 <outlet property="leftStackView" destination="P0X-3N-8RQ" id="llQ-Ir-BmA"/>
                 <outlet property="rightStackView" destination="kbc-yd-6xd" id="g24-ya-4h9"/>
+                <outlet property="topStackView" destination="gLf-Kh-gyu" id="Wkn-eY-mge"/>
             </connections>
             <point key="canvasLocation" x="132" y="131"/>
         </view>

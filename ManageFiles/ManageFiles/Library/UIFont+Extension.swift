@@ -53,31 +53,31 @@ extension UIFont {
     static var isOverrided: Bool = false
 
     @objc class func mySystemFont(ofSize size: CGFloat) -> UIFont {
-        return UIFont(name: AppFontName.regular, size: size) ?? UIFont.systemFont(ofSize: 12)
+        return UIFont(name: AppFontName.regular, size: size)!
     }
 
     @objc class func myBoldSystemFont(ofSize size: CGFloat) -> UIFont {
-        return UIFont(name: AppFontName.bold, size: size) ?? UIFont.systemFont(ofSize: 12)
+        return UIFont(name: AppFontName.bold, size: size)!
     }
     
     @objc class func mySemiBoldSystemFont(ofSize size: CGFloat) -> UIFont {
-        return UIFont(name: AppFontName.semibold, size: size) ?? UIFont.systemFont(ofSize: 12)
+        return UIFont(name: AppFontName.semibold, size: size)!
     }
 
     @objc class func myItalicSystemFont(ofSize size: CGFloat) -> UIFont {
-        return UIFont(name: AppFontName.italic, size: size) ?? UIFont.systemFont(ofSize: 12)
+        return UIFont(name: AppFontName.italic, size: size)!
     }
     
     @objc class func myMediumSystemFont(ofSize size: CGFloat) -> UIFont {
-        return UIFont(name: AppFontName.medium, size: size) ?? UIFont.systemFont(ofSize: 12)
+        return UIFont(name: AppFontName.medium, size: size)!
     }
     
     @objc class func myHeavySystemFont(ofSize size: CGFloat) -> UIFont {
-        return UIFont(name: AppFontName.heavy, size: size) ?? UIFont.systemFont(ofSize: 12)
+        return UIFont(name: AppFontName.heavy, size: size)!
     }
     
     @objc class func myBlackSystemFont(ofSize size: CGFloat) -> UIFont {
-        return UIFont(name: AppFontName.black, size: size) ?? UIFont.systemFont(ofSize: 12)
+        return UIFont(name: AppFontName.black, size: size)!
     }
 
     @objc convenience init(myCoder aDecoder: NSCoder) {

@@ -18,6 +18,7 @@ class FilesCellView: UIView, BaseViewSetUp {
     @IBOutlet weak var bottomStackView: NSLayoutConstraint!
     @IBOutlet weak var leftStackView: NSLayoutConstraint!
     @IBOutlet weak var rightStackView: NSLayoutConstraint!
+    @IBOutlet weak var topStackView: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setupUI()
@@ -55,13 +56,37 @@ extension FilesCellView {
         self.btMore.isHidden = true
     }
     
+    func setValueActionView(value: CGFloat) {
+        let v = [self.bottomStackView,
+                 self.topStackView,
+                 self.leftStackView,
+                 self.rightStackView]
+        v.forEach { lb in
+            lb?.constant = value
+        }
+    }
+    
     func setValueBottom(value: CGFloat) {
         self.bottomStackView.constant = value
         self.leftStackView.constant = value
         self.rightStackView.constant = value
     }
     
+    func setValueAction(folder: FolderModel) {
+        self.loadTitle(folder: folder)
+        self.lbSubtitle.text = "This Item will be save to"
+    }
+    
     func setValueFiles(folder: FolderModel) {
+        self.loadTitle(folder: folder)
+        
+        if let name = folder.imgName {
+            let count = ManageApp.shared.getItemsFolder(folder: name).count
+            self.updateSubTitle(count: count)
+        }
+    }
+    
+    private func loadTitle(folder: FolderModel) {
         if let img = folder.imgName {
             self.lbTitle.text = folder.url.getName()
             self.img.image = UIImage(named: img)
@@ -71,11 +96,6 @@ extension FilesCellView {
                                        lbName: lbTitle,
                                        file: folder)
             
-        }
-        
-        if let name = folder.imgName {
-            let count = ManageApp.shared.getItemsFolder(folder: name).count
-            self.updateSubTitle(count: count)
         }
     }
     

@@ -11,6 +11,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import EasyBaseCodes
+import EasyFiles
 
 class HomeVC: BaseTabbarVC {
     

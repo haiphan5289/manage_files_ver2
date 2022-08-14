@@ -32,6 +32,7 @@ extension ListFontVC {
     private func setupUI() {
         // Add here the setup for the UI
         print(regular.font.fontName)
+        print(regular.font.familyName)
     }
     
     private func setupRX() {

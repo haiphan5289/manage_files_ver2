@@ -1231,6 +1231,9 @@
 		938A8BA47C3E16FE17E3719F6988CD03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A329D932450B96C0C39FFD95717B11B6 /* UIKit.framework */; };
 		938A8DAEA477CFC8C09F5C3B7C4F5BF6 /* GDTCORReachability_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1F456CAE8DE4B0B3A030AA7BE60D2CD /* GDTCORReachability_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		93A7B1B80F996A74021BBE4BFFAA40ED /* NVActivityIndicatorView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D92C0076118CFE0F6F959562CE2FBD3 /* NVActivityIndicatorView-dummy.m */; };
+		93B4603028A898E400E21A9E /* CopyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B4602F28A898E400E21A9E /* CopyView.swift */; };
+		93B4603228A8993F00E21A9E /* UIStackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B4603128A8993E00E21A9E /* UIStackViewExtensions.swift */; };
+		93B4603628A92C0900E21A9E /* AutoLayout+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B4603528A92C0900E21A9E /* AutoLayout+Extension.swift */; };
 		93B66428289ECAB7001BFA47 /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B66427289ECAB6001BFA47 /* Collection+Safe.swift */; };
 		93B6644A289EE0F8001BFA47 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B66449289EE0F8001BFA47 /* CALayer+Extension.swift */; };
 		93CC358348D39367653952B679F00ABF /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4C2EC5BD21CC4C69258CF878A7FE7C /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift */; };
@@ -4267,6 +4270,9 @@
 		92CAC5FE0B8321E0EA7E508998C2043C /* StringExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = EasyFiles/EasyFiles/StringExtension.swift; sourceTree = "<group>"; };
 		937257557BC3A182DC554A4721BA3368 /* GULNetwork.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULNetwork.h; path = GoogleUtilities/Network/Public/GoogleUtilities/GULNetwork.h; sourceTree = "<group>"; };
 		939A0932128CD787FDA5BD11FB497EDB /* RLMObjectSchema.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMObjectSchema.h; path = include/RLMObjectSchema.h; sourceTree = "<group>"; };
+		93B4602F28A898E400E21A9E /* CopyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyView.swift; sourceTree = "<group>"; };
+		93B4603128A8993E00E21A9E /* UIStackViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensions.swift; sourceTree = "<group>"; };
+		93B4603528A92C0900E21A9E /* AutoLayout+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AutoLayout+Extension.swift"; path = "../../ManageFiles/Library/AutoLayout+Extension.swift"; sourceTree = "<group>"; };
 		93B66427289ECAB6001BFA47 /* Collection+Safe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		93B66449289EE0F8001BFA47 /* CALayer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
 		93D4AFCE13F552B1F5DB010FCC17731A /* Reactive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reactive.swift; path = RxSwift/Reactive.swift; sourceTree = "<group>"; };
@@ -9389,6 +9395,9 @@
 		E0F94430BBDB39AADBDD481D11A9D90F /* EasyFiles */ = {
 			isa = PBXGroup;
 			children = (
+				93B4603528A92C0900E21A9E /* AutoLayout+Extension.swift */,
+				93B4603128A8993E00E21A9E /* UIStackViewExtensions.swift */,
+				93B4602F28A898E400E21A9E /* CopyView.swift */,
 				519CC6CAC64794925BE88D12FFB76591 /* Date+Extension.swift */,
 				41EAC7D70B8491F7051005DC937A5791 /* EasyFileManage.swift */,
 				4B6B8DE20EECE78E265C3AA803EC85CC /* EasyManageFiles.swift */,
@@ -12738,11 +12747,14 @@
 			files = (
 				EA06281F0CF2EBABBB84126942B9C129 /* Date+Extension.swift in Sources */,
 				B37E1FEF399F349732441C36DFF136AD /* EasyFileManage.swift in Sources */,
+				93B4603028A898E400E21A9E /* CopyView.swift in Sources */,
 				3CDF9B9E4A143D6CDDA88983DC96BA56 /* EasyFiles-dummy.m in Sources */,
 				EA78B2B88EA2F60D3490EF3996FFBDED /* EasyManageFiles.swift in Sources */,
+				93B4603228A8993F00E21A9E /* UIStackViewExtensions.swift in Sources */,
 				C761FE614FE036A031CB08BDF7B01F58 /* NumberExtension.swift in Sources */,
 				710E72904304D82DE5614631D3BDA367 /* SongExporter.swift in Sources */,
 				BC57A2790C23070DCE9A34A827406485 /* StringExtension.swift in Sources */,
+				93B4603628A92C0900E21A9E /* AutoLayout+Extension.swift in Sources */,
 				DCA9111C41242D8955191DACE44E12F5 /* URL+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -39,6 +39,9 @@ final class GlobalApp {
     func start() {
         ManageApp.shared.delegate = self
         self.setupValue()
+        FolderName.allCases.forEach { name in
+            ManageApp.shared.createFolder(path: name.rawValue, success: nil, failure: nil)
+        }
     }
     
     private func setupValue() {

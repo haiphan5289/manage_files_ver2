@@ -30,11 +30,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ieo-00-dKT">
                             <rect key="frame" x="32" y="0.0" width="252" height="24"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzl-Mg-sLf">
-                                    <rect key="frame" x="138" y="2" width="42" height="20.5"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="42" id="tce-2S-kkk"/>
-                                    </constraints>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzl-Mg-sLf">
+                                    <rect key="frame" x="159" y="12" width="0.0" height="0.0"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -55,13 +52,20 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzl-SU-abl">
                             <rect key="frame" x="324" y="0.0" width="58" height="24"/>
+                            <color key="backgroundColor" name="0085FF"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="58" id="3ya-GE-NSu"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" title="Save">
-                                <color key="titleColor" name="AccentColor"/>
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </button>
                     </subviews>
                 </stackView>
@@ -76,14 +80,19 @@
                 <constraint firstAttribute="bottom" secondItem="KgJ-YQ-ITT" secondAttribute="bottom" constant="12" id="i7S-K8-Hcv"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="bts" destination="4DD-wb-Kc3" collectionClass="NSMutableArray" id="qbj-cf-3Hb"/>
+                <outletCollection property="bts" destination="VTC-pt-Rzb" collectionClass="NSMutableArray" id="CwP-sh-XhC"/>
+                <outletCollection property="bts" destination="Fzl-SU-abl" collectionClass="NSMutableArray" id="pXM-9p-gEY"/>
+            </connections>
             <point key="canvasLocation" x="139" y="122"/>
         </view>
     </objects>
     <resources>
         <image name="ic_arrow_back" width="24" height="24"/>
         <image name="ic_plus_folder" width="24" height="24"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="0085FF">
+            <color red="0.0" green="0.52156862745098043" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

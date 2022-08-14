@@ -18,6 +18,10 @@
 		9386D44328A78BBA00CC9335 /* ActionFilesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9386D44028A78BBA00CC9335 /* ActionFilesVC.swift */; };
 		9386D44628A7905F00CC9335 /* NavigationActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9386D44528A7905F00CC9335 /* NavigationActionView.xib */; };
 		9386D44828A790D000CC9335 /* NavigationActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9386D44728A790D000CC9335 /* NavigationActionView.swift */; };
+		9386D45028A7F5B500CC9335 /* FontsFree-Net-SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9386D44B28A7F5B500CC9335 /* FontsFree-Net-SFProText-Regular.ttf */; };
+		9386D45128A7F5B500CC9335 /* FontsFree-Net-SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9386D44C28A7F5B500CC9335 /* FontsFree-Net-SFProText-Semibold.ttf */; };
+		9386D45228A7F5B500CC9335 /* FontsFree-Net-SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9386D44D28A7F5B500CC9335 /* FontsFree-Net-SFProText-Medium.ttf */; };
+		9386D45328A7F5B500CC9335 /* FontsFree-Net-SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9386D44F28A7F5B500CC9335 /* FontsFree-Net-SFProDisplay-Bold.ttf */; };
 		939DA475289D594A00AEEF49 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 939DA472289D594A00AEEF49 /* HomeVC.xib */; };
 		939DA476289D594A00AEEF49 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA473289D594A00AEEF49 /* HomeVM.swift */; };
 		939DA477289D594A00AEEF49 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA474289D594A00AEEF49 /* HomeVC.swift */; };
@@ -45,6 +49,7 @@
 		93A847FB28A3FE48004519CF /* AdditionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A847F828A3FE48004519CF /* AdditionVM.swift */; };
 		93A847FC28A3FE48004519CF /* AdditionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A847F928A3FE48004519CF /* AdditionVC.swift */; };
 		93A847FF28A40E07004519CF /* AdditionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A847FE28A40E07004519CF /* AdditionProtocol.swift */; };
+		93B4603428A92B8200E21A9E /* AutoLayout+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B4603328A92B8200E21A9E /* AutoLayout+Extension.swift */; };
 		93B663F4289E582F001BFA47 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B663F3289E582F001BFA47 /* Utility.swift */; };
 		93B663F8289E5C32001BFA47 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 93B663F7289E5C32001BFA47 /* swiftgen.yml */; };
 		93B663FB289E5D9D001BFA47 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B663FA289E5D9D001BFA47 /* Assets.swift */; };
@@ -92,6 +97,10 @@
 		9386D44028A78BBA00CC9335 /* ActionFilesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionFilesVC.swift; sourceTree = "<group>"; };
 		9386D44528A7905F00CC9335 /* NavigationActionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationActionView.xib; sourceTree = "<group>"; };
 		9386D44728A790D000CC9335 /* NavigationActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationActionView.swift; sourceTree = "<group>"; };
+		9386D44B28A7F5B500CC9335 /* FontsFree-Net-SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProText-Regular.ttf"; sourceTree = "<group>"; };
+		9386D44C28A7F5B500CC9335 /* FontsFree-Net-SFProText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProText-Semibold.ttf"; sourceTree = "<group>"; };
+		9386D44D28A7F5B500CC9335 /* FontsFree-Net-SFProText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProText-Medium.ttf"; sourceTree = "<group>"; };
+		9386D44F28A7F5B500CC9335 /* FontsFree-Net-SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		939DA472289D594A00AEEF49 /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 		939DA473289D594A00AEEF49 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		939DA474289D594A00AEEF49 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -119,6 +128,7 @@
 		93A847F828A3FE48004519CF /* AdditionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionVM.swift; sourceTree = "<group>"; };
 		93A847F928A3FE48004519CF /* AdditionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionVC.swift; sourceTree = "<group>"; };
 		93A847FE28A40E07004519CF /* AdditionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionProtocol.swift; sourceTree = "<group>"; };
+		93B4603328A92B8200E21A9E /* AutoLayout+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AutoLayout+Extension.swift"; sourceTree = "<group>"; };
 		93B663F3289E582F001BFA47 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		93B663F7289E5C32001BFA47 /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		93B663FA289E5D9D001BFA47 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
@@ -205,6 +215,7 @@
 		3EBAF491289D1E2300C59679 /* ManageFiles */ = {
 			isa = PBXGroup;
 			children = (
+				9386D44928A7F5B500CC9335 /* font */,
 				93B66442289ED559001BFA47 /* JSON */,
 				93B663F9289E5D7E001BFA47 /* SwiftGen */,
 				939DA47C289D5C5B00AEEF49 /* Library */,
@@ -242,6 +253,33 @@
 				9386D44728A790D000CC9335 /* NavigationActionView.swift */,
 			);
 			path = NavigationActionFiles;
+			sourceTree = "<group>";
+		};
+		9386D44928A7F5B500CC9335 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				9386D44A28A7F5B500CC9335 /* fontSFPro */,
+				9386D44E28A7F5B500CC9335 /* display */,
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
+		9386D44A28A7F5B500CC9335 /* fontSFPro */ = {
+			isa = PBXGroup;
+			children = (
+				9386D44B28A7F5B500CC9335 /* FontsFree-Net-SFProText-Regular.ttf */,
+				9386D44C28A7F5B500CC9335 /* FontsFree-Net-SFProText-Semibold.ttf */,
+				9386D44D28A7F5B500CC9335 /* FontsFree-Net-SFProText-Medium.ttf */,
+			);
+			path = fontSFPro;
+			sourceTree = "<group>";
+		};
+		9386D44E28A7F5B500CC9335 /* display */ = {
+			isa = PBXGroup;
+			children = (
+				9386D44F28A7F5B500CC9335 /* FontsFree-Net-SFProDisplay-Bold.ttf */,
+			);
+			path = display;
 			sourceTree = "<group>";
 		};
 		939DA46C289D57A700AEEF49 /* Base */ = {
@@ -298,6 +336,7 @@
 				939DA49B289D5D9A00AEEF49 /* Obserable+Extension.swift */,
 				939DA49A289D5D9A00AEEF49 /* PropertyWapper.swift */,
 				939DA49E289D5DA000AEEF49 /* PushNotificationKeys.swift */,
+				93B4603328A92B8200E21A9E /* AutoLayout+Extension.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -586,15 +625,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				93B66406289E75CF001BFA47 /* FilesVC.xib in Resources */,
+				9386D45328A7F5B500CC9335 /* FontsFree-Net-SFProDisplay-Bold.ttf in Resources */,
 				93B66418289E7F8D001BFA47 /* FilesCell.xib in Resources */,
 				3EBAF49F289D1E2400C59679 /* LaunchScreen.storyboard in Resources */,
 				93A847F528A3FD89004519CF /* Addition.json in Resources */,
 				93B66400289E710D001BFA47 /* SearchView.xib in Resources */,
 				939DA475289D594A00AEEF49 /* HomeVC.xib in Resources */,
+				9386D45028A7F5B500CC9335 /* FontsFree-Net-SFProText-Regular.ttf in Resources */,
 				93B66438289ECD22001BFA47 /* SettingVC.xib in Resources */,
 				93B6640D289E7887001BFA47 /* FilesCellView.xib in Resources */,
+				9386D45128A7F5B500CC9335 /* FontsFree-Net-SFProText-Semibold.ttf in Resources */,
 				939DA4A5289D604800AEEF49 /* ListFontVC.xib in Resources */,
 				93A847FA28A3FE48004519CF /* AdditionVC.xib in Resources */,
+				9386D45228A7F5B500CC9335 /* FontsFree-Net-SFProText-Medium.ttf in Resources */,
 				9386D44128A78BBA00CC9335 /* ActionFilesVC.xib in Resources */,
 				3EBAF49C289D1E2400C59679 /* Assets.xcassets in Resources */,
 				3EBAF49A289D1E2300C59679 /* Main.storyboard in Resources */,
@@ -662,6 +705,7 @@
 				93B6641D289E8A24001BFA47 /* BaseTabbarVM.swift in Sources */,
 				939DA485289D5CA600AEEF49 /* SettingDefaultFont.swift in Sources */,
 				93B66426289EC327001BFA47 /* ToolsVC.swift in Sources */,
+				93B4603428A92B8200E21A9E /* AutoLayout+Extension.swift in Sources */,
 				939DA490289D5CEB00AEEF49 /* OptionalMessageDTO.swift in Sources */,
 				93B6640A289E7759001BFA47 /* BaseVC.swift in Sources */,
 				93B6640F289E78DD001BFA47 /* FilesCellView.swift in Sources */,
