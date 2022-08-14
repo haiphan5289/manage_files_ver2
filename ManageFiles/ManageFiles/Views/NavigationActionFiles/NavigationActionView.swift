@@ -21,7 +21,6 @@ class NavigationActionView: UIView, BaseViewSetUp {
     var delgate: NavigationActionDelegate?
     
     @IBOutlet var bts: [UIButton]!
-    
     private let disposeBag = DisposeBag()
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,6 +43,24 @@ extension NavigationActionView {
                     owner.delgate?.selectAction(action: type)
                 }.disposed(by: disposeBag)
         }
+    }
+    
+    func isShow() {
+        self.bts[Action.save.rawValue].backgroundColor = Asset._0085Ff.color
+        self.bts[Action.save.rawValue].setTitleColor(UIColor.white, for: .normal)
+        self.bts[Action.save.rawValue].isEnabled = true
+    }
+    
+    func notEmpty() {
+        self.bts[Action.save.rawValue].isEnabled = true
+        self.bts[Action.save.rawValue].backgroundColor = Asset._0085Ff.color
+        self.bts[Action.save.rawValue].setTitleColor(UIColor.white, for: .normal)
+    }
+    
+    func isEmpty() {
+        self.bts[Action.save.rawValue].isEnabled = false
+        self.bts[Action.save.rawValue].backgroundColor = Asset._0085Ff50.color
+        self.bts[Action.save.rawValue].setTitleColor(UIColor.white, for: .normal)
     }
     
 }

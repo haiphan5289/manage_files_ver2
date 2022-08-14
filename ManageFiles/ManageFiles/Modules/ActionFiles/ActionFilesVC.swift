@@ -32,7 +32,7 @@ class ActionFilesVC: BaseVC {
                                                 icOtherFolder: Asset.imgFolder.image,
                                                 lineColor: Asset.black10.color,
                                                 folders: GlobalApp.shared.folders)
-    
+    private var selectFolder: String = ""
     // Add here your view model
     private var viewModel: ActionFilesVM = ActionFilesVM()
     private let titleView: NavigationActionView = .loadXib()
@@ -130,44 +130,36 @@ extension ActionFilesVC {
             }
             wSelf.saves = s
             
-//            if isShow {
-//                let save = SaveView(view: v, numberOffoldes: numberOffoldes)
-//                wSelf.saves.append(save)
-//                wSelf.bts[Action.action.rawValue].backgroundColor = Asset.primary.color
-//                wSelf.bts[Action.action.rawValue].setTitleColor(Asset.white.color, for: .normal)
-//                v.showExplainView(isHide: false)
-//                v.showCheckImg()
-//                wSelf.getUrlOfFolder(url: v.url).forEach { url in
-//                    wSelf.loadViews(url: url, numberOffoldes: ManageApp.shared.detectNumberofFolder(url: url)) { copyView in
-//                        v.addViewToStackExplain(copyView: copyView)
-//                    }
-//                }
-//                wSelf.selectFolder = ManageApp.shared.detectPathFolder(url: v.url)
-//                wSelf.bts[Action.action.rawValue].isEnabled = true
-//                wSelf.bts[Action.action.rawValue].backgroundColor = Asset.primary.color
-//                wSelf.bts[Action.action.rawValue].setTitleColor(Asset.white.color, for: .normal)
-//            } else {
-//                v.showExplainView(isHide: true)
-//                v.removeSubviewStackView()
-//                if let index = wSelf.saves.firstIndex(where: { $0.view == v }) {
-//                    wSelf.saves.remove(at: index)
-//                }
-//
-//                let att = NSMutableAttributedString(string: ManageApp.shared.cutThePreviousFolder(url: v.url))
-//                let list = ManageApp.shared.rangeTexts(source: att, searchText: "/")
-//                if list.count > 0 {
-//                    wSelf.selectFolder  = ManageApp.shared.cutThePreviousFolder(url: v.url)
-//                    wSelf.bts[Action.action.rawValue].isEnabled = true
-//                    wSelf.bts[Action.action.rawValue].backgroundColor = Asset.primary.color
-//                    wSelf.bts[Action.action.rawValue].setTitleColor(Asset.white.color, for: .normal)
-//                } else {
-//                    wSelf.selectFolder  = ""
-//                    wSelf.bts[Action.action.rawValue].isEnabled = false
-//                    wSelf.bts[Action.action.rawValue].backgroundColor = Asset.primary50.color
-//                    wSelf.bts[Action.action.rawValue].setTitleColor(Asset.white50.color, for: .normal)
-//                }
-//
-//            }
+            if isShow {
+                let save = SaveView(view: v, numberOffoldes: numberOffoldes)
+                wSelf.saves.append(save)
+                v.showExplainView(isHide: false)
+                v.showCheckImg()
+                wSelf.getUrlOfFolder(url: v.url).forEach { url in
+                    wSelf.loadViews(url: url, numberOffoldes: ManageApp.shared.detectNumberofFolder(url: url)) { copyView in
+                        v.addViewToStackExplain(copyView: copyView)
+                    }
+                }
+                wSelf.selectFolder = ManageApp.shared.detectPathFolder(url: v.url)
+                wSelf.titleView.isShow()
+            } else {
+                v.showExplainView(isHide: true)
+                v.removeSubviewStackView()
+                if let index = wSelf.saves.firstIndex(where: { $0.view == v }) {
+                    wSelf.saves.remove(at: index)
+                }
+
+                let att = NSMutableAttributedString(string: ManageApp.shared.cutThePreviousFolder(url: v.url))
+                let list = ManageApp.shared.rangeTexts(source: att, searchText: "/")
+                if list.isEmpty {
+                    wSelf.selectFolder  = ManageApp.shared.cutThePreviousFolder(url: v.url)
+                    wSelf.titleView.notEmpty()
+                } else {
+                    wSelf.selectFolder  = ""
+                    wSelf.titleView.isEmpty()
+                }
+
+            }
         }
         comlention(v)
     }
