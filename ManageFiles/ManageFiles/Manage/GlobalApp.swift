@@ -38,10 +38,10 @@ final class GlobalApp {
     private let disposeBag = DisposeBag()
     private init() {}
     func start() {
-        ManageApp.shared.delegate = self
+        EasyFilesManage.shared.delegate = self
         self.setupValue()
         FolderName.allCases.forEach { name in
-            ManageApp.shared.createFolder(path: name.rawValue, success: nil, failure: nil)
+            EasyFilesManage.shared.createFolder(path: name.rawValue, success: nil, failure: nil)
         }
     }
     
@@ -74,7 +74,7 @@ final class GlobalApp {
     private func setValueDefault() {
         let icons = FolderName.allCases.map { $0.nameImage }
         let folders = FolderName.allCases.map { $0.rawValue }
-        ManageApp.shared.defaultValueFolders(icons: icons, folders: folders)
+        EasyFilesManage.shared.defaultValueFolders(icons: icons, folders: folders)
     }
     
 }

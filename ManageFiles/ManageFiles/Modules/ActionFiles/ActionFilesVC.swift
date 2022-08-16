@@ -75,7 +75,7 @@ extension ActionFilesVC {
         let appURL = URL(fileURLWithPath: documentDirectoryPath)
         self.getUrlOfFolder(url: appURL).forEach { [weak self] url in
             guard let wSelf = self else { return }
-            wSelf.loadViews(url: url, numberOffoldes: ManageApp.shared.detectNumberofFolder(url: url)) { copyView in
+            wSelf.loadViews(url: url, numberOffoldes: EasyFilesManage.shared.detectNumberofFolder(url: url)) { copyView in
                 wSelf.stackView.addArrangedSubview(copyView)
             }
         }
@@ -86,7 +86,7 @@ extension ActionFilesVC {
     }
     
     private func getUrlOfFolder(url: URL) -> [URL] {
-        return ManageApp.shared.getfolders(url: url, text: "default.realm.management")
+        return EasyFilesManage.shared.getfolders(url: url, text: "default.realm.management")
     }
     
     private func loadViews(url: URL, numberOffoldes: Int, comlention: (CopyView) -> Void) {
@@ -115,54 +115,64 @@ extension ActionFilesVC {
             }
             
             //Update saves
-            var s = wSelf.saves
-            wSelf.saves.enumerated().forEach { item in
-                let save = item.element
-                
-                if save.numberOffoldes >= numberOffoldes {
-                    save.view.showExplainView(isHide: true)
-                    save.view.removeSubviewStackView()
-                    save.view.hideCheckImg()
-                    if let index = s.firstIndex(where: { $0.view == save.view }) {
-                        s.remove(at: index)
-                    }
-                }
-            }
-            wSelf.saves = s
+            wSelf.updatSaves(numberOffoldes: numberOffoldes)
             
-            if isShow {
-                let save = SaveView(view: v, numberOffoldes: numberOffoldes)
-                wSelf.saves.append(save)
-                v.showExplainView(isHide: false)
-                v.showCheckImg()
-                wSelf.getUrlOfFolder(url: v.url).forEach { url in
-                    wSelf.loadViews(url: url, numberOffoldes: ManageApp.shared.detectNumberofFolder(url: url)) { copyView in
-                        v.addViewToStackExplain(copyView: copyView)
-                    }
-                }
-                wSelf.selectFolder = ManageApp.shared.detectPathFolder(url: v.url)
-                wSelf.titleView.isShow()
-            } else {
-                v.showExplainView(isHide: true)
-                v.removeSubviewStackView()
-                if let index = wSelf.saves.firstIndex(where: { $0.view == v }) {
-                    wSelf.saves.remove(at: index)
-                }
-
-                let att = NSMutableAttributedString(string: ManageApp.shared.cutThePreviousFolder(url: v.url))
-                let list = ManageApp.shared.rangeTexts(source: att, searchText: "/")
-                if list.isEmpty {
-                    wSelf.selectFolder  = ManageApp.shared.cutThePreviousFolder(url: v.url)
-                    wSelf.titleView.notEmpty()
-                } else {
-                    wSelf.selectFolder  = ""
-                    wSelf.titleView.isEmpty()
-                }
-
-            }
+            wSelf.hasShow(isShow: isShow, v: v, numberOffoldes: numberOffoldes)
         }
         comlention(v)
     }
+    
+    private func updatSaves(numberOffoldes: Int) {
+        var s = self.saves
+        self.saves.enumerated().forEach { item in
+            let save = item.element
+            
+            if save.numberOffoldes >= numberOffoldes {
+                save.view.showExplainView(isHide: true)
+                save.view.removeSubviewStackView()
+                save.view.hideCheckImg()
+                if let index = s.firstIndex(where: { $0.view == save.view }) {
+                    s.remove(at: index)
+                }
+            }
+        }
+        self.saves = s
+    }
+    
+    private func hasShow(isShow: Bool, v: CopyView, numberOffoldes: Int) {
+        if isShow {
+            let save = SaveView(view: v, numberOffoldes: numberOffoldes)
+            self.saves.append(save)
+            v.showExplainView(isHide: false)
+            v.showCheckImg()
+            self.getUrlOfFolder(url: v.url).forEach { url in
+                self.loadViews(url: url, numberOffoldes: EasyFilesManage.shared.detectNumberofFolder(url: url)) { copyView in
+                    v.addViewToStackExplain(copyView: copyView)
+                }
+            }
+            self.selectFolder = EasyFilesManage.shared.detectPathFolder(url: v.url)
+            self.titleView.isShow()
+        } else {
+            v.showExplainView(isHide: true)
+            v.removeSubviewStackView()
+            if let index = self.saves.firstIndex(where: { $0.view == v }) {
+                self.saves.remove(at: index)
+            }
+            
+            let att = NSMutableAttributedString(string: EasyFilesManage.shared.cutThePreviousFolder(url: v.url))
+            let list = EasyFilesManage.shared.rangeTexts(source: att, searchText: "/")
+            if list.isEmpty {
+                self.selectFolder  = EasyFilesManage.shared.cutThePreviousFolder(url: v.url)
+                self.titleView.notEmpty()
+            } else {
+                self.selectFolder  = ""
+                self.titleView.isEmpty()
+            }
+            
+        }
+    }
+    
+    
 }
 extension ActionFilesVC: NavigationActionDelegate {
     func selectAction(action: NavigationActionView.Action) {

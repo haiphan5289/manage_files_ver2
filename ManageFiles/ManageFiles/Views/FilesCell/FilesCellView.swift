@@ -81,7 +81,7 @@ extension FilesCellView {
         self.loadTitle(folder: folder)
         
         if let name = folder.imgName {
-            let count = ManageApp.shared.getItemsFolder(folder: name).count
+            let count = EasyFilesManage.shared.getItemsFolder(folder: name).count
             self.updateSubTitle(count: count)
         }
     }
@@ -92,7 +92,7 @@ extension FilesCellView {
             self.img.image = UIImage(named: img)
         } else {
             self.lbTitle.text = "\(folder.url.getName()).\(folder.url.getType() ?? "")"
-            ManageApp.shared.loadImage(imgThumbnail: img,
+            EasyFilesManage.shared.loadImage(imgThumbnail: img,
                                        lbName: lbTitle,
                                        file: folder)
             

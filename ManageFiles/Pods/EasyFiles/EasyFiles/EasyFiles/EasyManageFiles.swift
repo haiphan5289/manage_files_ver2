@@ -31,13 +31,13 @@ public struct FolderModel: Codable {
 }
 
 public struct SortModel {
-    public let sort: ManageApp.Sort
+    public let sort: EasyFilesManage.Sort
     public let isAscending: Bool
     
     public static let valueDefault = SortModel(sort: .date, isAscending: false)
 }
 
-public class ManageApp {
+public class EasyFilesManage {
 
     public enum Sort: Int, CaseIterable {
         case name, date, type, size
@@ -87,7 +87,7 @@ public class ManageApp {
 
     }
     
-    static public var shared = ManageApp()
+    static public var shared = EasyFilesManage()
     public var delegate: ManageAppDelegate?
     public var folders: [FolderModel] = []
     public var foldersRoot: [FolderModel] = []
@@ -116,7 +116,7 @@ public class ManageApp {
     public func loadImage(imgThumbnail: UIImageView,
                           lbName: UILabel,
                           file: FolderModel) {
-        let type = ManageApp.shared.detectFile(url: file.url)
+        let type = self.detectFile(url: file.url)
         switch type {
         case .pdf:
             imgThumbnail.image = UIImage(named: type?.nameImage ?? "")
@@ -293,7 +293,7 @@ public class ManageApp {
         
         Task.init {
             do {
-                let result = try await ManageApp.shared.secureCopyItemstoFolder(at: urls, folderName: "", isId: false)
+                let result = try await self.secureCopyItemstoFolder(at: urls, folderName: "", isId: false)
                 switch result {
                 case .success(_):
                     DispatchQueue.main.sync {
@@ -1080,7 +1080,7 @@ public class ManageApp {
 //                        RealmManager.shared.deleteFolder(model: ManageApp.shared.folders[index])
                       self.delegate?.deleteFolder(folder: self.folders[index])
                     }
-                    if url.hasDirectoryPath, let index = ManageApp.shared.folders.firstIndex(where: { $0.url.getNamePathPlus().uppercased().contains(url.getNamePath().uppercased())}) {
+                    if url.hasDirectoryPath, let index = self.folders.firstIndex(where: { $0.url.getNamePathPlus().uppercased().contains(url.getNamePath().uppercased())}) {
 //                        RealmManager.shared.deleteFolder(model: ManageApp.shared.folders[index])
                       self.delegate?.deleteFolder(folder: self.folders[index])
                     }
@@ -1217,7 +1217,7 @@ public class ManageApp {
                   self.delegate?.updateOrInsertConfig(folder: folder)
                 }
                 try FileManager.default.removeItem(at: srcURL)
-                if srcURL.hasDirectoryPath, let index = ManageApp.shared.folders.firstIndex(where: { $0.url.getNamePath().uppercased().contains(srcURL.getNamePath().uppercased())}) {
+                if srcURL.hasDirectoryPath, let index = self.folders.firstIndex(where: { $0.url.getNamePath().uppercased().contains(srcURL.getNamePath().uppercased())}) {
 //                    RealmManager.shared.deleteFolder(model: ManageApp.shared.folders[index])
                   self.delegate?.deleteFolder(folder: self.folders[index])
                 }
@@ -1440,7 +1440,7 @@ public class ManageApp {
         let name = url.deletingPathExtension().lastPathComponent
         let outputURL = URL(fileURLWithPath: documentsPath)
             .appendingPathComponent("\(folder)/\(name)")
-            .appendingPathExtension("\(ManageApp.shared.parseDatetoString())")
+            .appendingPathExtension("\(self.parseDatetoString())")
             .appendingPathExtension("\(type.nameExport)")
         let ex = SongExporter.init(exportPath: outputURL.path)
         ex.exportSongWithURL(url) { url in
