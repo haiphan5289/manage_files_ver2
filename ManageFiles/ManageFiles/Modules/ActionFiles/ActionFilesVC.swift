@@ -94,7 +94,7 @@ extension ActionFilesVC {
                 }
                 Task.init {
                     do {
-                        let result = try await EasyFilesManage.shared.secureCopyItemfromiCloud(at: first, folderName: "Archives/")
+                        let result = try await EasyFilesManage.shared.secureCopyItemfromiCloud(at: first, folderName: owner.selectFolder)
                         switch result {
                         case .success(_): owner.navigationController?.popViewController()
                         case .failure(let error):
