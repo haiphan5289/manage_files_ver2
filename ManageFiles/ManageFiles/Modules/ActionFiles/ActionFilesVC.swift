@@ -20,11 +20,13 @@ class ActionFilesVC: BaseVC {
         let numberOffoldes: Int
     }
     
+    var originURL: [URL] = []
+    
     // Add here outlets
     @IBOutlet weak var contentHeaderView: UIView!
     @IBOutlet weak var stackView: UIStackView!
-    private var saves: [SaveView] = []
-    private var parentView: CopyView = CopyView(url: URL(fileURLWithPath: ""),
+    private var saveViews: [SaveView] = []
+    private var contenCopytView: CopyView = CopyView(url: URL(fileURLWithPath: ""),
                                                 numberOffoldes: 0,
                                                 imgCheck: "img_check",
                                                 imgArrowRight: Asset.imgArrowRight.image,
@@ -37,6 +39,7 @@ class ActionFilesVC: BaseVC {
     private var viewModel: ActionFilesVM = ActionFilesVM()
     private let titleView: NavigationActionView = .loadXib()
     private let headerView: FilesCellView = .loadXib()
+    private let actionTrigger: PublishSubject<Void> = PublishSubject.init()
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +86,83 @@ extension ActionFilesVC {
     
     private func setupRX() {
         // Add here the setup for the RX
+        self.actionTrigger
+            .withUnretained(self)
+            .bind { owner, _ in
+                guard let first = owner.originURL.first else {
+                    return
+                }
+                Task.init {
+                    do {
+                        let result = try await EasyFilesManage.shared.secureCopyItemfromiCloud(at: first, folderName: "Archives/")
+                        switch result {
+                        case .success(_): owner.navigationController?.popViewController()
+                        case .failure(let error):
+                            self.showAlert(title: nil, message: error.localizedDescription)
+                        }
+                    } catch let err {
+                        self.showAlert(title: nil, message: err.localizedDescription)
+                    }
+                }
+//                switch self.statusVC {
+//                case .importFiles:
+//                    guard let first = self.sourceURL.first else { return }
+//                    Task.init {
+//                        do {
+//                            let result = try await ManageApp.shared.secureCopyItemfromiCloud(at: first, folderName: self.selectFolder)
+//                            switch result {
+//                            case .success(_): self.dismiss(animated: true, completion: nil)
+//                            case .failure(let error):
+//                                self.showAlert(title: nil, message: error.localizedDescription)
+//                            }
+//                        } catch let err {
+//                            self.showAlert(title: nil, message: err.localizedDescription)
+//                        }
+//                    }
+//                case .copy:
+//                    Task.init {
+//                        do {
+//                            let result = try await ManageApp.shared.secureCopyItemstoFolder(at: self.sourceURL, folderName: self.selectFolder)
+//                            switch result {
+//                            case .success(_):
+//                                self.dismiss(animated: true) {
+//                                    DispatchQueue.main.async {
+//                                        self.delegate?.updateItems()
+//                                    }
+//                                }
+//                            case .failure(let err):
+//                                self.showAlert(title: nil, message: err.localizedDescription)
+//                            }
+//                        } catch let err {
+//                            self.showAlert(title: nil, message: err.localizedDescription)
+//                        }
+//                    }
+//                case .move:
+//                    ManageApp.shared.moveToItem(at: self.sourceURL, folderName: self.selectFolder) {
+//                        self.dismiss(animated: true) {
+//                            DispatchQueue.main.async {
+//                                self.delegate?.updateItems()
+//                            }
+//                        }
+//                    } failure: { [weak self] err in
+//                        guard let wSelf = self else { return }
+//                        wSelf.showAlert(title: nil, message: err)
+//                    }
+//
+//                case .save:
+//                    ManageApp.shared.moveToItemText(at: self.sourceURL, folderName: self.selectFolder) {
+//                        self.dismiss(animated: true) {
+//                            DispatchQueue.main.async {
+//                                self.delegate?.updateItems()
+//                            }
+//                        }
+//                    } failure: { [weak self] err in
+//                        guard let wSelf = self else { return }
+//                        wSelf.showAlert(title: nil, message: err)
+//                    }
+//        //        case .importFiles: break
+//                }
+            }.disposed(by: disposeBag)
     }
     
     private func getUrlOfFolder(url: URL) -> [URL] {
@@ -103,9 +183,9 @@ extension ActionFilesVC {
             wSelf.stackView.subviews.forEach { vi in
                 guard let contentView = vi as? CopyView else { return }
                 if v.url.absoluteString.uppercased().contains(contentView.url.absoluteString.uppercased()) {
-                    if wSelf.parentView != contentView {
-                        wSelf.parentView = contentView
-                        wSelf.saves = []
+                    if wSelf.contenCopytView != contentView {
+                        wSelf.contenCopytView = contentView
+                        wSelf.saveViews = []
                     }
                 } else {
                     contentView.showExplainView(isHide: true)
@@ -123,8 +203,8 @@ extension ActionFilesVC {
     }
     
     private func updatSaves(numberOffoldes: Int) {
-        var s = self.saves
-        self.saves.enumerated().forEach { item in
+        var s = self.saveViews
+        self.saveViews.enumerated().forEach { item in
             let save = item.element
             
             if save.numberOffoldes >= numberOffoldes {
@@ -136,13 +216,13 @@ extension ActionFilesVC {
                 }
             }
         }
-        self.saves = s
+        self.saveViews = s
     }
     
     private func hasShow(isShow: Bool, v: CopyView, numberOffoldes: Int) {
         if isShow {
             let save = SaveView(view: v, numberOffoldes: numberOffoldes)
-            self.saves.append(save)
+            self.saveViews.append(save)
             v.showExplainView(isHide: false)
             v.showCheckImg()
             self.getUrlOfFolder(url: v.url).forEach { url in
@@ -155,8 +235,8 @@ extension ActionFilesVC {
         } else {
             v.showExplainView(isHide: true)
             v.removeSubviewStackView()
-            if let index = self.saves.firstIndex(where: { $0.view == v }) {
-                self.saves.remove(at: index)
+            if let index = self.saveViews.firstIndex(where: { $0.view == v }) {
+                self.saveViews.remove(at: index)
             }
             
             let att = NSMutableAttributedString(string: EasyFilesManage.shared.cutThePreviousFolder(url: v.url))
@@ -168,8 +248,16 @@ extension ActionFilesVC {
                 self.selectFolder  = ""
                 self.titleView.isEmpty()
             }
-            
         }
+        self.setLbSub()
+    }
+    
+    private func setLbSub() {
+        guard !self.selectFolder.isEmpty else {
+            return
+        }
+        let url = EasyFilesManage.shared.gettURL(folder: self.selectFolder)
+        self.headerView.updateLbSub(url: url)
     }
     
     
@@ -179,7 +267,9 @@ extension ActionFilesVC: NavigationActionDelegate {
         switch action {
         case .back:
             self.navigationController?.popViewController(animated: true, nil)
-        case .save, .plus: break
+        case .save:
+            actionTrigger.onNext(())
+        case .plus: break
         }
     }
 }

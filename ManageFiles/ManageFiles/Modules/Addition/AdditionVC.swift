@@ -14,7 +14,7 @@ import VisionKit
 import MobileCoreServices
 
 protocol AdditionDelegate: AnyObject {
-    func moveToAction()
+    func moveToAction(url: URL)
 }
 
 class AdditionVC: BaseVC, AdditionProtocol {
@@ -46,11 +46,6 @@ extension AdditionVC {
     private func setupUI() {
         // Add here the setup for the UI
         self.btClose.contentHorizontalAlignment = .right
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.dismiss(animated: true) {
-                self.delegate?.moveToAction()
-            }
-        }
     }
     
     private func setupRX() {
@@ -99,6 +94,12 @@ extension AdditionVC {
             .bind(to: self.source)
             .disposed(by: disposeBag)
     }
+    
+    private func moveToURL(url: URL) {
+        self.dismiss(animated: true) {
+            self.delegate?.moveToAction(url: url)
+        }
+    }
         
 }
 extension AdditionVC: VNDocumentCameraViewControllerDelegate {
@@ -138,7 +139,7 @@ extension AdditionVC: UIDocumentPickerDelegate {
         guard let first = urls.first else {
             return
         }
-        
+        self.moveToURL(url: first)
     }
 }
 extension AdditionVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -146,7 +147,8 @@ extension AdditionVC: UIImagePickerControllerDelegate, UINavigationControllerDel
         picker.dismiss(animated: true) {
 //            self.moveToActionFiles()
 //            self.dismiss(animated: true) {
-//                if let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL {
+                if let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL {
+                    self.moveToURL(url: imageURL)
 //            ManageApp.shared.secureCopyItemfromLibrary(at: imageURL, folderName: ConstantApp.shared.folderPhotos) { outputURL in
 //                picker.dismiss(animated: true) {
 //                    ManageApp.shared.createFolderModeltoFiles(url: outputURL)
@@ -162,7 +164,7 @@ extension AdditionVC: UIImagePickerControllerDelegate, UINavigationControllerDel
 //                self.present(vc, animated: true, completion: nil)
                     
 //                }
-//            }
+            }
         }
     }
 }

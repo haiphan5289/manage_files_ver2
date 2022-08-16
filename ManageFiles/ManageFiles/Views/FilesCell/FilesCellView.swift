@@ -56,6 +56,17 @@ extension FilesCellView {
         self.btMore.isHidden = true
     }
     
+    func updateLbSub(url: URL) {
+        let atr = NSMutableAttributedString.init()
+        let attr1: [NSMutableAttributedString.Key: Any] = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        let str1 = NSAttributedString(string: "This item will be save to", attributes: attr1)
+        atr.append(str1)
+        let attr2: [NSMutableAttributedString.Key: Any] = [NSAttributedString.Key.foregroundColor: Asset._0085Ff.color]
+        let str2 = NSAttributedString(string: " \(url.getName())", attributes: attr2)
+        atr.append(str2)
+        self.lbSubtitle.attributedText = atr
+    }
+    
     func setValueActionView(value: CGFloat) {
         let v = [self.bottomStackView,
                  self.topStackView,

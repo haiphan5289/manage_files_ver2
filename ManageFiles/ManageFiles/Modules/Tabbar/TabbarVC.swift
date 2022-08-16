@@ -132,17 +132,19 @@ extension TabbarVC {
             }.disposed(by: disposeBag)
     }
     
-    private func moveToActionFiles() {
+    private func moveToActionFiles(url: URL) {
         guard let topVC = GlobalCommon.topViewController() else {
             return
         }
         let vc = ActionFilesVC.createVC()
+        vc.originURL = [url]
         topVC.navigationController?.pushViewController(vc)
     }
     
 }
 extension TabbarVC: AdditionDelegate {
-    func moveToAction() {
-        self.moveToActionFiles()
+    func moveToAction(url: URL) {
+        self.moveToActionFiles(url: url)
     }
+    
 }
