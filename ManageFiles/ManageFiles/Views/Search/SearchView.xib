@@ -60,13 +60,17 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="juG-fw-bsC" secondAttribute="trailing" constant="16" id="ohe-qA-r9u"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="leadStackView" destination="4ga-ix-c2A" id="u4m-k4-wks"/>
+                <outlet property="leftStackView" destination="ohe-qA-r9u" id="4ft-8e-9bP"/>
+            </connections>
             <point key="canvasLocation" x="132" y="131"/>
         </view>
     </objects>
     <resources>
         <image name="ic_search" width="16" height="16"/>
         <namedColor name="whie3">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.029999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.029999999329447746" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

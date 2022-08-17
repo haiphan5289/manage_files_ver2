@@ -9,6 +9,8 @@ import UIKit
 
 class SearchView: UIView, BaseViewSetUp {
 
+    @IBOutlet weak var leftStackView: NSLayoutConstraint!
+    @IBOutlet weak var leadStackView: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setupUI()
@@ -23,6 +25,13 @@ extension SearchView {
     
     func setupRX() {
         
+    }
+    
+    func setValueConstrait(value: CGFloat) {
+        let v = [leadStackView, leadStackView]
+        v.forEach { v in
+            v?.constant = value
+        }
     }
     
 }

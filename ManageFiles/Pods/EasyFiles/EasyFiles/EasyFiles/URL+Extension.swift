@@ -134,7 +134,7 @@ extension URL {
     
     public func getSubURL() -> String {
         let create = self.getCreateDate()?.covertToString(format: .HHmmddMMyyyy)
-        var getSize: String = ""
+        var getSize: String = "5kb"
         
         do {
             if let size = try self.parseURLSystem().sizeOnDisk() {

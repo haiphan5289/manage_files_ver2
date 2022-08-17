@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="ManageFiles" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="QHK-mL-1eE" id="T2b-qu-bpE"/>
+                <outlet property="contentSearchView" destination="ZIt-1Y-TAm" id="5lU-Yu-h8k"/>
                 <outlet property="contentTableView" destination="FZ3-3R-32V" id="BmL-CN-Ic2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,8 +26,81 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="F80-ge-rre">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eCc-Ts-k8s">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="178"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4Zl-xC-Lr7">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="178"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIt-1Y-TAm">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="Oga-fG-brF"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kMf-2p-bzl">
+                                            <rect key="frame" x="0.0" y="60" width="414" height="106"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="QHK-mL-1eE">
+                                                    <rect key="frame" x="21" y="16" width="393" height="74"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="upi-P3-ng1">
+                                                        <size key="itemSize" width="128" height="128"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                </collectionView>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="QHK-mL-1eE" firstAttribute="top" secondItem="kMf-2p-bzl" secondAttribute="top" constant="16" id="Dch-Z5-acu"/>
+                                                <constraint firstItem="QHK-mL-1eE" firstAttribute="leading" secondItem="kMf-2p-bzl" secondAttribute="leading" constant="21" id="XLz-eP-VH4"/>
+                                                <constraint firstAttribute="trailing" secondItem="QHK-mL-1eE" secondAttribute="trailing" id="cCH-pz-aeS"/>
+                                                <constraint firstAttribute="bottom" secondItem="QHK-mL-1eE" secondAttribute="bottom" constant="16" id="nog-NJ-D8g"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TGi-U4-aAB">
+                                            <rect key="frame" x="0.0" y="166" width="414" height="12"/>
+                                            <color key="backgroundColor" name="FAFAFA"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="12" id="sDC-Da-XMz"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="4Zl-xC-Lr7" firstAttribute="leading" secondItem="eCc-Ts-k8s" secondAttribute="leading" id="1Rv-yk-DG6"/>
+                                <constraint firstAttribute="bottom" secondItem="4Zl-xC-Lr7" secondAttribute="bottom" id="1gr-Ue-diA"/>
+                                <constraint firstAttribute="trailing" secondItem="4Zl-xC-Lr7" secondAttribute="trailing" id="Ed8-O6-N4b"/>
+                                <constraint firstAttribute="height" constant="178" id="j6y-Gv-lgK"/>
+                                <constraint firstItem="4Zl-xC-Lr7" firstAttribute="top" secondItem="eCc-Ts-k8s" secondAttribute="top" id="sfb-Np-atb"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NLc-qe-Y5E">
+                            <rect key="frame" x="0.0" y="178" width="414" height="54"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recents Files" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssC-j8-T4t">
+                                    <rect key="frame" x="16" y="16" width="382" height="22"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="ssC-j8-T4t" secondAttribute="trailing" constant="16" id="5bi-1x-JSf"/>
+                                <constraint firstItem="ssC-j8-T4t" firstAttribute="top" secondItem="NLc-qe-Y5E" secondAttribute="top" constant="16" id="EkW-56-XiR"/>
+                                <constraint firstItem="ssC-j8-T4t" firstAttribute="leading" secondItem="NLc-qe-Y5E" secondAttribute="leading" constant="16" id="Plj-ki-BpC"/>
+                                <constraint firstAttribute="height" constant="54" id="gMS-1o-ZdZ"/>
+                                <constraint firstAttribute="bottom" secondItem="ssC-j8-T4t" secondAttribute="bottom" constant="16" id="i6I-UT-sgc"/>
+                            </constraints>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZ3-3R-32V">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                            <rect key="frame" x="0.0" y="232" width="414" height="586"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                     </subviews>
@@ -42,6 +118,9 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="FAFAFA">
+            <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

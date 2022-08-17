@@ -86,6 +86,12 @@ extension AdditionVC {
                 }
             }.disposed(by: disposeBag)
         
+        self.btClose.rx.tap
+            .withUnretained(self)
+            .bind { owner, _ in
+                owner.dismiss(animated: true, completion: nil)
+            }.disposed(by: disposeBag)
+        
         ReadJSON
             .shared
             .parseToDate(name: "Addition", type: "json")

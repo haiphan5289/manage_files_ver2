@@ -8,6 +8,7 @@
 import Foundation
 import EasyFiles
 import EasyBaseCodes
+import EasyBaseAudio
 import RxSwift
 import UIKit
 
@@ -34,6 +35,8 @@ final class GlobalApp {
     static var shared = GlobalApp()
     @VariableReplay var files: [FolderModel] = []
     @VariableReplay var folders: [FolderModel] = []
+    @VariableReplay var homes: [FolderModel] = []
+    let updateAgain: PublishSubject<Void> = PublishSubject.init()
     
     private let disposeBag = DisposeBag()
     private init() {}
@@ -57,11 +60,32 @@ final class GlobalApp {
             .rx
             .notification(NSNotification.Name(PushNotificationKeys.deleteFolder.rawValue))
             .map { _ in RealmManager.shared.getFolders() }
-        Observable.merge(get, update, delete)
+        let updateAgain = self.updateAgain
+            .map { _ in RealmManager.shared.getFolders() }
+        Observable.merge(get, update, delete, updateAgain)
             .witElementhUnretained(self)
             .bind { list in
                 self.folders = list
                 self.files = list
+                var homesList: [FolderModel] = []
+                homesList += EasyFilesManage.shared.getDirectory()
+                
+                list.forEach { folder in
+                    let folderName: String = EasyFilesManage.shared.detectPathFolder(url: folder.url)
+                    let n = folderName.count
+                    if folderName.index(folderName.startIndex, offsetBy: n, limitedBy: folderName.endIndex) != nil {
+                        let files = EasyFilesManage.shared.getItemsFolder(folder: folderName)
+                            .filter({ !$0.hasDirectoryPath })
+                            .map { url -> FolderModel in
+                                return FolderModel(imgName: nil,
+                                                   url: url,
+                                                   id: Date().convertDateToLocalTimeNew().timeIntervalSince1970)
+                            }
+                        homesList += files
+                    }
+                }
+                self.homes = homesList
+                
         }.disposed(by: disposeBag)
         
         if !RealmManager.shared.getFolders().map({ $0.imgName }).contains(FolderName.Archives.nameImage) {
@@ -69,6 +93,7 @@ final class GlobalApp {
         }
     }
     
+
 
     
     private func setValueDefault() {
@@ -107,4 +132,11 @@ extension GlobalApp: ManageAppDelegate {
     }
     
     
+}
+
+extension Date {
+    func convertDateToLocalTimeNew() -> Date {
+        let timeZoneOffset = Double(TimeZone.current.secondsFromGMT(for: self))
+        return Calendar.current.date(byAdding: .second, value: Int(timeZoneOffset), to: self)!
+    }
 }

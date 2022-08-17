@@ -11,7 +11,7 @@ import SnapKit
 class BaseVC: UIViewController {
     
     enum ScreenType {
-        case tabbar, files, tools, setting, action
+        case tabbar, files, tools, setting, action, home
     }
     
     var screenType: ScreenType = .tabbar
@@ -23,7 +23,7 @@ class BaseVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         switch screenType {
-        case .tabbar, .files, .tools, .setting:
+        case .tabbar, .files, .tools, .setting, .home:
             self.navigationController?.isNavigationBarHidden = true
         case .action:
             self.navigationController?.isNavigationBarHidden = false

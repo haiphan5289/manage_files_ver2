@@ -39,6 +39,10 @@ extension FilesCell {
         
     }
     
+    func setValueHome(folđer: FolderModel) {
+        cellView.setValueHome(folder: folđer)
+    }
+    
     func setValueTools(folđer: FolderModel, toolFile: ToolsVC.ToolsFile) {
         cellView.setValueTools(folder: folđer, toolFile: toolFile)
     }

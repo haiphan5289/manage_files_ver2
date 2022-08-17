@@ -41,6 +41,8 @@ extension BaseTabbarVC {
             .witElementhUnretained(self)
             .bind(to: tableView.rx.items(cellIdentifier: FilesCell.identifier, cellType: FilesCell.self)) {(row, element, cell) in
                 switch self.screenType {
+                case .home:
+                    cell.setValueHome(folđer: element)
                 case .files:
                     cell.setValueFiles(folđer: element)
                 case .tools:

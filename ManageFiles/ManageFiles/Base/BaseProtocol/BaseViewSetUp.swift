@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import EasyBaseAudio
 
 protocol BaseViewSetUp {
     func setupUI()
@@ -26,6 +27,17 @@ extension SetupTableView {
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
         }
+    }
+    
+}
+protocol SetupBaseCollection {}
+extension SetupBaseCollection {
+    
+    func setupCollectionView<T: UICollectionViewCell>(collectionView: UICollectionView,
+                                                 delegate: UICollectionViewDelegate,
+                                                 name: T.Type) {
+        collectionView.delegate = delegate
+        collectionView.register(nibWithCellClass: T.self)
     }
     
 }

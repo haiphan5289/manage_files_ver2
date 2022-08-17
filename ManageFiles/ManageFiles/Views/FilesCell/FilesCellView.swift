@@ -35,6 +35,11 @@ extension FilesCellView {
         
     }
     
+    func setValueHome(folder: FolderModel) {
+        self.loadTitle(folder: folder)
+        self.lbSubtitle.text = folder.url.getSubURL()
+    }
+    
     func setValueTools(folder: FolderModel, toolFile: ToolsVC.ToolsFile) {
         self.lbTitle.text = toolFile.title
         self.lbSubtitle.text = toolFile.subTitle

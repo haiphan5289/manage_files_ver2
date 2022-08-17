@@ -10,7 +10,7 @@ import EasyBaseCodes
 import SnapKit
 import RxSwift
 
-class TabbarVC: UITabBarController {
+class TabbarVC: UITabBarController, MoveToProtocol {
     
     enum TabbarStyle: Int, CaseIterable {
         case home, files, center, tools, setting
@@ -132,13 +132,14 @@ extension TabbarVC {
             }.disposed(by: disposeBag)
     }
     
-    private func moveToActionFiles(url: URL) {
+    func moveToActionFiles(url: URL) {
         guard let topVC = GlobalCommon.topViewController() else {
             return
         }
         let vc = ActionFilesVC.createVC()
         vc.originURL = [url]
         topVC.navigationController?.pushViewController(vc)
+
     }
     
 }
