@@ -37,7 +37,7 @@
                                 <constraint firstAttribute="bottom" secondItem="Fli-Ee-6Nm" secondAttribute="bottom" constant="16" id="26m-Kt-Qdf"/>
                                 <constraint firstItem="Fli-Ee-6Nm" firstAttribute="top" secondItem="iWS-Vp-KSG" secondAttribute="top" constant="16" id="8fy-TL-bdi"/>
                                 <constraint firstAttribute="trailing" secondItem="Fli-Ee-6Nm" secondAttribute="trailing" constant="16" id="AdY-D9-hpp"/>
-                                <constraint firstAttribute="height" constant="128" id="nph-9E-urz"/>
+                                <constraint firstAttribute="height" constant="128" placeholder="YES" id="nph-9E-urz"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
