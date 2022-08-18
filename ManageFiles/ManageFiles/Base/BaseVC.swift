@@ -11,7 +11,7 @@ import SnapKit
 class BaseVC: UIViewController {
     
     enum ScreenType {
-        case tabbar, files, tools, setting, action, home
+        case tabbar, files, tools, setting, action, home, folder
     }
     
     var screenType: ScreenType = .tabbar
@@ -25,7 +25,7 @@ class BaseVC: UIViewController {
         switch screenType {
         case .tabbar, .files, .tools, .setting, .home:
             self.navigationController?.isNavigationBarHidden = true
-        case .action:
+        case .action, .folder:
             self.navigationController?.isNavigationBarHidden = false
         }
         navigationBarCustom(font: UIFont.systemFont(ofSize: 17),

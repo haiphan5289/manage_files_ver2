@@ -46,6 +46,10 @@ final class GlobalApp {
         FolderName.allCases.forEach { name in
             EasyFilesManage.shared.createFolder(path: name.rawValue, success: nil, failure: nil)
         }
+        
+        if !RealmManager.shared.getFolders().map({ $0.imgName }).contains(FolderName.Archives.nameImage) {
+            self.setValueDefault()
+        }
     }
     
     private func setupValue() {
@@ -87,10 +91,6 @@ final class GlobalApp {
                 self.homes = homesList
                 
         }.disposed(by: disposeBag)
-        
-        if !RealmManager.shared.getFolders().map({ $0.imgName }).contains(FolderName.Archives.nameImage) {
-            self.setValueDefault()
-        }
     }
     
 

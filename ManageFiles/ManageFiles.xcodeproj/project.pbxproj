@@ -59,6 +59,9 @@
 		93A847FB28A3FE48004519CF /* AdditionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A847F828A3FE48004519CF /* AdditionVM.swift */; };
 		93A847FC28A3FE48004519CF /* AdditionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A847F928A3FE48004519CF /* AdditionVC.swift */; };
 		93A847FF28A40E07004519CF /* AdditionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A847FE28A40E07004519CF /* AdditionProtocol.swift */; };
+		93A9602F28AE90AF00A1986D /* FolderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A9602C28AE90AF00A1986D /* FolderVC.xib */; };
+		93A9603028AE90AF00A1986D /* FolderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9602D28AE90AF00A1986D /* FolderVM.swift */; };
+		93A9603128AE90AF00A1986D /* FolderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9602E28AE90AF00A1986D /* FolderVC.swift */; };
 		93B4603428A92B8200E21A9E /* AutoLayout+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B4603328A92B8200E21A9E /* AutoLayout+Extension.swift */; };
 		93B663F4289E582F001BFA47 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B663F3289E582F001BFA47 /* Utility.swift */; };
 		93B663F8289E5C32001BFA47 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 93B663F7289E5C32001BFA47 /* swiftgen.yml */; };
@@ -148,6 +151,9 @@
 		93A847F828A3FE48004519CF /* AdditionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionVM.swift; sourceTree = "<group>"; };
 		93A847F928A3FE48004519CF /* AdditionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionVC.swift; sourceTree = "<group>"; };
 		93A847FE28A40E07004519CF /* AdditionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionProtocol.swift; sourceTree = "<group>"; };
+		93A9602C28AE90AF00A1986D /* FolderVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FolderVC.xib; sourceTree = "<group>"; };
+		93A9602D28AE90AF00A1986D /* FolderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderVM.swift; sourceTree = "<group>"; };
+		93A9602E28AE90AF00A1986D /* FolderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderVC.swift; sourceTree = "<group>"; };
 		93B4603328A92B8200E21A9E /* AutoLayout+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AutoLayout+Extension.swift"; sourceTree = "<group>"; };
 		93B663F3289E582F001BFA47 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		93B663F7289E5C32001BFA47 /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
@@ -362,6 +368,7 @@
 		939DA46D289D57C000AEEF49 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				93A9602B28AE8FFD00A1986D /* Folder */,
 				9390848328AD4A24002B835B /* Sort */,
 				9386D43D28A78BA500CC9335 /* ActionFiles */,
 				93A847F628A3FE30004519CF /* Addition */,
@@ -475,6 +482,16 @@
 				93A847FE28A40E07004519CF /* AdditionProtocol.swift */,
 			);
 			path = AdditionProtocol;
+			sourceTree = "<group>";
+		};
+		93A9602B28AE8FFD00A1986D /* Folder */ = {
+			isa = PBXGroup;
+			children = (
+				93A9602C28AE90AF00A1986D /* FolderVC.xib */,
+				93A9602D28AE90AF00A1986D /* FolderVM.swift */,
+				93A9602E28AE90AF00A1986D /* FolderVC.swift */,
+			);
+			path = Folder;
 			sourceTree = "<group>";
 		};
 		93B663F9289E5D7E001BFA47 /* SwiftGen */ = {
@@ -701,6 +718,7 @@
 				3EBAF49F289D1E2400C59679 /* LaunchScreen.storyboard in Resources */,
 				93A847F528A3FD89004519CF /* Addition.json in Resources */,
 				93B66400289E710D001BFA47 /* SearchView.xib in Resources */,
+				93A9602F28AE90AF00A1986D /* FolderVC.xib in Resources */,
 				939DA475289D594A00AEEF49 /* HomeVC.xib in Resources */,
 				9390848728AD4A33002B835B /* SortVC.xib in Resources */,
 				9386D45028A7F5B500CC9335 /* FontsFree-Net-SFProText-Regular.ttf in Resources */,
@@ -805,6 +823,7 @@
 				93B66431289ECCC4001BFA47 /* SettingView.swift in Sources */,
 				93A847FC28A3FE48004519CF /* AdditionVC.swift in Sources */,
 				939DA4A6289D604800AEEF49 /* ListFontVM.swift in Sources */,
+				93A9603128AE90AF00A1986D /* FolderVC.swift in Sources */,
 				939DA495289D5D0300AEEF49 /* RealmManager.swift in Sources */,
 				93A847FF28A40E07004519CF /* AdditionProtocol.swift in Sources */,
 				9386D44828A790D000CC9335 /* NavigationActionView.swift in Sources */,
@@ -818,6 +837,7 @@
 				93B6642D289ECC41001BFA47 /* SettingCell.swift in Sources */,
 				939DA49D289D5D9A00AEEF49 /* Obserable+Extension.swift in Sources */,
 				93B6641B289E87AC001BFA47 /* BaseTabbarVC.swift in Sources */,
+				93A9603028AE90AF00A1986D /* FolderVM.swift in Sources */,
 				3EBAF493289D1E2300C59679 /* AppDelegate.swift in Sources */,
 				93B663F4289E582F001BFA47 /* Utility.swift in Sources */,
 				9386D44328A78BBA00CC9335 /* ActionFilesVC.swift in Sources */,

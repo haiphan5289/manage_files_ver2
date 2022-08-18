@@ -41,7 +41,7 @@ extension BaseTabbarVC {
             .witElementhUnretained(self)
             .bind(to: tableView.rx.items(cellIdentifier: FilesCell.identifier, cellType: FilesCell.self)) {(row, element, cell) in
                 switch self.screenType {
-                case .home:
+                case .home, .folder:
                     cell.setValueHome(folđer: element)
                 case .files:
                     cell.setValueFiles(folđer: element)
@@ -52,6 +52,20 @@ extension BaseTabbarVC {
                 case .tabbar, .setting, .action: break
                 }
             }.disposed(by: disposeBag)
+        
+        self.tableView.rx.itemSelected.withUnretained(self).bind { owner, idx in
+            switch self.screenType {
+            case .files:
+                let item = owner.source.value[idx.row]
+                if let topVC = GlobalCommon.topViewController(), item.url.hasDirectoryPath {
+                    let vc = FolderVC.createVC()
+                    let folderName = EasyFilesManage.shared.detectPathFolder(url: item.url)
+                    vc.folderName = folderName
+                    topVC.navigationController?.pushViewController(vc, animated: true)
+                }
+            case .home, .folder, .action, .setting, .tabbar, .tools: break
+            }
+        }.disposed(by: disposeBag)
     }
     
 }
