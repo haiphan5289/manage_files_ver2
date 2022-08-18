@@ -33,14 +33,27 @@ public struct FolderModel: Codable {
 public struct SortModel {
     public let sort: EasyFilesManage.Sort
     public let isAscending: Bool
-    
+    public init(sort: EasyFilesManage.Sort, isAscending: Bool) {
+        self.sort = sort
+        self.isAscending = isAscending
+    }
     public static let valueDefault = SortModel(sort: .date, isAscending: false)
 }
 
 public class EasyFilesManage {
-
+    
     public enum Sort: Int, CaseIterable {
         case name, date, type, size
+        
+        public var text: String {
+            switch self {
+            case .name: return "Name"
+            case .date: return "Date"
+            case .size: return "Size"
+            case .type: return "File Type"
+            }
+        }
+        
     }
     public enum ImageType: CaseIterable {
         case jpeg, png, jpg, zip, video, mp4, mp3, m4a, wav, m4r, pdf, txt
@@ -84,7 +97,7 @@ public class EasyFilesManage {
     public enum PushNotificationKeys : String {
         case addedFolder = "addedFolder"
         case deleteFolder = "deleteFolder"
-
+        
     }
     
     static public var shared = EasyFilesManage()
@@ -148,43 +161,43 @@ public class EasyFilesManage {
         lbName.text = file.url.lastPathComponent
     }
     
-//    private func setupRX() {
-//        let getList = Observable.just(RealmManager.shared.getFolders())
-//        let updateList = NotificationCenter.default.rx.notification(NSNotification.Name(PushNotificationKeys.addedFolder.rawValue))
-//            .map { _ in RealmManager.shared.getFolders() }
-//        let deleteList = NotificationCenter.default.rx.notification(NSNotification.Name(PushNotificationKeys.deleteFolder.rawValue))
-//            .map { _ in RealmManager.shared.getFolders() }
-//        let refreshValue = self.refreshValue.map { _ in RealmManager.shared.getFolders() }
-//        Observable.merge(getList, updateList, deleteList, refreshValue).bind { [weak self] list in
-//            guard let wSelf = self else { return }
-//            wSelf.$folders.accept(list)
-//            var file: [FolderModel] = []
-//            var filesHome: [FolderModel] = []
-//            file += wSelf.getDirectory(filesStr: wSelf.folderStr)
-//            filesHome += wSelf.getDirectory(filesStr: wSelf.folderStr)
-//            wSelf.$foldersRoot.accept(wSelf.getFoldersRoot(filesStr: wSelf.folderStr))
-//
-//            list.forEach { folder in
-//                let folderName: String = wSelf.detectPathFolder(url: folder.url)
-//                let n = folderName.count
-//                if folderName.index(folderName.startIndex, offsetBy: n, limitedBy: folderName.endIndex) != nil {
-//                    let files = wSelf.getItemsFolder(folder: folderName).filter{ !$0.hasDirectoryPath }
-//                        .map { url in
-//                            return FolderModel(imgName: nil, url: url, id: Date().convertDateToLocalTime().timeIntervalSince1970)
-//                        }
-//                    filesHome += files
-//                }
-//            }
-//            wSelf.$files.accept(file)
-//            wSelf.$filesHome.accept(filesHome)
-//        }.disposed(by: disposeBag)
-//
-//        self.$pinHomes.asObservable().bind { [weak self] list in
-//            guard let self = self else { return }
-//            self.delegate?.pinHomes(pins: list)
-//        }.disposed(by: self.disposeBag)
-//
-//    }
+    //    private func setupRX() {
+    //        let getList = Observable.just(RealmManager.shared.getFolders())
+    //        let updateList = NotificationCenter.default.rx.notification(NSNotification.Name(PushNotificationKeys.addedFolder.rawValue))
+    //            .map { _ in RealmManager.shared.getFolders() }
+    //        let deleteList = NotificationCenter.default.rx.notification(NSNotification.Name(PushNotificationKeys.deleteFolder.rawValue))
+    //            .map { _ in RealmManager.shared.getFolders() }
+    //        let refreshValue = self.refreshValue.map { _ in RealmManager.shared.getFolders() }
+    //        Observable.merge(getList, updateList, deleteList, refreshValue).bind { [weak self] list in
+    //            guard let wSelf = self else { return }
+    //            wSelf.$folders.accept(list)
+    //            var file: [FolderModel] = []
+    //            var filesHome: [FolderModel] = []
+    //            file += wSelf.getDirectory(filesStr: wSelf.folderStr)
+    //            filesHome += wSelf.getDirectory(filesStr: wSelf.folderStr)
+    //            wSelf.$foldersRoot.accept(wSelf.getFoldersRoot(filesStr: wSelf.folderStr))
+    //
+    //            list.forEach { folder in
+    //                let folderName: String = wSelf.detectPathFolder(url: folder.url)
+    //                let n = folderName.count
+    //                if folderName.index(folderName.startIndex, offsetBy: n, limitedBy: folderName.endIndex) != nil {
+    //                    let files = wSelf.getItemsFolder(folder: folderName).filter{ !$0.hasDirectoryPath }
+    //                        .map { url in
+    //                            return FolderModel(imgName: nil, url: url, id: Date().convertDateToLocalTime().timeIntervalSince1970)
+    //                        }
+    //                    filesHome += files
+    //                }
+    //            }
+    //            wSelf.$files.accept(file)
+    //            wSelf.$filesHome.accept(filesHome)
+    //        }.disposed(by: disposeBag)
+    //
+    //        self.$pinHomes.asObservable().bind { [weak self] list in
+    //            guard let self = self else { return }
+    //            self.delegate?.pinHomes(pins: list)
+    //        }.disposed(by: self.disposeBag)
+    //
+    //    }
     
     func getTopViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {
@@ -220,7 +233,7 @@ public class EasyFilesManage {
             return list
         case .date:
             let list = folders.sorted { f1, f2 in
-                guard let date1 = f1.url.getCreateDate(), let date2 = f2.url.getCreateDate() else {
+                guard let date1 = f1.url.getModifyDate(), let date2 = f2.url.getModifyDate() else {
                     return false
                 }
                 if sort.isAscending {
@@ -245,42 +258,42 @@ public class EasyFilesManage {
     
     //MARK: DEFAULT VALUE FOLDERS
     public func defaultValueFolders(icons: [String], folders: [String]) {
-//        if isFirstApp {
-            var l: [FolderModel] = []
-            folders.enumerated().forEach { item in
-                let offset = item.offset
-                let f = FolderModel(imgName: icons[offset],
-                                    url: self.getUrlFolder(folder: folders[offset]),
-                                    id: Date().convertDateToLocalTime().timeIntervalSince1970)
-                l.append(f)
-            }
-            self.pinHomes = l
-            self.delegate?.updateFirstApp(folders: l)
-//            let photos = FolderModel(imgName: "ic_photos_folder",
-//                                     url: self.getUrlFolder(folder: ConstantApp.shared.folderPhotos),
-//                                     id: Date().convertDateToLocalTime().timeIntervalSince1970)
-//            RealmManager.shared.updateOrInsertConfig(model: photos)
-//            let videos = FolderModel(imgName: "ic_video_folder",
-//                                     url: self.getUrlFolder(folder: ConstantApp.shared.folderVideos),
-//                                     id: Date().convertDateToLocalTime().timeIntervalSince1970)
-//            RealmManager.shared.updateOrInsertConfig(model: videos)
-//            let music = FolderModel(imgName: "ic_music_folder",
-//                                    url: self.getUrlFolder(folder: ConstantApp.shared.folderMusics),
-//                                    id: Date().convertDateToLocalTime().timeIntervalSince1970)
-//            RealmManager.shared.updateOrInsertConfig(model: music)
-//            let docs = FolderModel(imgName: "ic_doc_folder",
-//                                   url: self.getUrlFolder(folder: ConstantApp.shared.folderDocuments),
-//                                   id: Date().convertDateToLocalTime().timeIntervalSince1970)
-//            RealmManager.shared.updateOrInsertConfig(model: docs)
-//            let trash = FolderModel(imgName: "ic_trash_folder",
-//                                    url: self.getUrlFolder(folder: ConstantApp.shared.folderTrashs),
-//                                    id: Date().convertDateToLocalTime().timeIntervalSince1970)
-//            RealmManager.shared.updateOrInsertConfig(model: trash)
-//
-//            self.pinHomes = [photos, videos, music, docs, trash]
-//            self.dataDefault()
-//            AppSettings.isFirstApp = false
-//        }
+        //        if isFirstApp {
+        var l: [FolderModel] = []
+        folders.enumerated().forEach { item in
+            let offset = item.offset
+            let f = FolderModel(imgName: icons[offset],
+                                url: self.getUrlFolder(folder: folders[offset]),
+                                id: Date().convertDateToLocalTime().timeIntervalSince1970)
+            l.append(f)
+        }
+        self.pinHomes = l
+        self.delegate?.updateFirstApp(folders: l)
+        //            let photos = FolderModel(imgName: "ic_photos_folder",
+        //                                     url: self.getUrlFolder(folder: ConstantApp.shared.folderPhotos),
+        //                                     id: Date().convertDateToLocalTime().timeIntervalSince1970)
+        //            RealmManager.shared.updateOrInsertConfig(model: photos)
+        //            let videos = FolderModel(imgName: "ic_video_folder",
+        //                                     url: self.getUrlFolder(folder: ConstantApp.shared.folderVideos),
+        //                                     id: Date().convertDateToLocalTime().timeIntervalSince1970)
+        //            RealmManager.shared.updateOrInsertConfig(model: videos)
+        //            let music = FolderModel(imgName: "ic_music_folder",
+        //                                    url: self.getUrlFolder(folder: ConstantApp.shared.folderMusics),
+        //                                    id: Date().convertDateToLocalTime().timeIntervalSince1970)
+        //            RealmManager.shared.updateOrInsertConfig(model: music)
+        //            let docs = FolderModel(imgName: "ic_doc_folder",
+        //                                   url: self.getUrlFolder(folder: ConstantApp.shared.folderDocuments),
+        //                                   id: Date().convertDateToLocalTime().timeIntervalSince1970)
+        //            RealmManager.shared.updateOrInsertConfig(model: docs)
+        //            let trash = FolderModel(imgName: "ic_trash_folder",
+        //                                    url: self.getUrlFolder(folder: ConstantApp.shared.folderTrashs),
+        //                                    id: Date().convertDateToLocalTime().timeIntervalSince1970)
+        //            RealmManager.shared.updateOrInsertConfig(model: trash)
+        //
+        //            self.pinHomes = [photos, videos, music, docs, trash]
+        //            self.dataDefault()
+        //            AppSettings.isFirstApp = false
+        //        }
     }
     
     func dataDefault() {
@@ -322,26 +335,26 @@ public class EasyFilesManage {
         return (freeSize.int64Value, size.int64Value)
     }
     
-//    func saveImage(image: UIImage) {
-//        guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData() else {
-//            return
-//        }
-//        let name = "\(Date().convertDateToLocalTime().timeIntervalSince1970)"
-//        let directory = self.createURL(folder: "", name: name).appendingPathExtension(ImageType.png.value)
-//        do {
-//            try data.write(to: directory)
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//    }
+    //    func saveImage(image: UIImage) {
+    //        guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData() else {
+    //            return
+    //        }
+    //        let name = "\(Date().convertDateToLocalTime().timeIntervalSince1970)"
+    //        let directory = self.createURL(folder: "", name: name).appendingPathExtension(ImageType.png.value)
+    //        do {
+    //            try data.write(to: directory)
+    //        } catch {
+    //            print(error.localizedDescription)
+    //        }
+    //    }
     
     //MARK: WRITE TEXT TO FIILE
     public func write(text: String, nameFile: String) async throws -> Result<URL, Error> {
-//        guard let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else { return }
-//        guard let writePath = NSURL(fileURLWithPath: path).appendingPathComponent(folder) else { return }
-//        try? FileManager.default.createDirectory(atPath: writePath.path, withIntermediateDirectories: true)
-//        let file = writePath.appendingPathComponent(fileNamed + ".txt")
-//        try? text.write(to: file, atomically: false, encoding: String.Encoding.utf8)
+        //        guard let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else { return }
+        //        guard let writePath = NSURL(fileURLWithPath: path).appendingPathComponent(folder) else { return }
+        //        try? FileManager.default.createDirectory(atPath: writePath.path, withIntermediateDirectories: true)
+        //        let file = writePath.appendingPathComponent(fileNamed + ".txt")
+        //        try? text.write(to: file, atomically: false, encoding: String.Encoding.utf8)
         
         let file = self.createURL(folder: "", name: nameFile)
         do {
@@ -360,8 +373,8 @@ public class EasyFilesManage {
         let folder = FolderModel(imgName: imgName,
                                  url: url,
                                  id: Date().convertDateToLocalTime().timeIntervalSince1970)
-//        RealmManager.shared.updateOrInsertConfig(model: folder)
-      self.delegate?.updateOrInsertConfig(folder: folder)
+        //        RealmManager.shared.updateOrInsertConfig(model: folder)
+        self.delegate?.updateOrInsertConfig(folder: folder)
     }
     
     public func addPinFolder(folder: FolderModel) {
@@ -369,16 +382,16 @@ public class EasyFilesManage {
     }
     
     //MARK: DEFAULT VALUE INAPP
-//    func listRawSKProduct() -> [INAPPVC.SKProductModel] {
-//        var list: [INAPPVC.SKProductModel] = []
-//        let w = INAPPVC.SKProductModel(productID: .weekly, price: 0.99)
-//        let m = INAPPVC.SKProductModel(productID: .monthly, price: 1.99)
-//        let y = INAPPVC.SKProductModel(productID: .yearly, price: 9.99)
-//        list.append(w)
-//        list.append(m)
-//        list.append(y)
-//        return list
-//    }
+    //    func listRawSKProduct() -> [INAPPVC.SKProductModel] {
+    //        var list: [INAPPVC.SKProductModel] = []
+    //        let w = INAPPVC.SKProductModel(productID: .weekly, price: 0.99)
+    //        let m = INAPPVC.SKProductModel(productID: .monthly, price: 1.99)
+    //        let y = INAPPVC.SKProductModel(productID: .yearly, price: 9.99)
+    //        list.append(w)
+    //        list.append(m)
+    //        list.append(y)
+    //        return list
+    //    }
     
     func removeAllRecording() {
     }
@@ -469,18 +482,18 @@ public class EasyFilesManage {
             let contentsEditAudio = try FileManager.default.contentsOfDirectory(at: appURL , includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
             let list = contentsEditAudio
             
-//            let l =  list.sorted { ( u1: URL, u2: URL) -> Bool in
-//                do{
-//                    let values1 = try u1.resourceValues(forKeys: [.creationDateKey, .contentModificationDateKey])
-//                    let values2 = try u2.resourceValues(forKeys: [.creationDateKey, .contentModificationDateKey])
-//                    if let date1 = values1.contentModificationDate, let date2 = values2.contentModificationDate {
-//                        return date1.compare(date2) == ComparisonResult.orderedDescending
-//                    }
-//                }catch _{
-//                }
-//
-//                return true
-//            }
+            //            let l =  list.sorted { ( u1: URL, u2: URL) -> Bool in
+            //                do{
+            //                    let values1 = try u1.resourceValues(forKeys: [.creationDateKey, .contentModificationDateKey])
+            //                    let values2 = try u2.resourceValues(forKeys: [.creationDateKey, .contentModificationDateKey])
+            //                    if let date1 = values1.contentModificationDate, let date2 = values2.contentModificationDate {
+            //                        return date1.compare(date2) == ComparisonResult.orderedDescending
+            //                    }
+            //                }catch _{
+            //                }
+            //
+            //                return true
+            //            }
             return list
         } catch let err {
             print("\(err.localizedDescription)")
@@ -542,7 +555,7 @@ public class EasyFilesManage {
         let range2 = start2..<end2
         return (String(att2.string[range2]))
     }
-
+    
     
     public func cutThePreviousFolder(url: URL) -> String {
         let att = NSMutableAttributedString(string: self.detectPathFolder(url: url))
@@ -567,10 +580,10 @@ public class EasyFilesManage {
     public func getfolders(url: URL, text: String) -> [URL] {
         do {
             let directoryContents = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: [])
-
+            
             let onlyFileNames = directoryContents.filter{ !$0.hasDirectoryPath }
             let _ = onlyFileNames.map { $0.lastPathComponent }
-
+            
             let subdirs = directoryContents
                 .filter{ $0.hasDirectoryPath }
                 .filter{ !$0.absoluteString.contains(text) }
@@ -897,13 +910,13 @@ public class EasyFilesManage {
             do {
                 try FileManager.default.removeItem(at: oldPath)
                 if let index = self.folders.firstIndex(where: { $0.url.getNamePath().uppercased().contains(oldPath.getNamePath().uppercased()) }) {
-//                    RealmManager.shared.deleteFolder(model: ManageApp.shared.folders[index])
+                    //                    RealmManager.shared.deleteFolder(model: ManageApp.shared.folders[index])
                     self.delegate?.deleteFolder(folder: self.folders[index])
                 }
                 if outputURL.hasDirectoryPath {
                     let folderModel = FolderModel(imgName: "ic_other_folder", url: outputURL, id: Double(Date().convertDateToLocalTime().timeIntervalSince1970))
-//                    RealmManager.shared.updateOrInsertConfig(model: folderModel)
-                  self.delegate?.updateOrInsertConfig(folder: folderModel)
+                    //                    RealmManager.shared.updateOrInsertConfig(model: folderModel)
+                    self.delegate?.updateOrInsertConfig(folder: folderModel)
                 }
             } catch {
                 failure?(error.localizedDescription)
@@ -949,11 +962,11 @@ public class EasyFilesManage {
         } else {
             failure?("Folder is exist")
         }
-//        let documentDirectoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
-//        if let documentDirectoryPath = documentDirectoryPath {
-            // create the custom folder path
-//            let imagesDirectoryPath = documentDirectoryPath.appending("/\(path)")
-//        }
+        //        let documentDirectoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+        //        if let documentDirectoryPath = documentDirectoryPath {
+        // create the custom folder path
+        //            let imagesDirectoryPath = documentDirectoryPath.appending("/\(path)")
+        //        }
     }
     
     public func createFolder(path: String, success: ((URL) -> Void)?, failure: ((String) -> Void)?) {
@@ -981,58 +994,58 @@ public class EasyFilesManage {
     }
     
     //MARK: ZIP ITEMS
-//    public func unZipItems(sourceURL: URL, folderName: String, folders: [String], failure: (String) -> Void?) {
-//        var listName: [String] = []
-//        let destination = self.createURL(folder: folderName, name: "/")
-//        do {
-//            _ = try Zip.unzipFile(sourceURL, destination: destination, overwrite: true, password: nil, progress: nil, fileOutputHandler: { unzippedFile in
-//                let name = self.getNameFolderToCompress(url: unzippedFile)
-//                
-//                listName.append(name)
-//            })
-//            if let index = listName.firstIndex(where: { $0.uppercased().contains("__MACOSX".uppercased()) }) {
-//                self.removeFolder(name: listName[index])
-//                listName.remove(at: index)
-//            }
-//            if let last = listName.last {
-//                var removeText = last
-//                if last.count > 0 {
-//                    removeText.removeLast()
-//                } else {
-//                    self.delegate?.callAgain()
-//                    return
-//                }
-//                
-//                var isFolderExist: Bool = false
-//                
-//                folders.forEach { text in
-//                    if text.uppercased() == removeText.uppercased() {
-//                        isFolderExist = true
-//                    }
-//                }
-//                
-//                if !isFolderExist {
-//                    let folder = FolderModel(imgName: "ic_other_folder",
-//                                             url: self.createURL(folder: "", name: last),
-//                                             id: Date().convertDateToLocalTime().timeIntervalSince1970)
-////                    RealmManager.shared.updateOrInsertConfig(model: folder)
-//                  self.delegate?.updateOrInsertConfig(folder: folder)
-//                }
-//            }
-//        }
-//        catch {
-//          failure("Folder is empty")
-//        }
-//    }
+    //    public func unZipItems(sourceURL: URL, folderName: String, folders: [String], failure: (String) -> Void?) {
+    //        var listName: [String] = []
+    //        let destination = self.createURL(folder: folderName, name: "/")
+    //        do {
+    //            _ = try Zip.unzipFile(sourceURL, destination: destination, overwrite: true, password: nil, progress: nil, fileOutputHandler: { unzippedFile in
+    //                let name = self.getNameFolderToCompress(url: unzippedFile)
+    //
+    //                listName.append(name)
+    //            })
+    //            if let index = listName.firstIndex(where: { $0.uppercased().contains("__MACOSX".uppercased()) }) {
+    //                self.removeFolder(name: listName[index])
+    //                listName.remove(at: index)
+    //            }
+    //            if let last = listName.last {
+    //                var removeText = last
+    //                if last.count > 0 {
+    //                    removeText.removeLast()
+    //                } else {
+    //                    self.delegate?.callAgain()
+    //                    return
+    //                }
+    //
+    //                var isFolderExist: Bool = false
+    //
+    //                folders.forEach { text in
+    //                    if text.uppercased() == removeText.uppercased() {
+    //                        isFolderExist = true
+    //                    }
+    //                }
+    //
+    //                if !isFolderExist {
+    //                    let folder = FolderModel(imgName: "ic_other_folder",
+    //                                             url: self.createURL(folder: "", name: last),
+    //                                             id: Date().convertDateToLocalTime().timeIntervalSince1970)
+    ////                    RealmManager.shared.updateOrInsertConfig(model: folder)
+    //                  self.delegate?.updateOrInsertConfig(folder: folder)
+    //                }
+    //            }
+    //        }
+    //        catch {
+    //          failure("Folder is empty")
+    //        }
+    //    }
     
     public func zipItems(sourceURL: [URL], nameZip: String) {
-      self.delegate?.zip(sourceURL: sourceURL, nameZip: nameZip)
-//        do {
-//            _ = try Zip.quickZipFiles(sourceURL, fileName: nameZip) // Zip
-//        }
-//        catch {
-//          print("Something went wrong")
-//        }
+        self.delegate?.zip(sourceURL: sourceURL, nameZip: nameZip)
+        //        do {
+        //            _ = try Zip.quickZipFiles(sourceURL, fileName: nameZip) // Zip
+        //        }
+        //        catch {
+        //          print("Something went wrong")
+        //        }
     }
     
     //MARK: REMOVE FILES
@@ -1080,12 +1093,12 @@ public class EasyFilesManage {
                     }
                     self.deletePinHome(url: url)
                     if url.hasDirectoryPath, let index = self.folders.firstIndex(where: { $0.url.getNamePath().uppercased().contains(url.getNamePath().uppercased())}) {
-//                        RealmManager.shared.deleteFolder(model: ManageApp.shared.folders[index])
-                      self.delegate?.deleteFolder(folder: self.folders[index])
+                        //                        RealmManager.shared.deleteFolder(model: ManageApp.shared.folders[index])
+                        self.delegate?.deleteFolder(folder: self.folders[index])
                     }
                     if url.hasDirectoryPath, let index = self.folders.firstIndex(where: { $0.url.getNamePathPlus().uppercased().contains(url.getNamePath().uppercased())}) {
-//                        RealmManager.shared.deleteFolder(model: ManageApp.shared.folders[index])
-                      self.delegate?.deleteFolder(folder: self.folders[index])
+                        //                        RealmManager.shared.deleteFolder(model: ManageApp.shared.folders[index])
+                        self.delegate?.deleteFolder(folder: self.folders[index])
                     }
                 }
             }
@@ -1111,12 +1124,12 @@ public class EasyFilesManage {
         }
     }
     
-//    func removeRecordingHomeModel(items: [RecordingHomeModel]) {
-//        items.forEach { item in
-//            self.removeFolder(name: item.title)
-//        }
-//        RealmManager.shared.deleteRecording(listRecord: items)
-//    }
+    //    func removeRecordingHomeModel(items: [RecordingHomeModel]) {
+    //        items.forEach { item in
+    //            self.removeFolder(name: item.title)
+    //        }
+    //        RealmManager.shared.deleteRecording(listRecord: items)
+    //    }
     
     public func removeFolderAllfiles(url: URL) {
         let fileManager = FileManager.default
@@ -1138,8 +1151,8 @@ public class EasyFilesManage {
         do {
             try fileManager.removeItem(at: pdfPath)
             if let index = self.folders.firstIndex(where: { $0.url.getNamePath().uppercased().contains(pdfPath.getNamePath().uppercased()) }) {
-//                RealmManager.shared.deleteFolder(model: ManageApp.shared.folders[index])
-              self.delegate?.deleteFolder(folder: self.folders[index])
+                //                RealmManager.shared.deleteFolder(model: ManageApp.shared.folders[index])
+                self.delegate?.deleteFolder(folder: self.folders[index])
             }
             self.deletePinHome(url: pdfPath)
         } catch let err {
@@ -1149,17 +1162,17 @@ public class EasyFilesManage {
     
     //MARK: Copy Item from iCloud
     public func covertToCAF(url: URL, completion: @escaping((URL) -> Void)) {
-//        self.createFolder(path: ConstantApp.shared.convertFolder, success: nil, failure: nil)
-//
-//        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-//        let outputURL = URL(string: documentsPath).appendingPathComponent("\(ConstantApp.shared.convertFolder)/\(url.getName())\(url.getType() ?? "")")
-//        let ex = SongExporter.init(exportPath: outputURL.path)
-//        ex.exportSongWithURL(url) { outputURL in
-//            print(outputURL)
-//        } failure: { string in
-//            print(string)
-//        }
-
+        //        self.createFolder(path: ConstantApp.shared.convertFolder, success: nil, failure: nil)
+        //
+        //        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        //        let outputURL = URL(string: documentsPath).appendingPathComponent("\(ConstantApp.shared.convertFolder)/\(url.getName())\(url.getType() ?? "")")
+        //        let ex = SongExporter.init(exportPath: outputURL.path)
+        //        ex.exportSongWithURL(url) { outputURL in
+        //            print(outputURL)
+        //        } failure: { string in
+        //            print(string)
+        //        }
+        
     }
     
     //MARK: DUPLICATE ITEMS
@@ -1216,13 +1229,13 @@ public class EasyFilesManage {
                 try FileManager.default.copyItem(at: srcURL, to: dstURL)
                 if srcURL.hasDirectoryPath {
                     let folder = FolderModel(imgName: "ic_other_folder", url: dstURL, id: Double(Date().convertDateToLocalTime().timeIntervalSince1970))
-//                    RealmManager.shared.updateOrInsertConfig(model: folder)
-                  self.delegate?.updateOrInsertConfig(folder: folder)
+                    //                    RealmManager.shared.updateOrInsertConfig(model: folder)
+                    self.delegate?.updateOrInsertConfig(folder: folder)
                 }
                 try FileManager.default.removeItem(at: srcURL)
                 if srcURL.hasDirectoryPath, let index = self.folders.firstIndex(where: { $0.url.getNamePath().uppercased().contains(srcURL.getNamePath().uppercased())}) {
-//                    RealmManager.shared.deleteFolder(model: ManageApp.shared.folders[index])
-                  self.delegate?.deleteFolder(folder: self.folders[index])
+                    //                    RealmManager.shared.deleteFolder(model: ManageApp.shared.folders[index])
+                    self.delegate?.deleteFolder(folder: self.folders[index])
                 }
             } catch (let error) {
                 e = error
@@ -1260,13 +1273,13 @@ public class EasyFilesManage {
                 try FileManager.default.copyItem(at: srcURL, to: dstURL)
                 if srcURL.hasDirectoryPath {
                     let folder = FolderModel(imgName: "ic_other_folder", url: dstURL, id: Double(Date().convertDateToLocalTime().timeIntervalSince1970))
-//                    RealmManager.shared.updateOrInsertConfig(model: folder)
-                  self.delegate?.updateOrInsertConfig(folder: folder)
+                    //                    RealmManager.shared.updateOrInsertConfig(model: folder)
+                    self.delegate?.updateOrInsertConfig(folder: folder)
                 }
                 try FileManager.default.removeItem(at: srcURL)
                 if srcURL.hasDirectoryPath, let index = self.folders.firstIndex(where: { $0.url.getNamePath().uppercased().contains(srcURL.getNamePath().uppercased())}) {
-//                    RealmManager.shared.deleteFolder(model: ManageApp.shared.folders[index])
-                  self.delegate?.deleteFolder(folder: self.folders[index])
+                    //                    RealmManager.shared.deleteFolder(model: ManageApp.shared.folders[index])
+                    self.delegate?.deleteFolder(folder: self.folders[index])
                 }
             } catch (let error) {
                 e = error
@@ -1310,11 +1323,11 @@ public class EasyFilesManage {
                     try FileManager.default.copyItem(at: srcURL, to: dstURL)
                     if srcURL.hasDirectoryPath {
                         let folder = FolderModel(imgName: "ic_other_folder", url: dstURL, id: Double(Date().convertDateToLocalTime().timeIntervalSince1970))
-//                        RealmManager.shared.updateOrInsertConfig(model: folder)
-                      self.delegate?.updateOrInsertConfig(folder: folder)
+                        //                        RealmManager.shared.updateOrInsertConfig(model: folder)
+                        self.delegate?.updateOrInsertConfig(folder: folder)
                     }
                 } catch (let error) {
-                   e = error
+                    e = error
                 }
             } else {
                 let id = Int(Date().convertDateToLocalTime().timeIntervalSince1970)
@@ -1329,7 +1342,7 @@ public class EasyFilesManage {
                 do {
                     try FileManager.default.copyItem(at: srcURL, to: dstURL)
                 } catch (let error) {
-                   e = error
+                    e = error
                 }
             }
         }
@@ -1372,7 +1385,7 @@ public class EasyFilesManage {
             return .failure(error)
         }
     }
-
+    
     
     public func secureCopyItemfromLibrary(at srcURL: URL, folderName: String, complention: @escaping ((URL) -> Void), failure: @escaping ((String) -> Void)) {
         let dstURL = self.createURL(folder: folderName, name: "\(srcURL.lastPathComponent)")
@@ -1408,9 +1421,9 @@ public class EasyFilesManage {
         activityVC.excludedActivityTypes = [.airDrop, .addToReadingList, .assignToContact,
                                             .mail, .message, .postToFacebook]
         activityVC.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
-//            if !completed {
-//                return
-//            }
+            //            if !completed {
+            //                return
+            //            }
             activityVC.dismiss(animated: true) {
                 complention?()
             }
@@ -1426,9 +1439,9 @@ public class EasyFilesManage {
         activityVC.excludedActivityTypes = [.airDrop, .addToReadingList, .assignToContact,
                                             .mail, .message, .postToFacebook]
         activityVC.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
-//            if !completed {
-//                return
-//            }
+            //            if !completed {
+            //                return
+            //            }
             activityVC.dismiss(animated: true) {
                 complention?()
             }
@@ -1457,7 +1470,7 @@ public class EasyFilesManage {
         let date = Date()
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day, .second, .hour], from: date)
-
+        
         let year =  components.year ?? 0
         let month = components.month ?? 0
         let day = components.day ?? 0
@@ -1539,7 +1552,7 @@ public enum ExportFileAV: Int, CaseIterable {
 }
 
 public class DiskStatus {
-
+    
     //MARK: Formatter MB only
     public class func MBFormatter(_ bytes: Int64) -> String {
         let formatter = ByteCountFormatter()
@@ -1548,28 +1561,28 @@ public class DiskStatus {
         formatter.includesUnit = false
         return formatter.string(fromByteCount: bytes) as String
     }
-
-
+    
+    
     //MARK: Get String Value
     public class var totalDiskSpace:String {
         get {
             return ByteCountFormatter.string(fromByteCount: totalDiskSpaceInBytes, countStyle: ByteCountFormatter.CountStyle.file)
         }
     }
-
+    
     public class var freeDiskSpace:String {
         get {
             return ByteCountFormatter.string(fromByteCount: freeDiskSpaceInBytes, countStyle: ByteCountFormatter.CountStyle.file)
         }
     }
-
+    
     public class var usedDiskSpace:String {
         get {
             return ByteCountFormatter.string(fromByteCount: usedDiskSpaceInBytes, countStyle: ByteCountFormatter.CountStyle.file)
         }
     }
-
-
+    
+    
     //MARK: Get raw value
     public class var totalDiskSpaceInBytes:Int64 {
         get {
@@ -1582,7 +1595,7 @@ public class DiskStatus {
             }
         }
     }
-
+    
     public class var freeDiskSpaceInBytes:Int64 {
         get {
             do {
@@ -1594,12 +1607,12 @@ public class DiskStatus {
             }
         }
     }
-
+    
     public class var usedDiskSpaceInBytes:Int64 {
         get {
             let usedSpace = totalDiskSpaceInBytes - freeDiskSpaceInBytes
             return usedSpace
         }
     }
-
+    
 }

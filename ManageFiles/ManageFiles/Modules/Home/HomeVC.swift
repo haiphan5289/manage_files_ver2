@@ -54,12 +54,22 @@ extension HomeVC {
         self.searchView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        self.searchView.delegate = self
         self.searchView.setValueConstrait(value: 33)
+        self.searchView.hideSort()
     }
     
     private func setupRX() {
         // Add here the setup for the RX
-        GlobalApp.shared.$homes.bind(to: self.source).disposed(by: disposeBag)
+        GlobalApp
+            .shared
+            .$homes
+            .map({ list in
+                let sort = SortModel.valueDefault
+                return EasyFilesManage.shared.sortDatasource(folders: list, sort: sort)
+            })
+            .bind(to: self.source)
+            .disposed(by: disposeBag)
         
         Observable.just(ToolsVC.ToolsFile.allCases)
             .bind(to: self.collectionView.rx.items(cellIdentifier: HomeCell.identifier,
@@ -76,6 +86,20 @@ extension HomeVC {
                 owner.selectAction(type: type, delegateCloud: owner)
             }.disposed(by: disposeBag)
         
+    }
+}
+extension HomeVC: SearchViewDelegate {
+    func actionSort() {
+        
+    }
+    
+    func searchText(text: String) {
+        if text.isEmpty {
+            GlobalApp.shared.updateAgain.onNext(())
+        } else {
+            let list = GlobalApp.shared.homes.filter { $0.url.getName().uppercased().contains(text.uppercased()) }
+            GlobalApp.shared.homes = list
+        }
     }
 }
 extension HomeVC: UIDocumentPickerDelegate {

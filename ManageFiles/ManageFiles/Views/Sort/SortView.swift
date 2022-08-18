@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EasyFiles
 
 class SortView: UIView, BaseViewSetUp {
 
@@ -27,7 +28,15 @@ extension SortView {
         
     }
     
-    func setType(type: SortVC.SortType) {
+    func hideArrow() {
+        self.imgArrow.isHidden = true
+    }
+    
+    func showArrow() {
+        self.imgArrow.isHidden = false
+    }
+    
+    func setType(type: EasyFilesManage.Sort) {
         self.lbName.text = type.text
     }
 }
