@@ -40,7 +40,15 @@ extension NavigationActionView {
             bt.rx.tap
                 .withUnretained(self)
                 .bind { owner, _ in
-                    owner.delgate?.selectAction(action: type)
+                    switch type {
+                    case .back:
+                        if let topVC = GlobalCommon.topViewController() {
+                            topVC.navigationController?.popViewController()
+                        }
+                    case .plus, .save:
+                        owner.delgate?.selectAction(action: type)
+                    }
+                    
                 }.disposed(by: disposeBag)
         }
     }

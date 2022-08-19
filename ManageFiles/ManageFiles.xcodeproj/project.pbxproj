@@ -62,6 +62,11 @@
 		93A9602F28AE90AF00A1986D /* FolderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A9602C28AE90AF00A1986D /* FolderVC.xib */; };
 		93A9603028AE90AF00A1986D /* FolderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9602D28AE90AF00A1986D /* FolderVM.swift */; };
 		93A9603128AE90AF00A1986D /* FolderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9602E28AE90AF00A1986D /* FolderVC.swift */; };
+		93AA03C028AFC12F0064EFA7 /* NavigationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA03BF28AFC12F0064EFA7 /* NavigationSearchView.swift */; };
+		93AA03C228AFC1490064EFA7 /* NavigationSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93AA03C128AFC1490064EFA7 /* NavigationSearchView.xib */; };
+		93AA03C728AFC8A90064EFA7 /* FilesMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93AA03C428AFC8A90064EFA7 /* FilesMenuVC.xib */; };
+		93AA03C828AFC8A90064EFA7 /* FilesMenuVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA03C528AFC8A90064EFA7 /* FilesMenuVM.swift */; };
+		93AA03C928AFC8A90064EFA7 /* FilesMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA03C628AFC8A90064EFA7 /* FilesMenuVC.swift */; };
 		93B4603428A92B8200E21A9E /* AutoLayout+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B4603328A92B8200E21A9E /* AutoLayout+Extension.swift */; };
 		93B663F4289E582F001BFA47 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B663F3289E582F001BFA47 /* Utility.swift */; };
 		93B663F8289E5C32001BFA47 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 93B663F7289E5C32001BFA47 /* swiftgen.yml */; };
@@ -154,6 +159,11 @@
 		93A9602C28AE90AF00A1986D /* FolderVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FolderVC.xib; sourceTree = "<group>"; };
 		93A9602D28AE90AF00A1986D /* FolderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderVM.swift; sourceTree = "<group>"; };
 		93A9602E28AE90AF00A1986D /* FolderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderVC.swift; sourceTree = "<group>"; };
+		93AA03BF28AFC12F0064EFA7 /* NavigationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSearchView.swift; sourceTree = "<group>"; };
+		93AA03C128AFC1490064EFA7 /* NavigationSearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationSearchView.xib; sourceTree = "<group>"; };
+		93AA03C428AFC8A90064EFA7 /* FilesMenuVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilesMenuVC.xib; sourceTree = "<group>"; };
+		93AA03C528AFC8A90064EFA7 /* FilesMenuVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesMenuVM.swift; sourceTree = "<group>"; };
+		93AA03C628AFC8A90064EFA7 /* FilesMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesMenuVC.swift; sourceTree = "<group>"; };
 		93B4603328A92B8200E21A9E /* AutoLayout+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AutoLayout+Extension.swift"; sourceTree = "<group>"; };
 		93B663F3289E582F001BFA47 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		93B663F7289E5C32001BFA47 /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
@@ -368,6 +378,7 @@
 		939DA46D289D57C000AEEF49 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				93AA03C328AFC88F0064EFA7 /* FilesMenu */,
 				93A9602B28AE8FFD00A1986D /* Folder */,
 				9390848328AD4A24002B835B /* Sort */,
 				9386D43D28A78BA500CC9335 /* ActionFiles */,
@@ -494,6 +505,25 @@
 			path = Folder;
 			sourceTree = "<group>";
 		};
+		93AA03BE28AFC1170064EFA7 /* NavigationSearch */ = {
+			isa = PBXGroup;
+			children = (
+				93AA03BF28AFC12F0064EFA7 /* NavigationSearchView.swift */,
+				93AA03C128AFC1490064EFA7 /* NavigationSearchView.xib */,
+			);
+			path = NavigationSearch;
+			sourceTree = "<group>";
+		};
+		93AA03C328AFC88F0064EFA7 /* FilesMenu */ = {
+			isa = PBXGroup;
+			children = (
+				93AA03C428AFC8A90064EFA7 /* FilesMenuVC.xib */,
+				93AA03C528AFC8A90064EFA7 /* FilesMenuVM.swift */,
+				93AA03C628AFC8A90064EFA7 /* FilesMenuVC.swift */,
+			);
+			path = FilesMenu;
+			sourceTree = "<group>";
+		};
 		93B663F9289E5D7E001BFA47 /* SwiftGen */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,6 +545,7 @@
 		93B663FD289E70EB001BFA47 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				93AA03BE28AFC1170064EFA7 /* NavigationSearch */,
 				9390847E28AD46D5002B835B /* Sort */,
 				9386D44428A78ED300CC9335 /* NavigationActionFiles */,
 				93B6642F289ECC7D001BFA47 /* Setting */,
@@ -713,6 +744,7 @@
 			files = (
 				93B66406289E75CF001BFA47 /* FilesVC.xib in Resources */,
 				9386D45328A7F5B500CC9335 /* FontsFree-Net-SFProDisplay-Bold.ttf in Resources */,
+				93AA03C228AFC1490064EFA7 /* NavigationSearchView.xib in Resources */,
 				93B66418289E7F8D001BFA47 /* FilesCell.xib in Resources */,
 				9390848228AD4746002B835B /* SortView.xib in Resources */,
 				3EBAF49F289D1E2400C59679 /* LaunchScreen.storyboard in Resources */,
@@ -730,6 +762,7 @@
 				9386D45228A7F5B500CC9335 /* FontsFree-Net-SFProText-Medium.ttf in Resources */,
 				9386D44128A78BBA00CC9335 /* ActionFilesVC.xib in Resources */,
 				3EBAF49C289D1E2400C59679 /* Assets.xcassets in Resources */,
+				93AA03C728AFC8A90064EFA7 /* FilesMenuVC.xib in Resources */,
 				3EBAF49A289D1E2300C59679 /* Main.storyboard in Resources */,
 				93B663F8289E5C32001BFA47 /* swiftgen.yml in Resources */,
 				93B66433289ECCCD001BFA47 /* SettingView.xib in Resources */,
@@ -797,6 +830,7 @@
 				9390848028AD46FA002B835B /* SortView.swift in Sources */,
 				9390847A28AD3D85002B835B /* Array+Extension.swift in Sources */,
 				939DA485289D5CA600AEEF49 /* SettingDefaultFont.swift in Sources */,
+				93AA03C928AFC8A90064EFA7 /* FilesMenuVC.swift in Sources */,
 				93B66426289EC327001BFA47 /* ToolsVC.swift in Sources */,
 				93B4603428A92B8200E21A9E /* AutoLayout+Extension.swift in Sources */,
 				939DA490289D5CEB00AEEF49 /* OptionalMessageDTO.swift in Sources */,
@@ -808,12 +842,14 @@
 				939DA4A7289D604800AEEF49 /* ListFontVC.swift in Sources */,
 				3EBAF497289D1E2300C59679 /* ViewController.swift in Sources */,
 				9390847328AD340A002B835B /* HomeCell.swift in Sources */,
+				93AA03C028AFC12F0064EFA7 /* NavigationSearchView.swift in Sources */,
 				939DA477289D594A00AEEF49 /* HomeVC.swift in Sources */,
 				939DA491289D5CEB00AEEF49 /* ReadJson.swift in Sources */,
 				9390847D28AD3FFB002B835B /* MoveToProtocol.swift in Sources */,
 				93B66402289E7174001BFA47 /* SearchView.swift in Sources */,
 				93B663FB289E5D9D001BFA47 /* Assets.swift in Sources */,
 				939DA48E289D5CEB00AEEF49 /* APILink.swift in Sources */,
+				93AA03C828AFC8A90064EFA7 /* FilesMenuVM.swift in Sources */,
 				93B66412289E79E8001BFA47 /* BaseViewSetUp.swift in Sources */,
 				939DA492289D5CEB00AEEF49 /* Request.swift in Sources */,
 				93B66440289ECF2C001BFA47 /* BaseSettingModel.swift in Sources */,

@@ -8,17 +8,29 @@
 import UIKit
 import RxSwift
 import EasyFiles
+import RxCocoa
+
+protocol FileCellDelegate: AnyObject {
+    func selectAction(action: FilesCellView.Action)
+}
 
 class FilesCellView: UIView, BaseViewSetUp {
 
+    enum Action: Int, CaseIterable {
+        case more, drop
+    }
+    
+    weak var delegate: FileCellDelegate?
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbSubtitle: UILabel!
-    @IBOutlet weak var btMore: UIButton!
     @IBOutlet weak var bottomStackView: NSLayoutConstraint!
     @IBOutlet weak var leftStackView: NSLayoutConstraint!
     @IBOutlet weak var rightStackView: NSLayoutConstraint!
     @IBOutlet weak var topStackView: NSLayoutConstraint!
+    @IBOutlet var bts: [UIButton]!
+    
+    private let disposeBag = DisposeBag()
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setupUI()
@@ -32,7 +44,14 @@ extension FilesCellView {
     }
     
     func setupRX() {
-        
+        Action.allCases.forEach { type in
+            let bt = self.bts[type.rawValue]
+            bt.rx.tap
+                .withUnretained(self)
+                .bind { owner, _ in
+                    owner.delegate?.selectAction(action: type)
+                }.disposed(by: disposeBag)
+        }
     }
     
     func setValueHome(folder: FolderModel) {
@@ -57,8 +76,12 @@ extension FilesCellView {
         }
     }
     
+    func showbtDrop() {
+        self.bts[Action.drop.rawValue].isHidden = false
+    }
+    
     func hideButonMore() {
-        self.btMore.isHidden = true
+        self.bts[Action.more.rawValue].isHidden = true
     }
     
     func updateLbSub(url: URL) {
@@ -80,6 +103,10 @@ extension FilesCellView {
         v.forEach { lb in
             lb?.constant = value
         }
+    }
+    
+    func setValueFilesMenu() {
+        
     }
     
     func setValueBottom(value: CGFloat) {

@@ -49,6 +49,14 @@
                                 </label>
                             </subviews>
                         </stackView>
+                        <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ti-Hp-eRo">
+                            <rect key="frame" x="352" y="24" width="0.0" height="0.0"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="9ti-Hp-eRo" secondAttribute="height" id="6c3-O8-Z3W"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="img_drop"/>
+                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gi6-Wg-d44">
                             <rect key="frame" x="358" y="12" width="24" height="24"/>
                             <constraints>
@@ -73,13 +81,14 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="bottomStackView" destination="BgV-Yq-NAw" id="Adl-1d-UgR"/>
-                <outlet property="btMore" destination="Gi6-Wg-d44" id="Btp-I2-8kD"/>
                 <outlet property="img" destination="z3i-Qy-UVx" id="Ocj-u3-qNC"/>
                 <outlet property="lbSubtitle" destination="swy-bu-3G7" id="T5Z-FV-V08"/>
                 <outlet property="lbTitle" destination="CBc-aB-qPn" id="JZ1-43-HKb"/>
                 <outlet property="leftStackView" destination="P0X-3N-8RQ" id="llQ-Ir-BmA"/>
                 <outlet property="rightStackView" destination="kbc-yd-6xd" id="g24-ya-4h9"/>
                 <outlet property="topStackView" destination="gLf-Kh-gyu" id="Wkn-eY-mge"/>
+                <outletCollection property="bts" destination="Gi6-Wg-d44" collectionClass="NSMutableArray" id="Xes-DF-4LD"/>
+                <outletCollection property="bts" destination="9ti-Hp-eRo" collectionClass="NSMutableArray" id="Trw-hm-3CN"/>
             </connections>
             <point key="canvasLocation" x="132" y="131"/>
         </view>
@@ -87,6 +96,7 @@
     <resources>
         <image name="ic_more_button" width="24" height="24"/>
         <image name="img_archives" width="48" height="48"/>
+        <image name="img_drop" width="24" height="24"/>
         <namedColor name="black40">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.40000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

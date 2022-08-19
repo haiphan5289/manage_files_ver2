@@ -50,10 +50,17 @@ extension FilesVC {
     
     private func setupRX() {
         // Add here the setup for the RX
-        GlobalApp.shared.$files.map({ list in
-            return EasyFilesManage.shared.sortDatasource(folders: list, sort: self.sortModel)
-        })
+        GlobalApp.shared.$files
+            .map({ list in
+                return EasyFilesManage.shared.sortDatasource(folders: list, sort: self.sortModel)
+            })
             .bind(to: self.source).disposed(by: disposeBag)
+        
+        self.selectItem
+            .withUnretained(self)
+            .bind { owner, item in
+                print("====== Files \(item) ======")
+            }.disposed(by: disposeBag)
     }
 }
 extension FilesVC: SearchViewDelegate {
@@ -67,12 +74,7 @@ extension FilesVC: SearchViewDelegate {
     }
     
     func actionSort() {
-        let vc = SortVC.createVC()
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle = .overFullScreen
-        vc.sort = self.sortModel
-        vc.delegate = self
-        self.present(vc, animated: true, completion: nil)
+        self.moveToSort(sort: self.sortModel, delegate: self)
     }
 }
 extension FilesVC: SortDelegate {

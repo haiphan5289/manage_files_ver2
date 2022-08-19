@@ -15,8 +15,7 @@ import EasyFiles
 
 class HomeVC: BaseTabbarVC,
               SetupBaseCollection,
-              ToolsProtocol,
-              MoveToProtocol {
+              ToolsProtocol {
     
     // Add here outlets
     @IBOutlet weak var contentTableView: UIView!
@@ -84,6 +83,12 @@ extension HomeVC {
             .bind { owner, idx in
                 let type = ToolsVC.ToolsFile.allCases[idx.row]
                 owner.selectAction(type: type, delegateCloud: owner)
+            }.disposed(by: disposeBag)
+        
+        self.selectItem
+            .withUnretained(self)
+            .bind { owner, item in
+                owner.moveToFiles(folder: item)
             }.disposed(by: disposeBag)
         
     }

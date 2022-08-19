@@ -11,11 +11,12 @@ import EasyBaseCodes
 import RxSwift
 import RxCocoa
 
-class BaseTabbarVC: BaseVC, SetupTableView {
+class BaseTabbarVC: BaseVC, SetupTableView, MoveToProtocol {
 
     let searchView: SearchView = .loadXib()
     var tableView: UITableView = UITableView(frame: .zero, style: .plain)
     let source: BehaviorRelay<[FolderModel]> = BehaviorRelay.init(value: [])
+    var selectItem: PublishSubject<FolderModel> = PublishSubject.init()
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,18 +52,21 @@ extension BaseTabbarVC {
                     }
                 case .tabbar, .setting, .action: break
                 }
+                cell.selectActionCell = { [weak self] action in
+                    guard let self = self else { return }
+                    switch action {
+                    case .more:
+                        self.selectItem.onNext(element)
+                    case .drop: break
+                    }
+                }
             }.disposed(by: disposeBag)
         
         self.tableView.rx.itemSelected.withUnretained(self).bind { owner, idx in
             switch self.screenType {
             case .files:
                 let item = owner.source.value[idx.row]
-                if let topVC = GlobalCommon.topViewController(), item.url.hasDirectoryPath {
-                    let vc = FolderVC.createVC()
-                    let folderName = EasyFilesManage.shared.detectPathFolder(url: item.url)
-                    vc.folderName = folderName
-                    topVC.navigationController?.pushViewController(vc, animated: true)
-                }
+                owner.moveToFolder(url: item.url)
             case .home, .folder, .action, .setting, .tabbar, .tools: break
             }
         }.disposed(by: disposeBag)

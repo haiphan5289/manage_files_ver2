@@ -10,6 +10,7 @@ import EasyFiles
 
 class FilesCell: UITableViewCell, BaseViewSetUp {
 
+    var selectActionCell: ((FilesCellView.Action) -> Void)?
     private var cellView: FilesCellView = .loadXib()
     
     override func awakeFromNib() {
@@ -33,6 +34,7 @@ extension FilesCell {
         self.cellView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        cellView.delegate = self
     }
     
     func setupRX() {
@@ -53,4 +55,9 @@ extension FilesCell {
         }
     }
     
+}
+extension FilesCell: FileCellDelegate {
+    func selectAction(action: FilesCellView.Action) {
+        self.selectActionCell?(action)
+    }
 }
