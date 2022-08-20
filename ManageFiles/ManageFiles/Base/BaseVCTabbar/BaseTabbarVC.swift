@@ -67,12 +67,20 @@ extension BaseTabbarVC {
             switch self.screenType {
             case .files:
                 let item = owner.source.value[idx.row]
-                owner.moveToFolder(url: item.url)
-            case .home, .folder, .action, .setting, .tabbar, .tools: break
+                owner.moveToFolder(url: item.url, delegate: owner)
+            case .home:
+                let item = owner.source.value[idx.row]
+                owner.moveToFolder(url: item.url, delegate: owner)
+            case .folder, .action, .setting, .tabbar, .tools: break
             }
         }.disposed(by: disposeBag)
     }
     
+}
+extension BaseTabbarVC: UIDocumentInteractionControllerDelegate {
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+        return self
+    }
 }
 extension BaseTabbarVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

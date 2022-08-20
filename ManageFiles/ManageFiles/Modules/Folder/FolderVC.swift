@@ -48,6 +48,7 @@ extension FolderVC {
             make.top.equalTo(16)
         }
         self.folders()
+        self.navigationController?.removeViewController(ActionFilesVC.self)
     }
     
     private func setupRX() {

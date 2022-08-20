@@ -34,6 +34,10 @@ extension NavigationActionView {
         
     }
     
+    func setTitleSave(title: String) {
+        self.bts[Action.save.rawValue].setTitle(title, for: .normal)
+    }
+    
     func setupRX() {
         Action.allCases.forEach { type in
             let bt = self.bts[type.rawValue]

@@ -17,7 +17,7 @@ protocol FilesMenuDelegate: AnyObject {
     func selectAction(action: FilesMenuVC.Action)
 }
 
-class FilesMenuVC: UIViewController {
+class FilesMenuVC: UIViewController, MoveToProtocol {
     
     enum Action: Int, CaseIterable {
         case info, rename, compress, duplicate, quickView, copy, move, share, delete
@@ -105,8 +105,12 @@ extension FilesMenuVC {
                             } failure: { msg in
                                 self.showAlert(title: nil, message: msg)
                             }
-                        case .compress: break
-                            
+                        case .copy, .move:
+                            let url = folder.url
+                            owner.moveToActionFiles(url: [url], status: ( type == .copy ) ? .copy : .move )
+                        case .compress:
+                            let folderCompress = EasyFilesManage.shared.getNameFolderToCompress(url: folder.url)
+                            GlobalApp.shared.zipItems(sourceURL: [folder.url], folderCompress: folderCompress)
                         case .duplicate:
                             Task.init {
                                 do {

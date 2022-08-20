@@ -74,8 +74,7 @@ final class GlobalApp: GlobalAppProtocol {
                 var homesList: [FolderModel] = []
                 homesList += EasyFilesManage.shared.getDirectory()
                 
-                list
-                    .filter({ folder in
+                list.filter({ folder in
                         let folderName = EasyFilesManage.shared.detectPathFolder(url: folder.url)
                         let isExist = (folderName.uppercased().contains(FolderName.Trash.rawValue.uppercased()))
                         return  !isExist

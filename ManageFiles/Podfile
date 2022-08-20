@@ -62,6 +62,7 @@ pod 'KeychainSwift', '~> 19.0'
 pod 'EasyBaseCodes'
 pod 'EasyBaseAudio'
 pod 'EasyFiles'
+pod 'Zip'
   # Pods for ManageFiles
 
 end

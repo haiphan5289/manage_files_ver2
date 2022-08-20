@@ -219,6 +219,7 @@ PODS:
   - UIDropDown (1.1.1)
   - ViewAnimator (3.1.0)
   - WMSegmentControl (2.3)
+  - Zip (2.1.2)
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0
@@ -269,6 +270,7 @@ DEPENDENCIES:
   - UIDropDown
   - ViewAnimator
   - WMSegmentControl
+  - Zip
 
 SPEC REPOS:
   trunk:
@@ -338,6 +340,7 @@ SPEC REPOS:
     - UIDropDown
     - ViewAnimator
     - WMSegmentControl
+    - Zip
 
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: 36da254b97a09ff89679ecb8b8510bd3e5bdc773
@@ -406,7 +409,8 @@ SPEC CHECKSUMS:
   UIDropDown: 22e6e3e22d419884c8f21d95ea9be36aac905ed4
   ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
   WMSegmentControl: 15120246d0fdbb7530d7fa03e90c3ec6f4fa85bd
+  Zip: b3fef584b147b6e582b2256a9815c897d60ddc67
 
-PODFILE CHECKSUM: 6f3f54d08a2d21193c6c74448330c5e8ed7ec14e
+PODFILE CHECKSUM: 7352188a2e29ca0b49737a33b2cbe4671994ede8
 
 COCOAPODS: 1.11.3

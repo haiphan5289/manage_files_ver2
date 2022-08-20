@@ -133,12 +133,7 @@ extension TabbarVC {
     }
     
     func moveToActionFiles(url: URL) {
-        guard let topVC = GlobalCommon.topViewController() else {
-            return
-        }
-        let vc = ActionFilesVC.createVC()
-        vc.originURL = [url]
-        topVC.navigationController?.pushViewController(vc)
+        self.moveToActionFiles(url: [url], status: .cloud)
 
     }
     

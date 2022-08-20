@@ -54,6 +54,12 @@ extension FilesCellView {
         }
     }
     
+    func setTitleUrl(url: URL) {
+        self.lbTitle.text = url.getName()
+        self.lbTitle.adjustsFontSizeToFitWidth = true
+        self.lbTitle.minimumScaleFactor = 0.5
+    }
+    
     func setValueHome(folder: FolderModel) {
         self.loadTitle(folder: folder)
         self.lbSubtitle.text = folder.url.getSubURL()

@@ -13,7 +13,11 @@ import RxSwift
 import EasyBaseCodes
 import EasyFiles
 
-class ActionFilesVC: BaseVC {
+class ActionFilesVC: BaseVC, MoveToProtocol {
+    
+    enum ActionStatus {
+        case cloud, move, copy
+    }
     
     struct SaveView {
         let view: CopyView
@@ -21,7 +25,7 @@ class ActionFilesVC: BaseVC {
     }
     
     var originURL: [URL] = []
-    
+    var status: ActionStatus = .cloud
     // Add here outlets
     @IBOutlet weak var contentHeaderView: UIView!
     @IBOutlet weak var stackView: UIStackView!
@@ -67,6 +71,16 @@ extension ActionFilesVC {
         }
         self.headerView.setValueActionView(value: 0)
         self.headerView.hideButonMore()
+        switch self.status {
+        case .copy:
+            self.titleView.setTitleSave(title: "Copy")
+        case .move:
+            self.titleView.setTitleSave(title: "Move")
+        case .cloud: break
+        }
+        if let first = self.originURL.first {
+            self.headerView.setTitleUrl(url: first)
+        }
     }
     
     private func setupUI() {
@@ -89,21 +103,51 @@ extension ActionFilesVC {
         self.actionTrigger
             .withUnretained(self)
             .bind { owner, _ in
-                guard let first = owner.originURL.first else {
+                if owner.selectFolder.isEmpty {
+                    owner.showAlert(title: nil, message: "Vui lòng chọn folder")
                     return
                 }
-                Task.init {
-                    do {
-                        let result = try await EasyFilesManage.shared.secureCopyItemfromiCloud(at: first, folderName: owner.selectFolder)
-                        switch result {
-                        case .success(_): owner.navigationController?.popViewController()
-                        case .failure(let error):
-                            self.showAlert(title: nil, message: error.localizedDescription)
+                switch owner.status {
+                case .cloud:
+                    guard let first = owner.originURL.first else {
+                        return
+                    }
+                    Task.init {
+                        do {
+                            let result = try await EasyFilesManage.shared.secureCopyItemfromiCloud(at: first, folderName: owner.selectFolder)
+                            switch result {
+                            case .success(let url):
+                                owner.moveToFolder(url: url, delegate: nil, folder: owner.selectFolder)
+                            case .failure(let error):
+                                self.showAlert(title: nil, message: error.localizedDescription)
+                            }
+                        } catch let err {
+                            self.showAlert(title: nil, message: err.localizedDescription)
                         }
-                    } catch let err {
-                        self.showAlert(title: nil, message: err.localizedDescription)
+                    }
+                case .copy:
+                    Task.init {
+                        do {
+                            let result = try await EasyFilesManage.shared.secureCopyItemstoFolder(at: self.originURL, folderName: self.selectFolder)
+                            switch result {
+                            case .success(_):
+                                owner.moveToFolder(url: URL.init(fileURLWithPath: ""), delegate: nil, folder: owner.selectFolder)
+                            case .failure(let err):
+                                self.showAlert(title: nil, message: err.localizedDescription)
+                            }
+                        } catch let err {
+                            self.showAlert(title: nil, message: err.localizedDescription)
+                        }
+                    }
+                case .move:
+                    EasyFilesManage.shared.moveToItem(at: self.originURL, folderName: self.selectFolder) {
+                        owner.moveToFolder(url: URL.init(fileURLWithPath: ""), delegate: nil, folder: owner.selectFolder)
+                    } failure: { [weak self] err in
+                        guard let wSelf = self else { return }
+                        wSelf.showAlert(title: nil, message: err)
                     }
                 }
+                
 //                switch self.statusVC {
 //                case .importFiles:
 //                    guard let first = self.sourceURL.first else { return }

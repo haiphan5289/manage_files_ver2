@@ -117,7 +117,7 @@ extension HomeVC: UIDocumentPickerDelegate {
         guard let first = urls.first else {
             return
         }
-        self.moveToActionFiles(url: first)
+        self.moveToActionFiles(url: urls, status: .cloud)
     }
 }
 
