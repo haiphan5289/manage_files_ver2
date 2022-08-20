@@ -3072,7 +3072,7 @@
 		0C9B40D0CB7E2FF3BF802C9BC171EB48 /* HKVideoRangeSlider */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HKVideoRangeSlider; path = HKVideoRangeSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CA81DEE3446002A4B076769E6FEA8BE /* Driver+Subscription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Driver+Subscription.swift"; path = "RxCocoa/Traits/Driver/Driver+Subscription.swift"; sourceTree = "<group>"; };
 		0CD776A7899FF7F17EFD3E6D18EDC788 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIApplicationExtensions.swift; path = BaseCodeEasy/BaseCodeEasy/UIKit/UIApplicationExtensions.swift; sourceTree = "<group>"; };
-		0CE5A3716CE3D48CBE79396823505936 /* Pods-ManageFiles */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-ManageFiles"; path = Pods_ManageFiles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CE5A3716CE3D48CBE79396823505936 /* Pods_ManageFiles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ManageFiles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D0A8B12FF76A5F6DC05958A9B1973EE /* FirebaseABTesting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FirebaseABTesting.h; path = FirebaseABTesting/Sources/Public/FirebaseABTesting/FirebaseABTesting.h; sourceTree = "<group>"; };
 		0D21AA9DFABB8FC8FA84BFE4932EF4F3 /* DefaultFillFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultFillFormatter.swift; path = Source/Charts/Formatters/DefaultFillFormatter.swift; sourceTree = "<group>"; };
 		0D37D143E46C10DD69DEBE701DE8F048 /* RCNConfigContent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCNConfigContent.h; path = FirebaseRemoteConfig/Sources/RCNConfigContent.h; sourceTree = "<group>"; };
@@ -8214,7 +8214,7 @@
 				A1B9F27862201CD82B398E0B35B14128 /* NVActivityIndicatorView */,
 				257B637D85B0FBAD0A4E149E5F274CFA /* PhotoSlider */,
 				EBF7DC19DC01B29734131000406CC8D0 /* PhotoSlider-PhotoSlider */,
-				0CE5A3716CE3D48CBE79396823505936 /* Pods-ManageFiles */,
+				0CE5A3716CE3D48CBE79396823505936 /* Pods_ManageFiles.framework */,
 				3347A1AB6546F0A3977529B8F199DC41 /* PromisesObjC */,
 				921BE4A82C4A7A5C72A0C6F8B8FEF200 /* Realm */,
 				437919EE08EC6BFCCBAC3BD346309742 /* RealmSwift */,
@@ -10933,7 +10933,7 @@
 			);
 			name = "Pods-ManageFiles";
 			productName = Pods_ManageFiles;
-			productReference = 0CE5A3716CE3D48CBE79396823505936 /* Pods-ManageFiles */;
+			productReference = 0CE5A3716CE3D48CBE79396823505936 /* Pods_ManageFiles.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		51471EE35F2E9E19E51A74944E5ABB7F /* FirebaseRemoteConfig */ = {

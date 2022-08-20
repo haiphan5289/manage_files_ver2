@@ -12,7 +12,7 @@ import UIKit
 protocol MoveToProtocol {}
 extension MoveToProtocol {
     
-    func moveToFiles(folder: FolderModel) {
+    func moveToFiles(folder: FolderModel, delegate: FilesMenuDelegate) {
         guard let topVC = GlobalCommon.topViewController() else {
             return
         }
@@ -20,6 +20,7 @@ extension MoveToProtocol {
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen
         vc.folder = folder
+        vc.delegate = delegate
         topVC.present(vc, animated: true, completion: nil)
     }
     

@@ -38,6 +38,14 @@ extension SortVC {
     
     private func setupUI() {
         // Add here the setup for the UI
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer()
+        self.view.addGestureRecognizer(tap)
+        tap.rx.event
+            .withUnretained(self)
+            .bind { owner, _ in
+                owner.dismiss(animated: true, completion: nil)
+            }.disposed(by: disposeBag)
+        
         EasyFilesManage.Sort.allCases.forEach { type in
             let v: UIView = UIView(frame: .zero)
             v.snp.makeConstraints { make in

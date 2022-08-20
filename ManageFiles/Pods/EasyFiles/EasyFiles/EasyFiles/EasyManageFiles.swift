@@ -416,7 +416,7 @@ public class EasyFilesManage {
     }
     
     //MARK: DETECT FILE TYPE
-    func detectFile(url: URL) -> ImageType? {
+    public func detectFile(url: URL) -> ImageType? {
         var typeImage: ImageType?
         
         ImageType.allCases.forEach { type in

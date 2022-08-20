@@ -12,7 +12,7 @@ import EasyBaseAudio
 import RxSwift
 import UIKit
 
-final class GlobalApp {
+final class GlobalApp: GlobalAppProtocol {
     
     enum FolderName: String, CaseIterable {
         case Archives, Documents, Folder, Images, Music, Others, Transfered, Trash, Videos
@@ -74,7 +74,13 @@ final class GlobalApp {
                 var homesList: [FolderModel] = []
                 homesList += EasyFilesManage.shared.getDirectory()
                 
-                list.forEach { folder in
+                list
+                    .filter({ folder in
+                        let folderName = EasyFilesManage.shared.detectPathFolder(url: folder.url)
+                        let isExist = (folderName.uppercased().contains(FolderName.Trash.rawValue.uppercased()))
+                        return  !isExist
+                    })
+                    .forEach { folder in
                     let folderName: String = EasyFilesManage.shared.detectPathFolder(url: folder.url)
                     let n = folderName.count
                     if folderName.index(folderName.startIndex, offsetBy: n, limitedBy: folderName.endIndex) != nil {
@@ -92,10 +98,7 @@ final class GlobalApp {
                 
         }.disposed(by: disposeBag)
     }
-    
 
-
-    
     private func setValueDefault() {
         let icons = FolderName.allCases.map { $0.nameImage }
         let folders = FolderName.allCases.map { $0.rawValue }

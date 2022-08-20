@@ -29,12 +29,13 @@ extension BaseTabbarVC {
     
     private func setupUI() {
         self.setupTableView(delegate: self, name: FilesCell.self)
-        guard let path = Bundle.main.path(forResource: "video_select_print", ofType:"mp4")else {
+        guard let path = Bundle.main.path(forResource: "image_check", ofType:"png")else {
             debugPrint("video.m4v not found")
             return
         }
         let url = URL(fileURLWithPath: path)
-        url.getThumbnailImage()
+        print("======== url.getSize() \(url.getSize())")
+        
     }
     
     private func setupRX() {

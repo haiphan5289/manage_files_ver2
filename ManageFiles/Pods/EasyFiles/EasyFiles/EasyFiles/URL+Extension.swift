@@ -113,6 +113,19 @@ extension URL {
         return url
     }
     
+    public func getSizeURL() -> Int? {
+        do {
+            let resources = try self.resourceValues(forKeys:[.fileSizeKey])
+            if let fileSize = resources.fileSize {
+                return fileSize / 1000
+            }
+            
+        } catch {
+            print("Error: \(error)")
+        }
+        return nil
+    }
+    
     public func getCreateDate() -> Date? {
         do {
             let resources = try self.parseURLSystem().resourceValues(forKeys: [.creationDateKey])
@@ -136,11 +149,9 @@ extension URL {
         let create = self.getCreateDate()?.covertToString(format: .HHmmddMMyyyy)
         var getSize: String = "5kb"
         
-        do {
-            if let size = try self.parseURLSystem().sizeOnDisk() {
-                getSize = size
-            }
-        } catch {}
+        if let size = self.parseURLSystem().getSizeURL() {
+            getSize = "\(size) MB"
+        }
         
         return "\(create ?? "") • \(getSize)"
     }
