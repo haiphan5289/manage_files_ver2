@@ -12,6 +12,7 @@ import RxCocoa
 import RxSwift
 import VisionKit
 import MobileCoreServices
+import EasyFiles
 
 protocol AdditionDelegate: AnyObject {
     func moveToAction(url: URL)
@@ -121,7 +122,18 @@ extension AdditionVC: VNDocumentCameraViewControllerDelegate {
         // You are responsible for dismissing the controller.
         controller.dismiss(animated: true) {
             if let pdfData = images.makePDF()?.dataRepresentation() {
-                //                self.showCreatePDF(pdfData: pdfData)
+                Task.init {
+                    do {
+                        let result = try await EasyFilesManage.shared.savePdf(data: pdfData, fileName: "Scan\(Int(Date().timeIntervalSince1970))", folderName: "\(GlobalApp.FolderName.Trash.rawValue)/")
+                        switch result {
+                        case .success(let outputURL):
+                            self.moveToURL(url: outputURL)
+                        case .failure: break
+                        }
+                    } catch {
+                        
+                    }
+                }
             }
         }
     }

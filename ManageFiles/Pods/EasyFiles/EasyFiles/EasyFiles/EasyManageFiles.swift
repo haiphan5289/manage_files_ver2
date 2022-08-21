@@ -432,8 +432,8 @@ public class EasyFilesManage {
         return nil
     }
     
-    public func savePdf(data: Data, fileName: String) async throws -> Result<URL, Error> {
-        let resourceDocPath = self.createURL(folder: "", name: fileName).appendingPathExtension(ImageType.pdf.value)
+    public func savePdf(data: Data, fileName: String, folderName: String) async throws -> Result<URL, Error> {
+        let resourceDocPath = self.createURL(folder: folderName, name: fileName).appendingPathExtension(ImageType.pdf.value)
         do {
             try data.write(to: resourceDocPath, options: .atomic)
             return .success(resourceDocPath)
