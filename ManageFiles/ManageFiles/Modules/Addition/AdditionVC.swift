@@ -80,7 +80,7 @@ extension AdditionVC {
                                   let type = Addtion.init(rawValue: nameType) else {
                                 return
                             }
-                            owner.selectAction(type: type, delegateCloud: owner, delegatePhoto: owner, delegateScan: owner)
+                            owner.selectAction(type: type, delegateCloud: owner, delegatePhoto: owner, delegateScan: owner, renameDelegate: owner)
                         }.disposed(by: owner.disposeBag)
                     
                     owner.stackView.addArrangedSubview(v)
@@ -108,6 +108,11 @@ extension AdditionVC {
         }
     }
         
+}
+extension AdditionVC: RenameViewDelegate {
+    func update() {
+        GlobalApp.shared.updateAgain.onNext(())
+    }
 }
 extension AdditionVC: VNDocumentCameraViewControllerDelegate {
     func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {

@@ -9,6 +9,7 @@ import Foundation
 import VisionKit
 import MobileCoreServices
 import EasyBaseCodes
+import EasyFiles
 
 protocol AdditionProtocol {}
 extension AdditionProtocol {
@@ -16,7 +17,8 @@ extension AdditionProtocol {
     func selectAction(type: AdditionVC.Addtion,
                       delegateCloud: UIDocumentPickerDelegate,
                       delegatePhoto: (UIImagePickerControllerDelegate & UINavigationControllerDelegate),
-                      delegateScan: VNDocumentCameraViewControllerDelegate) {
+                      delegateScan: VNDocumentCameraViewControllerDelegate,
+                      renameDelegate: RenameViewDelegate) {
         guard let topVC = GlobalCommon.topViewController() else {
             return
         }
@@ -52,7 +54,15 @@ extension AdditionProtocol {
                     topvc.navigationController?.pushViewController(vc, animated: true)
                 }
             }
-        case .folder: break
+        case .folder:
+            topVC.dismiss(animated: true) {
+                let renameView: RenameView = .loadXib()
+                renameView.delegate = renameDelegate
+                renameView.ranmeStatus = .create
+                renameView.show()
+                let url = EasyFilesManage.shared.gettURL(folder: "")
+                renameView.setValue(url: url, folderName: url.getName())
+            }
         }
     }
 }

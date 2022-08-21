@@ -149,65 +149,6 @@ extension ActionFilesVC {
                         wSelf.showAlert(title: nil, message: err)
                     }
                 }
-                
-//                switch self.statusVC {
-//                case .importFiles:
-//                    guard let first = self.sourceURL.first else { return }
-//                    Task.init {
-//                        do {
-//                            let result = try await ManageApp.shared.secureCopyItemfromiCloud(at: first, folderName: self.selectFolder)
-//                            switch result {
-//                            case .success(_): self.dismiss(animated: true, completion: nil)
-//                            case .failure(let error):
-//                                self.showAlert(title: nil, message: error.localizedDescription)
-//                            }
-//                        } catch let err {
-//                            self.showAlert(title: nil, message: err.localizedDescription)
-//                        }
-//                    }
-//                case .copy:
-//                    Task.init {
-//                        do {
-//                            let result = try await ManageApp.shared.secureCopyItemstoFolder(at: self.sourceURL, folderName: self.selectFolder)
-//                            switch result {
-//                            case .success(_):
-//                                self.dismiss(animated: true) {
-//                                    DispatchQueue.main.async {
-//                                        self.delegate?.updateItems()
-//                                    }
-//                                }
-//                            case .failure(let err):
-//                                self.showAlert(title: nil, message: err.localizedDescription)
-//                            }
-//                        } catch let err {
-//                            self.showAlert(title: nil, message: err.localizedDescription)
-//                        }
-//                    }
-//                case .move:
-//                    ManageApp.shared.moveToItem(at: self.sourceURL, folderName: self.selectFolder) {
-//                        self.dismiss(animated: true) {
-//                            DispatchQueue.main.async {
-//                                self.delegate?.updateItems()
-//                            }
-//                        }
-//                    } failure: { [weak self] err in
-//                        guard let wSelf = self else { return }
-//                        wSelf.showAlert(title: nil, message: err)
-//                    }
-//
-//                case .save:
-//                    ManageApp.shared.moveToItemText(at: self.sourceURL, folderName: self.selectFolder) {
-//                        self.dismiss(animated: true) {
-//                            DispatchQueue.main.async {
-//                                self.delegate?.updateItems()
-//                            }
-//                        }
-//                    } failure: { [weak self] err in
-//                        guard let wSelf = self else { return }
-//                        wSelf.showAlert(title: nil, message: err)
-//                    }
-//        //        case .importFiles: break
-//                }
             }.disposed(by: disposeBag)
     }
     
@@ -315,7 +256,22 @@ extension ActionFilesVC: NavigationActionDelegate {
             self.navigationController?.popViewController(animated: true, nil)
         case .save:
             actionTrigger.onNext(())
-        case .plus: break
+        case .plus:
+            if self.selectFolder.isEmpty {
+                self.showAlert(title: nil, message: "Vui lòng chọn folder")
+                return
+            }
+            let renameView: RenameView = .loadXib()
+            renameView.delegate = self
+            renameView.ranmeStatus = .create
+            renameView.show()
+            let url = EasyFilesManage.shared.gettURL(folder: self.selectFolder)
+            renameView.setValue(url: url, folderName: url.getName())
         }
+    }
+}
+extension ActionFilesVC: RenameViewDelegate {
+    func update() {
+        self.setupUI()
     }
 }
