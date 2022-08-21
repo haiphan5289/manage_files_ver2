@@ -22,6 +22,8 @@
 		9386D45128A7F5B500CC9335 /* FontsFree-Net-SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9386D44C28A7F5B500CC9335 /* FontsFree-Net-SFProText-Semibold.ttf */; };
 		9386D45228A7F5B500CC9335 /* FontsFree-Net-SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9386D44D28A7F5B500CC9335 /* FontsFree-Net-SFProText-Medium.ttf */; };
 		9386D45328A7F5B500CC9335 /* FontsFree-Net-SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9386D44F28A7F5B500CC9335 /* FontsFree-Net-SFProDisplay-Bold.ttf */; };
+		93890DAD28B1D51400A8F467 /* RenameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93890DAC28B1D51400A8F467 /* RenameView.swift */; };
+		93890DAF28B1D55400A8F467 /* RenameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93890DAE28B1D55400A8F467 /* RenameView.xib */; };
 		9390847328AD340A002B835B /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390847128AD340A002B835B /* HomeCell.swift */; };
 		9390847428AD340A002B835B /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9390847228AD340A002B835B /* HomeCell.xib */; };
 		9390847728AD3BDD002B835B /* ToolsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390847628AD3BDD002B835B /* ToolsProtocol.swift */; };
@@ -121,6 +123,8 @@
 		9386D44C28A7F5B500CC9335 /* FontsFree-Net-SFProText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProText-Semibold.ttf"; sourceTree = "<group>"; };
 		9386D44D28A7F5B500CC9335 /* FontsFree-Net-SFProText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProText-Medium.ttf"; sourceTree = "<group>"; };
 		9386D44F28A7F5B500CC9335 /* FontsFree-Net-SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		93890DAC28B1D51400A8F467 /* RenameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameView.swift; sourceTree = "<group>"; };
+		93890DAE28B1D55400A8F467 /* RenameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RenameView.xib; sourceTree = "<group>"; };
 		9390847128AD340A002B835B /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		9390847228AD340A002B835B /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
 		9390847628AD3BDD002B835B /* ToolsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsProtocol.swift; sourceTree = "<group>"; };
@@ -321,6 +325,15 @@
 				9386D44F28A7F5B500CC9335 /* FontsFree-Net-SFProDisplay-Bold.ttf */,
 			);
 			path = display;
+			sourceTree = "<group>";
+		};
+		93890DAB28B1D4FF00A8F467 /* RenameView */ = {
+			isa = PBXGroup;
+			children = (
+				93890DAC28B1D51400A8F467 /* RenameView.swift */,
+				93890DAE28B1D55400A8F467 /* RenameView.xib */,
+			);
+			path = RenameView;
 			sourceTree = "<group>";
 		};
 		9390847028AD3394002B835B /* Cell */ = {
@@ -551,6 +564,7 @@
 		93B663FD289E70EB001BFA47 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				93890DAB28B1D4FF00A8F467 /* RenameView */,
 				93AA03BE28AFC1170064EFA7 /* NavigationSearch */,
 				9390847E28AD46D5002B835B /* Sort */,
 				9386D44428A78ED300CC9335 /* NavigationActionFiles */,
@@ -751,6 +765,7 @@
 				93B66406289E75CF001BFA47 /* FilesVC.xib in Resources */,
 				9386D45328A7F5B500CC9335 /* FontsFree-Net-SFProDisplay-Bold.ttf in Resources */,
 				93AA03C228AFC1490064EFA7 /* NavigationSearchView.xib in Resources */,
+				93890DAF28B1D55400A8F467 /* RenameView.xib in Resources */,
 				93B66418289E7F8D001BFA47 /* FilesCell.xib in Resources */,
 				9390848228AD4746002B835B /* SortView.xib in Resources */,
 				3EBAF49F289D1E2400C59679 /* LaunchScreen.storyboard in Resources */,
@@ -860,6 +875,7 @@
 				93B66412289E79E8001BFA47 /* BaseViewSetUp.swift in Sources */,
 				939DA492289D5CEB00AEEF49 /* Request.swift in Sources */,
 				93B66440289ECF2C001BFA47 /* BaseSettingModel.swift in Sources */,
+				93890DAD28B1D51400A8F467 /* RenameView.swift in Sources */,
 				939DA483289D5CA600AEEF49 /* Constant.swift in Sources */,
 				939DA49C289D5D9A00AEEF49 /* PropertyWapper.swift in Sources */,
 				93B6643D289ECEB4001BFA47 /* BaseSetting.swift in Sources */,

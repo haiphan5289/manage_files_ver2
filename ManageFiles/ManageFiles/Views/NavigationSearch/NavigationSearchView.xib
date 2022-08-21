@@ -19,7 +19,7 @@
                     <rect key="frame" x="16" y="10" width="382" height="28"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zP0-E4-05i">
-                            <rect key="frame" x="0.0" y="2" width="24" height="24"/>
+                            <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="zP0-E4-05i" secondAttribute="height" id="wD1-pZ-i3I"/>
                             </constraints>
@@ -27,10 +27,10 @@
                             <state key="normal" image="ic_arrow_back"/>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uB5-xl-3Dr">
-                            <rect key="frame" x="32" y="0.0" width="286" height="28"/>
+                            <rect key="frame" x="36" y="0.0" width="310" height="28"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfq-F4-0Sz">
-                                    <rect key="frame" x="145" y="4" width="28" height="20.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Sfq-F4-0Sz">
+                                    <rect key="frame" x="0.0" y="4" width="310" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -39,15 +39,17 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="Sfq-F4-0Sz" firstAttribute="centerY" secondItem="uB5-xl-3Dr" secondAttribute="centerY" id="2Ng-7s-wkJ"/>
+                                <constraint firstItem="Sfq-F4-0Sz" firstAttribute="leading" secondItem="uB5-xl-3Dr" secondAttribute="leading" id="WCB-5e-iCe"/>
+                                <constraint firstAttribute="trailing" secondItem="Sfq-F4-0Sz" secondAttribute="trailing" id="an7-Co-Gn6"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAH-Ly-sYF">
-                            <rect key="frame" x="326" y="2" width="24" height="24"/>
+                            <rect key="frame" x="354" y="2" width="0.0" height="24"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" image="ic_search_dark"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7S-Ka-w8S">
-                            <rect key="frame" x="358" y="2" width="24" height="24"/>
+                            <rect key="frame" x="362" y="4" width="20" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="H7S-Ka-w8S" secondAttribute="height" id="Vcw-gs-4dd"/>
                             </constraints>

@@ -640,7 +640,12 @@ public class EasyFilesManage {
         return file
     }
     
-    public func getFoldersRoot(filesStr: [String]) -> [FolderModel] {
+    public func getFoldersRoot() -> [FolderModel] {
+        let fileRealm: String = "default.realm.lock"
+        let fileRealmManage: String = "default.realm.management"
+        let fileRealmNote: String = "default.realm.note"
+        let fileRealmDefault: String = "default.realm"
+        
         var file: [FolderModel] = []
         guard let documentDirectoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
             return []
@@ -651,14 +656,14 @@ public class EasyFilesManage {
         if folderName.index(folderName.startIndex, offsetBy: n, limitedBy: folderName.endIndex) != nil {
             let files = self.getItemsFolder(folder: folderName)
                 .filter{ $0.hasDirectoryPath }
-            var url = files
-            filesStr.forEach { text in
-                url = url.filter { !$0.absoluteString.contains(text) }
-            }
-            let f = url .map { url in
-                return FolderModel(imgName: nil, url: url, id: Date().convertDateToLocalTime().timeIntervalSince1970)
-            }
-            file += f
+                .filter{ !$0.absoluteString.contains(fileRealm) }
+                .filter{ !$0.absoluteString.contains(fileRealmManage) }
+                .filter{ !$0.absoluteString.contains(fileRealmNote) }
+                .filter{ !$0.absoluteString.contains(fileRealmDefault) }
+                .map { url in
+                    return FolderModel(imgName: nil, url: url, id: Date().convertDateToLocalTime().timeIntervalSince1970)
+                }
+            file += files
         }
         return file
     }

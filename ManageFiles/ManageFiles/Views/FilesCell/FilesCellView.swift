@@ -127,12 +127,26 @@ extension FilesCellView {
     }
     
     func setValueFiles(folder: FolderModel) {
-        self.loadTitle(folder: folder)
-        
-        if let name = folder.imgName {
-            let count = EasyFilesManage.shared.getItemsFolder(folder: name).count
-            self.updateSubTitle(count: count)
+        let folderName = EasyFilesManage.shared.detectPathFolder(url: folder.url)
+        let text = EasyFilesManage.shared.getNameOrigin(string: folderName)
+        let type = GlobalApp.FolderName.getStatus(name: text)
+        switch type {
+        case .Others:
+            if folder.url.hasDirectoryPath {
+                self.lbTitle.text = "\(folder.url.getName())"
+                self.img.image = UIImage(named: "\(type.nameImage)")
+            } else {
+                self.lbTitle.text = "\(folder.url.getName()).\(folder.url.getType() ?? "")"
+                EasyFilesManage.shared.loadImage(imgThumbnail: img,
+                                           lbName: lbTitle,
+                                           file: folder)
+            }
+            
+        default:
+            self.lbTitle.text = folder.url.getName()
+            self.img.image = UIImage(named: "\(type.nameImage)")
         }
+        self.lbSubtitle.text = folder.url.getSubURL()
     }
     
     private func loadTitle(folder: FolderModel) {

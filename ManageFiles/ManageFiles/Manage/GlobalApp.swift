@@ -30,6 +30,10 @@ final class GlobalApp: GlobalAppProtocol {
             case .Videos: return "img_videos"
             }
         }
+        
+        static func getStatus(name: String) -> Self {
+            return FolderName.init(rawValue: name) ?? .Others
+        }
     }
     
     static var shared = GlobalApp()
@@ -70,7 +74,7 @@ final class GlobalApp: GlobalAppProtocol {
             .witElementhUnretained(self)
             .bind { list in
                 self.folders = list
-                self.files = list
+                self.files = EasyFilesManage.shared.getFoldersRoot() + EasyFilesManage.shared.getDirectory()
                 var homesList: [FolderModel] = []
                 homesList += EasyFilesManage.shared.getDirectory()
                 

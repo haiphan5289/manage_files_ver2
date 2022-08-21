@@ -105,6 +105,10 @@ extension FilesMenuVC {
                             } failure: { msg in
                                 self.showAlert(title: nil, message: msg)
                             }
+                        case .rename:
+                            let renameView: RenameView = .loadXib()
+                            renameView.show()
+                            renameView.setValue(url: folder.url, folderName: folder.url.getName())
                         case .copy, .move:
                             let url = folder.url
                             owner.moveToActionFiles(url: [url], status: ( type == .copy ) ? .copy : .move )
