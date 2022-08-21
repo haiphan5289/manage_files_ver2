@@ -81,13 +81,14 @@ extension MoveToProtocol {
         }
     }
     
-    func moveToActionFiles(url: [URL], status: ActionFilesVC.ActionStatus) {
+    func moveToActionFiles(url: [URL], status: ActionFilesVC.ActionStatus, isNotePad: Bool = false) {
         guard let topVC = GlobalCommon.topViewController() else {
             return
         }
         let vc = ActionFilesVC.createVC()
         vc.originURL = url
         vc.status = status
+        vc.isNotePad = isNotePad
         topVC.navigationController?.pushViewController(vc)
 
     }

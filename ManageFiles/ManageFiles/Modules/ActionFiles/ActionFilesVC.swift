@@ -26,6 +26,7 @@ class ActionFilesVC: BaseVC, MoveToProtocol {
     
     var originURL: [URL] = []
     var status: ActionStatus = .cloud
+    var isNotePad: Bool = false
     // Add here outlets
     @IBOutlet weak var contentHeaderView: UIView!
     @IBOutlet weak var stackView: UIStackView!
@@ -81,6 +82,7 @@ extension ActionFilesVC {
         if let first = self.originURL.first {
             self.headerView.setTitleUrl(url: first)
         }
+        self.navigationController?.removeViewController(NotePadVC.self)
     }
     
     private func setupUI() {
@@ -114,7 +116,7 @@ extension ActionFilesVC {
                     }
                     Task.init {
                         do {
-                            let result = try await EasyFilesManage.shared.secureCopyItemfromiCloud(at: first, folderName: owner.selectFolder)
+                            let result = try await EasyFilesManage.shared.secureCopyItemfromiCloud(at: first, folderName: owner.selectFolder, isNotedPad: owner.isNotePad)
                             switch result {
                             case .success(let url):
                                 owner.moveToFolder(url: url, delegate: nil, folder: owner.selectFolder)

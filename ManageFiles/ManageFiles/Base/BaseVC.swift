@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import EasyBaseCodes
 
 class BaseVC: UIViewController {
     
@@ -32,6 +33,24 @@ class BaseVC: UIViewController {
                             bgColor: .white,
                             textColor: .black,
                             isTranslucent: true)
+    }
+    
+    func removeBorder(font: UIFont, bgColor: UIColor, textColor: UIColor) {
+        if #available(iOS 15, *) {
+            let appearance = UINavigationBarAppearance()
+            let atts = [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: textColor]
+            appearance.configureWithOpaqueBackground()
+            appearance.configureWithTransparentBackground()
+            appearance.titleTextAttributes = atts
+            appearance.backgroundColor = bgColor
+            if let navBar = self.navigationController {
+                let bar = navBar.navigationBar
+                bar.standardAppearance = appearance
+                bar.scrollEdgeAppearance = appearance
+            }
+        } else {
+            self.navigationController?.hideHairline()
+        }
     }
     
     func addViewNavigationBar(titleView: UIView) {

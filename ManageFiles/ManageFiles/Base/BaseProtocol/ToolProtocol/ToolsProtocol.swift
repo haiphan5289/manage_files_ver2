@@ -14,7 +14,7 @@ protocol ToolsProtocol {}
 extension ToolsProtocol {
     func selectAction(type: ToolsVC.ToolsFile,
                       delegateCloud: UIDocumentPickerDelegate) {
-        guard let topVC = GlobalCommon.topMostController() else {
+        guard let topVC = GlobalCommon.topViewController() else {
             return
         }
         switch type {
@@ -25,7 +25,10 @@ extension ToolsProtocol {
             documentPicker.allowsMultipleSelection = false
             
             topVC.present(documentPicker, animated: true, completion: nil)
-        case .notePad, .fileTransfer, .imageToPdf, .videoPlayer: break
+        case .notePad:
+            let vc = NotePadVC.createVC()
+            topVC.navigationController?.pushViewController(vc, animated: true)
+        case .fileTransfer, .imageToPdf, .videoPlayer: break
         }
     }
 }

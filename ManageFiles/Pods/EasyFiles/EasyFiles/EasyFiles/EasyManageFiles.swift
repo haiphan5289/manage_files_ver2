@@ -356,7 +356,7 @@ public class EasyFilesManage {
         //        let file = writePath.appendingPathComponent(fileNamed + ".txt")
         //        try? text.write(to: file, atomically: false, encoding: String.Encoding.utf8)
         
-        let file = self.createURL(folder: "", name: nameFile)
+        let file = self.createURL(folder: text, name: nameFile)
         do {
             try text.write(to: file, atomically: false, encoding: String.Encoding.utf8)
             return .success(file)
@@ -1363,16 +1363,26 @@ public class EasyFilesManage {
         }
     }
     
-    public func secureCopyItemfromiCloud(at srcURL: URL, folderName: String) async throws -> Result<URL, Error> {
+    public func secureCopyItemfromiCloud(at srcURL: URL, folderName: String, isNotedPad: Bool = false) async throws -> Result<URL, Error> {
         let id = Int(Date().convertDateToLocalTime().timeIntervalSince1970)
         
         let name: String
         
         switch self.detectFile(url: srcURL) {
         case .none:
-            name = "\(id)\(srcURL.getName())\(id).\(srcURL.getType() ?? "")"
+            if isNotedPad {
+                name = "\(id)\(srcURL.getName())\(srcURL.getType() ?? "")"
+            } else {
+                name = "\(id)\(srcURL.getName())\(id).\(srcURL.getType() ?? "")"
+            }
+            
         default:
-            name = "\(id)\(srcURL.lastPathComponent)"
+            if isNotedPad {
+                name = "\(srcURL.lastPathComponent)"
+            } else {
+                name = "\(id)\(srcURL.lastPathComponent)"
+            }
+            
         }
         
         let dstURL = self.createURL(folder: folderName, name: "\(name)")

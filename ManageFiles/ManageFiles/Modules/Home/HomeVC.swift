@@ -14,8 +14,7 @@ import EasyBaseCodes
 import EasyFiles
 
 class HomeVC: BaseTabbarVC,
-              SetupBaseCollection,
-              ToolsProtocol {
+              SetupBaseCollection {
     
     // Add here outlets
     @IBOutlet weak var contentTableView: UIView!
@@ -105,14 +104,6 @@ extension HomeVC: SearchViewDelegate {
             let list = GlobalApp.shared.homes.filter { $0.url.getName().uppercased().contains(text.uppercased()) }
             GlobalApp.shared.homes = list
         }
-    }
-}
-extension HomeVC: UIDocumentPickerDelegate {
-    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-        guard let first = urls.first else {
-            return
-        }
-        self.moveToActionFiles(url: urls, status: .cloud)
     }
 }
 

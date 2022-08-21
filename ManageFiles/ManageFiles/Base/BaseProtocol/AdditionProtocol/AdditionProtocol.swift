@@ -17,7 +17,7 @@ extension AdditionProtocol {
                       delegateCloud: UIDocumentPickerDelegate,
                       delegatePhoto: (UIImagePickerControllerDelegate & UINavigationControllerDelegate),
                       delegateScan: VNDocumentCameraViewControllerDelegate) {
-        guard let topVC = GlobalCommon.topMostController() else {
+        guard let topVC = GlobalCommon.topViewController() else {
             return
         }
         switch type {
@@ -38,7 +38,14 @@ extension AdditionProtocol {
             let scannerViewController = VNDocumentCameraViewController()
             scannerViewController.delegate = delegateScan
             topVC.present(scannerViewController, animated: true)
-        case .text, .camera, .folder: break
+        case . text:
+            topVC.dismiss(animated: true) {
+                if let topvc = GlobalCommon.topViewController() {
+                    let vc = NotePadVC.createVC()
+                    topvc.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+        case .camera, .folder: break
         }
     }
 }

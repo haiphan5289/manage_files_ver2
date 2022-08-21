@@ -11,8 +11,8 @@ import EasyBaseCodes
 import RxSwift
 import RxCocoa
 
-class BaseTabbarVC: BaseVC, SetupTableView, MoveToProtocol {
-
+class BaseTabbarVC: BaseVC, SetupTableView, MoveToProtocol, ToolsProtocol {
+    
     let searchView: SearchView = .loadXib()
     var tableView: UITableView = UITableView(frame: .zero, style: .plain)
     let source: BehaviorRelay<[FolderModel]> = BehaviorRelay.init(value: [])
@@ -23,7 +23,7 @@ class BaseTabbarVC: BaseVC, SetupTableView, MoveToProtocol {
         self.setupUI()
         self.setupRX()
     }
-
+    
 }
 extension BaseTabbarVC {
     
@@ -58,7 +58,7 @@ extension BaseTabbarVC {
                     switch action {
                     case .more:
                         self.moveToFiles(folder: element, delegate: self)
-//                        self.selectItem.onNext(element)
+                        //                        self.selectItem.onNext(element)
                     case .drop: break
                     }
                 }
@@ -69,19 +69,34 @@ extension BaseTabbarVC {
             .itemSelected
             .withUnretained(self)
             .bind { owner, idx in
-            let item = owner.source.value[idx.row]
-            owner.moveToFolder(url: item.url, delegate: owner)
-//            switch self.screenType {
-//            case .files:
-//                let item = owner.source.value[idx.row]
-//                owner.moveToFolder(url: item.url, delegate: owner)
-//            case .home:
-//
-//            case .folder, .action, .setting, .tabbar, .tools: break
-//            }
-        }.disposed(by: disposeBag)
+                switch owner.screenType {
+                case .tools:
+                    let type = ToolsVC.ToolsFile.allCases[idx.row]
+                    owner.selectAction(type: type, delegateCloud: owner)
+                default:
+                    let item = owner.source.value[idx.row]
+                    owner.moveToFolder(url: item.url, delegate: owner)
+                }
+                
+                //            switch self.screenType {
+                //            case .files:
+                //                let item = owner.source.value[idx.row]
+                //                owner.moveToFolder(url: item.url, delegate: owner)
+                //            case .home:
+                //
+                //            case .folder, .action, .setting, .tabbar, .tools: break
+                //            }
+            }.disposed(by: disposeBag)
     }
     
+}
+extension BaseTabbarVC: UIDocumentPickerDelegate {
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        guard let first = urls.first else {
+            return
+        }
+        self.moveToActionFiles(url: urls, status: .cloud)
+    }
 }
 extension BaseTabbarVC: FilesMenuDelegate {
     func selectAction(action: FilesMenuVC.Action) {

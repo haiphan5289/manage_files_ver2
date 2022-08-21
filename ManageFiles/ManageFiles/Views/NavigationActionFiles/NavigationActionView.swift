@@ -57,6 +57,10 @@ extension NavigationActionView {
         }
     }
     
+    func hidePlusButton() {
+        self.bts[Action.plus.rawValue].isHidden = true
+    }
+    
     func isShow() {
         self.bts[Action.save.rawValue].backgroundColor = Asset._0085Ff.color
         self.bts[Action.save.rawValue].setTitleColor(UIColor.white, for: .normal)
