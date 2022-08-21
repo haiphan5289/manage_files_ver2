@@ -30,6 +30,9 @@
 		93890DBB28B257F300A8F467 /* NotePadVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93890DB828B257F300A8F467 /* NotePadVC.xib */; };
 		93890DBC28B257F300A8F467 /* NotePadVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93890DB928B257F300A8F467 /* NotePadVM.swift */; };
 		93890DBD28B257F300A8F467 /* NotePadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93890DBA28B257F300A8F467 /* NotePadVC.swift */; };
+		93890DC228B2643400A8F467 /* CameraVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93890DBF28B2643400A8F467 /* CameraVC.xib */; };
+		93890DC328B2643400A8F467 /* CameraVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93890DC028B2643400A8F467 /* CameraVM.swift */; };
+		93890DC428B2643400A8F467 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93890DC128B2643400A8F467 /* CameraVC.swift */; };
 		9390847328AD340A002B835B /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390847128AD340A002B835B /* HomeCell.swift */; };
 		9390847428AD340A002B835B /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9390847228AD340A002B835B /* HomeCell.xib */; };
 		9390847728AD3BDD002B835B /* ToolsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390847628AD3BDD002B835B /* ToolsProtocol.swift */; };
@@ -137,6 +140,9 @@
 		93890DB828B257F300A8F467 /* NotePadVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotePadVC.xib; sourceTree = "<group>"; };
 		93890DB928B257F300A8F467 /* NotePadVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePadVM.swift; sourceTree = "<group>"; };
 		93890DBA28B257F300A8F467 /* NotePadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePadVC.swift; sourceTree = "<group>"; };
+		93890DBF28B2643400A8F467 /* CameraVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraVC.xib; sourceTree = "<group>"; };
+		93890DC028B2643400A8F467 /* CameraVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVM.swift; sourceTree = "<group>"; };
+		93890DC128B2643400A8F467 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		9390847128AD340A002B835B /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		9390847228AD340A002B835B /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
 		9390847628AD3BDD002B835B /* ToolsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsProtocol.swift; sourceTree = "<group>"; };
@@ -368,6 +374,16 @@
 			path = NotePad;
 			sourceTree = "<group>";
 		};
+		93890DBE28B2641F00A8F467 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				93890DBF28B2643400A8F467 /* CameraVC.xib */,
+				93890DC028B2643400A8F467 /* CameraVM.swift */,
+				93890DC128B2643400A8F467 /* CameraVC.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		9390847028AD3394002B835B /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,6 +444,7 @@
 		939DA46D289D57C000AEEF49 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				93890DBE28B2641F00A8F467 /* Camera */,
 				93890DB728B257DF00A8F467 /* NotePad */,
 				93890DB028B235B000A8F467 /* Info */,
 				93AA03C328AFC88F0064EFA7 /* FilesMenu */,
@@ -815,6 +832,7 @@
 				93B66438289ECD22001BFA47 /* SettingVC.xib in Resources */,
 				93B6640D289E7887001BFA47 /* FilesCellView.xib in Resources */,
 				9386D45128A7F5B500CC9335 /* FontsFree-Net-SFProText-Semibold.ttf in Resources */,
+				93890DC228B2643400A8F467 /* CameraVC.xib in Resources */,
 				939DA4A5289D604800AEEF49 /* ListFontVC.xib in Resources */,
 				93A847FA28A3FE48004519CF /* AdditionVC.xib in Resources */,
 				9386D45228A7F5B500CC9335 /* FontsFree-Net-SFProText-Medium.ttf in Resources */,
@@ -885,6 +903,7 @@
 				939DA47E289D5C6B00AEEF49 /* UIFont+Extension.swift in Sources */,
 				939DA499289D5D8B00AEEF49 /* Encode+Extension.swift in Sources */,
 				93B6641D289E8A24001BFA47 /* BaseTabbarVM.swift in Sources */,
+				93890DC328B2643400A8F467 /* CameraVM.swift in Sources */,
 				93890DB628B235BF00A8F467 /* InfoVC.swift in Sources */,
 				9390848028AD46FA002B835B /* SortView.swift in Sources */,
 				9390847A28AD3D85002B835B /* Array+Extension.swift in Sources */,
@@ -917,6 +936,7 @@
 				939DA49C289D5D9A00AEEF49 /* PropertyWapper.swift in Sources */,
 				93B6643D289ECEB4001BFA47 /* BaseSetting.swift in Sources */,
 				93890DBC28B257F300A8F467 /* NotePadVM.swift in Sources */,
+				93890DC428B2643400A8F467 /* CameraVC.swift in Sources */,
 				93B66431289ECCC4001BFA47 /* SettingView.swift in Sources */,
 				93A847FC28A3FE48004519CF /* AdditionVC.swift in Sources */,
 				939DA4A6289D604800AEEF49 /* ListFontVM.swift in Sources */,

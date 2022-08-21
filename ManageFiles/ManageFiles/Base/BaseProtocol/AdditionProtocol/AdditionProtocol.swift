@@ -45,7 +45,14 @@ extension AdditionProtocol {
                     topvc.navigationController?.pushViewController(vc, animated: true)
                 }
             }
-        case .camera, .folder: break
+        case .camera:
+            topVC.dismiss(animated: true) {
+                if let topvc = GlobalCommon.topViewController() {
+                    let vc = CameraVC.createVC()
+                    topvc.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+        case .folder: break
         }
     }
 }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CameraVC" customModule="ManageFiles" customModuleProvider="target">
+            <connections>
+                <outlet property="btTakePhoto" destination="RJH-JZ-f2t" id="jVU-Vz-IHe"/>
+                <outlet property="cameraView" destination="DgL-eL-Yal" id="mxn-DD-XQN"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DgL-eL-Yal">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJH-JZ-f2t">
+                    <rect key="frame" x="182" y="762" width="50" height="50"/>
+                    <color key="backgroundColor" name="0085FF"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="h6s-PQ-EpR"/>
+                        <constraint firstAttribute="width" constant="50" id="pNt-xC-kjV"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="DgL-eL-Yal" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1ud-zi-vHi"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DgL-eL-Yal" secondAttribute="trailing" id="TE9-6R-4xB"/>
+                <constraint firstItem="RJH-JZ-f2t" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Yh2-1K-BJK"/>
+                <constraint firstItem="DgL-eL-Yal" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="j3p-HB-bm9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="RJH-JZ-f2t" secondAttribute="bottom" constant="50" id="r1B-6X-GSD"/>
+                <constraint firstAttribute="bottom" secondItem="DgL-eL-Yal" secondAttribute="bottom" id="x1d-pL-hPk"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="141"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="0085FF">
+            <color red="0.0" green="0.52156862745098043" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -28,7 +28,10 @@ extension ToolsProtocol {
         case .notePad:
             let vc = NotePadVC.createVC()
             topVC.navigationController?.pushViewController(vc, animated: true)
-        case .fileTransfer, .imageToPdf, .videoPlayer: break
+        case .videoPlayer:
+            let vc = CameraVC.createVC()
+            topVC.navigationController?.pushViewController(vc, animated: true)
+        case .fileTransfer, .imageToPdf: break
         }
     }
 }
