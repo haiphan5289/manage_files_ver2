@@ -113,11 +113,11 @@ extension URL {
         return url
     }
     
-    public func getSizeURL() -> Int? {
+    public func getSizeURL() -> String? {
         do {
             let resources = try self.resourceValues(forKeys:[.fileSizeKey])
             if let fileSize = resources.fileSize {
-                return fileSize / 1000
+                return (Double(fileSize) / 1000000).roundTo
             }
             
         } catch {
@@ -304,4 +304,9 @@ extension URL {
     private static let byteCountFormatter = ByteCountFormatter()
     
     
+}
+extension Double {
+    var roundTo:String {
+        return String(format: "%.2f", self)
+    }
 }

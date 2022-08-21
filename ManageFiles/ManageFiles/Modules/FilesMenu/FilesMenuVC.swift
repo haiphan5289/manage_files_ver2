@@ -40,7 +40,7 @@ class FilesMenuVC: UIViewController, MoveToProtocol {
     
     // Add here your view model
     private var viewModel: FilesMenuVM = FilesMenuVM()
-    var FolderStatus: FolderStatus = .files
+    var folderStatus: FolderStatus = .files
     
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -66,11 +66,11 @@ extension FilesMenuVC {
         fileCellView.hideButonMore()
         fileCellView.showbtDrop()
         if let f = self.folder {
-            fileCellView.setValueHome(folder: f)
+            fileCellView.setValueFiles(folder: f)
         }
         fileCellView.delegate = self
         views[Action.quickView.rawValue].isHidden = true
-        switch self.FolderStatus {
+        switch self.folderStatus {
         case .files: break
         case .fix:
             let v = [views[Action.rename.rawValue], views[Action.quickView.rawValue], views[Action.move.rawValue], views[Action.share.rawValue], views[Action.delete.rawValue] ]

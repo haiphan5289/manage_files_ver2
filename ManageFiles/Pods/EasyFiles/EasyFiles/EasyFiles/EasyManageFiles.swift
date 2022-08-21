@@ -1263,7 +1263,12 @@ public class EasyFilesManage {
             
             switch self.detectFile(url: srcURL) {
             case .none:
-                name = "\(srcURL.getName()).\(srcURL.getType() ?? "")"
+                if srcURL.hasDirectoryPath {
+                    name = "\(srcURL.getName())"
+                } else {
+                    name = "\(srcURL.getName()).\(srcURL.getType() ?? "")"
+                }
+                
             default:
                 name = "\(srcURL.getName())"
             }
@@ -1309,9 +1314,9 @@ public class EasyFilesManage {
                 switch self.detectFile(url: srcURL) {
                 case .none:
                     if isId {
-                        name = "\(srcURL.getName())\(id).\(srcURL.getType() ?? "")"
+                        name = "\(srcURL.getName())\(id)"
                     } else {
-                        name = "\(srcURL.getName()).\(srcURL.getType() ?? "")"
+                        name = "\(srcURL.getName())"
                     }
                     
                 default:

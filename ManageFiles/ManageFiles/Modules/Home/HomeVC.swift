@@ -88,14 +88,9 @@ extension HomeVC {
         self.selectItem
             .withUnretained(self)
             .bind { owner, item in
-                owner.moveToFiles(folder: item, delegate: owner)
+//                owner.moveToFiles(folder: item, delegate: owner)
             }.disposed(by: disposeBag)
         
-    }
-}
-extension HomeVC: FilesMenuDelegate {
-    func selectAction(action: FilesMenuVC.Action) {
-        GlobalApp.shared.updateAgain.onNext(())
     }
 }
 extension HomeVC: SearchViewDelegate {

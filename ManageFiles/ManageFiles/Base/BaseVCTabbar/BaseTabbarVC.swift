@@ -57,23 +57,35 @@ extension BaseTabbarVC {
                     guard let self = self else { return }
                     switch action {
                     case .more:
-                        self.selectItem.onNext(element)
+                        self.moveToFiles(folder: element, delegate: self)
+//                        self.selectItem.onNext(element)
                     case .drop: break
                     }
                 }
             }.disposed(by: disposeBag)
         
-        self.tableView.rx.itemSelected.withUnretained(self).bind { owner, idx in
-            switch self.screenType {
-            case .files:
-                let item = owner.source.value[idx.row]
-                owner.moveToFolder(url: item.url, delegate: owner)
-            case .home:
-                let item = owner.source.value[idx.row]
-                owner.moveToFolder(url: item.url, delegate: owner)
-            case .folder, .action, .setting, .tabbar, .tools: break
-            }
+        self.tableView
+            .rx
+            .itemSelected
+            .withUnretained(self)
+            .bind { owner, idx in
+            let item = owner.source.value[idx.row]
+            owner.moveToFolder(url: item.url, delegate: owner)
+//            switch self.screenType {
+//            case .files:
+//                let item = owner.source.value[idx.row]
+//                owner.moveToFolder(url: item.url, delegate: owner)
+//            case .home:
+//
+//            case .folder, .action, .setting, .tabbar, .tools: break
+//            }
         }.disposed(by: disposeBag)
+    }
+    
+}
+extension BaseTabbarVC: FilesMenuDelegate {
+    func selectAction(action: FilesMenuVC.Action) {
+        GlobalApp.shared.updateAgain.onNext(())
     }
     
 }

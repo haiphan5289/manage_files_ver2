@@ -20,6 +20,19 @@ extension MoveToProtocol {
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen
         vc.folder = folder
+        let folderName = EasyFilesManage.shared.detectPathFolder(url: folder.url)
+        let text = EasyFilesManage.shared.getNameOrigin(string: folderName)
+        let type = GlobalApp.FolderName.getStatus(name: text)
+        switch type {
+        case .Others:
+            if text == GlobalApp.FolderName.Others.rawValue {
+                vc.folderStatus = .fix
+            } else if folder.url.hasDirectoryPath {
+                vc.folderStatus = .folder
+            }
+        default:
+            vc.folderStatus = .fix
+        }
         vc.delegate = delegate
         topVC.present(vc, animated: true, completion: nil)
     }
@@ -40,7 +53,7 @@ extension MoveToProtocol {
         guard let topVC = GlobalCommon.topViewController() else {
             return
         }
-        if url.hasDirectoryPath || !(folder?.isEmpty ?? false) {
+        if url.hasDirectoryPath || !(folder?.isEmpty ?? true) {
             let vc = FolderVC.createVC()
             let folderName = EasyFilesManage.shared.detectPathFolder(url: url)
             vc.folderName = folderName

@@ -126,7 +126,7 @@ extension FilesCellView {
         self.lbSubtitle.text = "This Item will be save to"
     }
     
-    func setValueFiles(folder: FolderModel) {
+    private func setValueFromFiles(folder: FolderModel) {
         let folderName = EasyFilesManage.shared.detectPathFolder(url: folder.url)
         let text = EasyFilesManage.shared.getNameOrigin(string: folderName)
         let type = GlobalApp.FolderName.getStatus(name: text)
@@ -147,6 +147,10 @@ extension FilesCellView {
             self.img.image = UIImage(named: "\(type.nameImage)")
         }
         self.lbSubtitle.text = folder.url.getSubURL()
+    }
+    
+    func setValueFiles(folder: FolderModel) {
+        self.setValueFromFiles(folder: folder)
     }
     
     private func loadTitle(folder: FolderModel) {
