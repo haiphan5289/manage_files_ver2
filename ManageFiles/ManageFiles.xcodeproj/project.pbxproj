@@ -24,6 +24,9 @@
 		9386D45328A7F5B500CC9335 /* FontsFree-Net-SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9386D44F28A7F5B500CC9335 /* FontsFree-Net-SFProDisplay-Bold.ttf */; };
 		93890DAD28B1D51400A8F467 /* RenameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93890DAC28B1D51400A8F467 /* RenameView.swift */; };
 		93890DAF28B1D55400A8F467 /* RenameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93890DAE28B1D55400A8F467 /* RenameView.xib */; };
+		93890DB428B235BF00A8F467 /* InfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93890DB128B235BF00A8F467 /* InfoVC.xib */; };
+		93890DB528B235BF00A8F467 /* InfoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93890DB228B235BF00A8F467 /* InfoVM.swift */; };
+		93890DB628B235BF00A8F467 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93890DB328B235BF00A8F467 /* InfoVC.swift */; };
 		9390847328AD340A002B835B /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390847128AD340A002B835B /* HomeCell.swift */; };
 		9390847428AD340A002B835B /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9390847228AD340A002B835B /* HomeCell.xib */; };
 		9390847728AD3BDD002B835B /* ToolsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390847628AD3BDD002B835B /* ToolsProtocol.swift */; };
@@ -125,6 +128,9 @@
 		9386D44F28A7F5B500CC9335 /* FontsFree-Net-SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		93890DAC28B1D51400A8F467 /* RenameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameView.swift; sourceTree = "<group>"; };
 		93890DAE28B1D55400A8F467 /* RenameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RenameView.xib; sourceTree = "<group>"; };
+		93890DB128B235BF00A8F467 /* InfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoVC.xib; sourceTree = "<group>"; };
+		93890DB228B235BF00A8F467 /* InfoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVM.swift; sourceTree = "<group>"; };
+		93890DB328B235BF00A8F467 /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 		9390847128AD340A002B835B /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		9390847228AD340A002B835B /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
 		9390847628AD3BDD002B835B /* ToolsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsProtocol.swift; sourceTree = "<group>"; };
@@ -336,6 +342,16 @@
 			path = RenameView;
 			sourceTree = "<group>";
 		};
+		93890DB028B235B000A8F467 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				93890DB128B235BF00A8F467 /* InfoVC.xib */,
+				93890DB228B235BF00A8F467 /* InfoVM.swift */,
+				93890DB328B235BF00A8F467 /* InfoVC.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
 		9390847028AD3394002B835B /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +412,7 @@
 		939DA46D289D57C000AEEF49 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				93890DB028B235B000A8F467 /* Info */,
 				93AA03C328AFC88F0064EFA7 /* FilesMenu */,
 				93A9602B28AE8FFD00A1986D /* Folder */,
 				9390848328AD4A24002B835B /* Sort */,
@@ -762,6 +779,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93890DB428B235BF00A8F467 /* InfoVC.xib in Resources */,
 				93B66406289E75CF001BFA47 /* FilesVC.xib in Resources */,
 				9386D45328A7F5B500CC9335 /* FontsFree-Net-SFProDisplay-Bold.ttf in Resources */,
 				93AA03C228AFC1490064EFA7 /* NavigationSearchView.xib in Resources */,
@@ -849,6 +867,7 @@
 				939DA47E289D5C6B00AEEF49 /* UIFont+Extension.swift in Sources */,
 				939DA499289D5D8B00AEEF49 /* Encode+Extension.swift in Sources */,
 				93B6641D289E8A24001BFA47 /* BaseTabbarVM.swift in Sources */,
+				93890DB628B235BF00A8F467 /* InfoVC.swift in Sources */,
 				9390848028AD46FA002B835B /* SortView.swift in Sources */,
 				9390847A28AD3D85002B835B /* Array+Extension.swift in Sources */,
 				939DA485289D5CA600AEEF49 /* SettingDefaultFont.swift in Sources */,
@@ -894,6 +913,7 @@
 				93B66439289ECD22001BFA47 /* SettingVM.swift in Sources */,
 				93B6641F289EA1A2001BFA47 /* GlobalApp.swift in Sources */,
 				939DA497289D5D1F00AEEF49 /* RealmModel.swift in Sources */,
+				93890DB528B235BF00A8F467 /* InfoVM.swift in Sources */,
 				93B6642D289ECC41001BFA47 /* SettingCell.swift in Sources */,
 				939DA49D289D5D9A00AEEF49 /* Obserable+Extension.swift in Sources */,
 				93B6641B289E87AC001BFA47 /* BaseTabbarVC.swift in Sources */,

@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+
 public struct GlobalCommon {
     
     static func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {

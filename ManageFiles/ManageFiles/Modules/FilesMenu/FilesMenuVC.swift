@@ -73,7 +73,7 @@ extension FilesMenuVC {
         switch self.folderStatus {
         case .files: break
         case .fix:
-            let v = [views[Action.rename.rawValue], views[Action.quickView.rawValue], views[Action.move.rawValue], views[Action.share.rawValue], views[Action.delete.rawValue] ]
+            let v = [views[Action.rename.rawValue], views[Action.quickView.rawValue], views[Action.move.rawValue], views[Action.share.rawValue], views[Action.delete.rawValue], views[Action.compress.rawValue] ]
             v.forEach { v in
                 v.isHidden = true
             }
@@ -99,6 +99,14 @@ extension FilesMenuVC {
                 .bind { owner, _ in
                     owner.dismiss(animated: true) {
                         switch type {
+                        case .info:
+                            if let topVC = GlobalCommon.topViewController() {
+                                let vc = InfoVC.createVC()
+                                vc.modalTransitionStyle = .crossDissolve
+                                vc.modalPresentationStyle = .overFullScreen
+                                vc.folder = folder
+                                topVC.present(vc, animated: true, completion: nil)
+                            }
                         case .delete:
                             EasyFilesManage.shared.moveToItem(at: [folder.url], folderName: GlobalApp.FolderName.Trash.rawValue + "/") {
                                 
