@@ -29,6 +29,7 @@ class FilesCellView: UIView, BaseViewSetUp {
     @IBOutlet weak var rightStackView: NSLayoutConstraint!
     @IBOutlet weak var topStackView: NSLayoutConstraint!
     @IBOutlet var bts: [UIButton]!
+    @IBOutlet weak var imgSelect: UIImageView!
     
     private let disposeBag = DisposeBag()
     override func awakeFromNib() {
@@ -52,6 +53,10 @@ extension FilesCellView {
                     owner.delegate?.selectAction(action: type)
                 }.disposed(by: disposeBag)
         }
+    }
+    
+    func hideImageSelect(isHide: Bool) {
+        self.imgSelect.isHidden = isHide
     }
     
     func setTitleUrl(url: URL) {

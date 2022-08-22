@@ -22,8 +22,7 @@ class FilesCell: UITableViewCell, BaseViewSetUp {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        cellView.imgSelect.image = (selected) ? Asset.icCheck.image : Asset.icDeselect.image
     }
     
 }
@@ -39,6 +38,10 @@ extension FilesCell {
     
     func setupRX() {
         
+    }
+    
+    func isHideImage(isHide: Bool) {
+        cellView.hideImageSelect(isHide: isHide)
     }
     
     func setValueHome(folđer: FolderModel) {

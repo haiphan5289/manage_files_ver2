@@ -17,6 +17,7 @@ class BaseTabbarVC: BaseVC, SetupTableView, MoveToProtocol, ToolsProtocol {
     var tableView: UITableView = UITableView(frame: .zero, style: .plain)
     let source: BehaviorRelay<[FolderModel]> = BehaviorRelay.init(value: [])
     var selectItem: PublishSubject<FolderModel> = PublishSubject.init()
+    @VariableReplay var cellStatus: FolderVC.CellStatus = .single
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ extension BaseTabbarVC {
     
     private func setupUI() {
         self.setupTableView(delegate: self, name: FilesCell.self)
+        self.tableView.allowsMultipleSelection = true
         guard let path = Bundle.main.path(forResource: "image_check", ofType:"png")else {
             debugPrint("video.m4v not found")
             return
@@ -43,7 +45,10 @@ extension BaseTabbarVC {
             .witElementhUnretained(self)
             .bind(to: tableView.rx.items(cellIdentifier: FilesCell.identifier, cellType: FilesCell.self)) {(row, element, cell) in
                 switch self.screenType {
-                case .home, .folder:
+                case .folder:
+                    cell.setValueHome(folđer: element)
+                    cell.isHideImage(isHide: (self.cellStatus == .single) ? true : false )
+                case .home:
                     cell.setValueHome(folđer: element)
                 case .files:
                     cell.setValueFiles(folđer: element)
@@ -69,6 +74,9 @@ extension BaseTabbarVC {
             .itemSelected
             .withUnretained(self)
             .bind { owner, idx in
+                guard owner.cellStatus == .single else {
+                    return
+                }
                 switch owner.screenType {
                 case .tools:
                     let type = ToolsVC.ToolsFile.allCases[idx.row]
@@ -86,6 +94,12 @@ extension BaseTabbarVC {
                 //
                 //            case .folder, .action, .setting, .tabbar, .tools: break
                 //            }
+            }.disposed(by: disposeBag)
+        
+        self.$cellStatus
+            .withUnretained(self)
+            .bind { owner, _ in
+                owner.tableView.reloadData()
             }.disposed(by: disposeBag)
     }
     
