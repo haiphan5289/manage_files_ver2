@@ -18,14 +18,16 @@ extension AdditionProtocol {
                       delegateCloud: UIDocumentPickerDelegate,
                       delegatePhoto: (UIImagePickerControllerDelegate & UINavigationControllerDelegate),
                       delegateScan: VNDocumentCameraViewControllerDelegate,
-                      renameDelegate: RenameViewDelegate) {
+                      renameDelegate: RenameViewDelegate,
+                      additionStatus: AdditionVC.AdditionStatus) {
         guard let topVC = GlobalCommon.topViewController() else {
             return
         }
         switch type {
         case .importAdd:
             let types = [kUTTypeMovie, kUTTypeVideo, kUTTypeAudio, kUTTypeQuickTimeMovie, kUTTypeMPEG, kUTTypeMPEG2Video, kUTTypeGNUZipArchive, kUTTypeZipArchive, kUTTypePDF, kUTTypeImage, kUTTypeJPEG, kUTTypePNG, kUTTypeLivePhoto, kUTTypeHTML, kUTTypeXML]
-            let documentPicker = UIDocumentPickerViewController(documentTypes: ["public.item"], in: .import)
+            let typeCloud2 = ([kUTTypeMPEG, kUTTypeImage, kUTTypeJPEG, kUTTypePNG] as? [String]) ?? []
+            let documentPicker = UIDocumentPickerViewController(documentTypes: (additionStatus == .imageToPDF) ? typeCloud2 : ["public.item"], in: .import)
             documentPicker.delegate = delegateCloud
             documentPicker.allowsMultipleSelection = false
             
@@ -51,6 +53,7 @@ extension AdditionProtocol {
             topVC.dismiss(animated: true) {
                 if let topvc = GlobalCommon.topViewController() {
                     let vc = CameraVC.createVC()
+                    vc.additionStatus = additionStatus
                     topvc.navigationController?.pushViewController(vc, animated: true)
                 }
             }

@@ -30,7 +30,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ieo-00-dKT">
                             <rect key="frame" x="32" y="0.0" width="252" height="28"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzl-Mg-sLf">
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tzl-Mg-sLf">
                                     <rect key="frame" x="159" y="14" width="0.0" height="0.0"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
@@ -39,6 +39,8 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tzl-Mg-sLf" secondAttribute="trailing" constant="8" id="2o2-1t-AiE"/>
+                                <constraint firstItem="tzl-Mg-sLf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ieo-00-dKT" secondAttribute="leading" constant="8" id="Mty-Fu-i43"/>
                                 <constraint firstItem="tzl-Mg-sLf" firstAttribute="centerY" secondItem="ieo-00-dKT" secondAttribute="centerY" id="bYA-pf-Wbz"/>
                             </constraints>
                         </view>
@@ -82,6 +84,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="lbTitle" destination="tzl-Mg-sLf" id="f7r-hC-8oX"/>
                 <outletCollection property="bts" destination="4DD-wb-Kc3" collectionClass="NSMutableArray" id="qbj-cf-3Hb"/>
                 <outletCollection property="bts" destination="VTC-pt-Rzb" collectionClass="NSMutableArray" id="CwP-sh-XhC"/>
                 <outletCollection property="bts" destination="Fzl-SU-abl" collectionClass="NSMutableArray" id="pXM-9p-gEY"/>

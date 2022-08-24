@@ -81,7 +81,12 @@ extension HomeVC {
             .withUnretained(self)
             .bind { owner, idx in
                 let type = ToolsVC.ToolsFile.allCases[idx.row]
-                owner.selectAction(type: type, delegateCloud: owner)
+                var addition: AdditionVC.AdditionStatus = .normal
+                if type == .imageToPdf {
+                    addition = .imageToPDF
+                }
+                owner.additionStatis = addition
+                owner.selectAction(type: type, delegateCloud: owner, additionStatus: addition, additionDelegate: owner)
             }.disposed(by: disposeBag)
         
         self.selectItem

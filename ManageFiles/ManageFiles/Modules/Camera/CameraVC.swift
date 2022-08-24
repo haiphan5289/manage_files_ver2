@@ -15,6 +15,7 @@ import EasyFiles
 
 class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate, MoveToProtocol {
     
+    var additionStatus: AdditionVC.AdditionStatus = .normal
     // Add here outlets
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var btTakePhoto: UIButton!
@@ -114,7 +115,11 @@ extension CameraVC {
                     let result = try await EasyFilesManage.shared.fetchImage(image: image, folder: "\(GlobalApp.FolderName.Trash.rawValue)/")
                     switch result {
                     case .success(let outputURL):
-                        self.moveToActionFiles(url: [outputURL], status: .cloud)
+                        switch self.additionStatus {
+                        case .normal: self.moveToActionFiles(url: [outputURL], status: .cloud)
+                        case .imageToPDF: self.moveToImagePDF(url: outputURL)
+                        }
+                        
                     case .failure(_): break
                     }
                 } catch {

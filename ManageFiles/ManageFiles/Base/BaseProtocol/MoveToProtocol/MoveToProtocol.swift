@@ -93,4 +93,13 @@ extension MoveToProtocol {
 
     }
     
+    func moveToImagePDF(url: URL) {
+        guard let topVC = GlobalCommon.topViewController() else {
+            return
+        }
+        let vc = ImagePDFVC.createVC()
+        vc.url = url
+        topVC.navigationController?.pushViewController(vc)
+    }
+    
 }

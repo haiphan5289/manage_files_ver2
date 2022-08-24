@@ -24,11 +24,16 @@ class AdditionVC: BaseVC, AdditionProtocol {
         case importAdd, folder, photo, camera, text, scan
     }
     
-    var delegate: AdditionDelegate?
+    enum AdditionStatus {
+        case normal, imageToPDF
+    }
     
+    var delegate: AdditionDelegate?
+    var additionStatus: AdditionStatus = .normal
     // Add here outlets
     @IBOutlet weak var btClose: UIButton!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var lbTitle: UILabel!
     
     // Add here your view model
     private var viewModel: AdditionVM = AdditionVM()
@@ -47,6 +52,10 @@ extension AdditionVC {
     private func setupUI() {
         // Add here the setup for the UI
         self.btClose.contentHorizontalAlignment = .right
+        
+        if self.additionStatus == .imageToPDF {
+            self.lbTitle.text = "Image to PDF"
+        }
     }
     
     private func setupRX() {
@@ -80,7 +89,12 @@ extension AdditionVC {
                                   let type = Addtion.init(rawValue: nameType) else {
                                 return
                             }
-                            owner.selectAction(type: type, delegateCloud: owner, delegatePhoto: owner, delegateScan: owner, renameDelegate: owner)
+                            owner.selectAction(type: type,
+                                               delegateCloud: owner,
+                                               delegatePhoto: owner,
+                                               delegateScan: owner,
+                                               renameDelegate: owner,
+                                               additionStatus: owner.additionStatus)
                         }.disposed(by: owner.disposeBag)
                     
                     owner.stackView.addArrangedSubview(v)
@@ -97,6 +111,14 @@ extension AdditionVC {
             .shared
             .parseToDate(name: "Addition", type: "json")
             .decode(type: [BaseSettingModel].self, decoder: JSONDecoder())
+            .map({ list in
+                var l = list
+                if self.additionStatus == .imageToPDF {
+                    l.remove(at: 1)
+                    l.remove(at: 3)
+                }
+                return l
+            })
             .witElementhUnretained(self)
             .bind(to: self.source)
             .disposed(by: disposeBag)

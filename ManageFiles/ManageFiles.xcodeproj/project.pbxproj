@@ -33,6 +33,9 @@
 		93890DC228B2643400A8F467 /* CameraVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93890DBF28B2643400A8F467 /* CameraVC.xib */; };
 		93890DC328B2643400A8F467 /* CameraVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93890DC028B2643400A8F467 /* CameraVM.swift */; };
 		93890DC428B2643400A8F467 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93890DC128B2643400A8F467 /* CameraVC.swift */; };
+		93897DA728B6747900F3C1AE /* ImagePDFVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93897DA428B6747900F3C1AE /* ImagePDFVC.xib */; };
+		93897DA828B6747900F3C1AE /* ImagePDFVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93897DA528B6747900F3C1AE /* ImagePDFVM.swift */; };
+		93897DA928B6747900F3C1AE /* ImagePDFVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93897DA628B6747900F3C1AE /* ImagePDFVC.swift */; };
 		9390847328AD340A002B835B /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390847128AD340A002B835B /* HomeCell.swift */; };
 		9390847428AD340A002B835B /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9390847228AD340A002B835B /* HomeCell.xib */; };
 		9390847728AD3BDD002B835B /* ToolsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390847628AD3BDD002B835B /* ToolsProtocol.swift */; };
@@ -145,6 +148,9 @@
 		93890DBF28B2643400A8F467 /* CameraVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraVC.xib; sourceTree = "<group>"; };
 		93890DC028B2643400A8F467 /* CameraVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVM.swift; sourceTree = "<group>"; };
 		93890DC128B2643400A8F467 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
+		93897DA428B6747900F3C1AE /* ImagePDFVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePDFVC.xib; sourceTree = "<group>"; };
+		93897DA528B6747900F3C1AE /* ImagePDFVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePDFVM.swift; sourceTree = "<group>"; };
+		93897DA628B6747900F3C1AE /* ImagePDFVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePDFVC.swift; sourceTree = "<group>"; };
 		9390847128AD340A002B835B /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		9390847228AD340A002B835B /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
 		9390847628AD3BDD002B835B /* ToolsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsProtocol.swift; sourceTree = "<group>"; };
@@ -388,6 +394,16 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
+		93897DA328B6746400F3C1AE /* ImagePDF */ = {
+			isa = PBXGroup;
+			children = (
+				93897DA428B6747900F3C1AE /* ImagePDFVC.xib */,
+				93897DA528B6747900F3C1AE /* ImagePDFVM.swift */,
+				93897DA628B6747900F3C1AE /* ImagePDFVC.swift */,
+			);
+			path = ImagePDF;
+			sourceTree = "<group>";
+		};
 		9390847028AD3394002B835B /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,6 +464,7 @@
 		939DA46D289D57C000AEEF49 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				93897DA328B6746400F3C1AE /* ImagePDF */,
 				93890DBE28B2641F00A8F467 /* Camera */,
 				93890DB728B257DF00A8F467 /* NotePad */,
 				93890DB028B235B000A8F467 /* Info */,
@@ -832,6 +849,7 @@
 				93B66406289E75CF001BFA47 /* FilesVC.xib in Resources */,
 				9386D45328A7F5B500CC9335 /* FontsFree-Net-SFProDisplay-Bold.ttf in Resources */,
 				93AA03C228AFC1490064EFA7 /* NavigationSearchView.xib in Resources */,
+				93897DA728B6747900F3C1AE /* ImagePDFVC.xib in Resources */,
 				93890DBB28B257F300A8F467 /* NotePadVC.xib in Resources */,
 				93890DAF28B1D55400A8F467 /* RenameView.xib in Resources */,
 				93B66418289E7F8D001BFA47 /* FilesCell.xib in Resources */,
@@ -925,6 +943,7 @@
 				9390847A28AD3D85002B835B /* Array+Extension.swift in Sources */,
 				939DA485289D5CA600AEEF49 /* SettingDefaultFont.swift in Sources */,
 				93AA03C928AFC8A90064EFA7 /* FilesMenuVC.swift in Sources */,
+				93897DA828B6747900F3C1AE /* ImagePDFVM.swift in Sources */,
 				93B66426289EC327001BFA47 /* ToolsVC.swift in Sources */,
 				93B4603428A92B8200E21A9E /* AutoLayout+Extension.swift in Sources */,
 				939DA490289D5CEB00AEEF49 /* OptionalMessageDTO.swift in Sources */,
@@ -950,6 +969,7 @@
 				93890DAD28B1D51400A8F467 /* RenameView.swift in Sources */,
 				939DA483289D5CA600AEEF49 /* Constant.swift in Sources */,
 				939DA49C289D5D9A00AEEF49 /* PropertyWapper.swift in Sources */,
+				93897DA928B6747900F3C1AE /* ImagePDFVC.swift in Sources */,
 				93B6643D289ECEB4001BFA47 /* BaseSetting.swift in Sources */,
 				93890DBC28B257F300A8F467 /* NotePadVM.swift in Sources */,
 				93890DC428B2643400A8F467 /* CameraVC.swift in Sources */,

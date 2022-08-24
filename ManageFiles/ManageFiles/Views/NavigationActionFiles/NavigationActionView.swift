@@ -21,6 +21,7 @@ class NavigationActionView: UIView, BaseViewSetUp {
     var delgate: NavigationActionDelegate?
     
     @IBOutlet var bts: [UIButton]!
+    @IBOutlet weak var lbTitle: UILabel!
     private let disposeBag = DisposeBag()
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,6 +56,11 @@ extension NavigationActionView {
                     
                 }.disposed(by: disposeBag)
         }
+    }
+    
+    func setTitle(text: String) {
+        self.lbTitle.text = text
+        self.lbTitle.isHidden = false
     }
     
     func hidePlusButton() {

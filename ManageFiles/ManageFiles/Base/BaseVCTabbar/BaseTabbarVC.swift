@@ -17,6 +17,7 @@ class BaseTabbarVC: BaseVC, SetupTableView, MoveToProtocol, ToolsProtocol {
     var tableView: UITableView = UITableView(frame: .zero, style: .plain)
     let source: BehaviorRelay<[FolderModel]> = BehaviorRelay.init(value: [])
     var selectItem: PublishSubject<FolderModel> = PublishSubject.init()
+    var additionStatis: AdditionVC.AdditionStatus = .normal
     @VariableReplay var cellStatus: FolderVC.CellStatus = .single
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -80,7 +81,11 @@ extension BaseTabbarVC {
                 switch owner.screenType {
                 case .tools:
                     let type = ToolsVC.ToolsFile.allCases[idx.row]
-                    owner.selectAction(type: type, delegateCloud: owner)
+                    var addition: AdditionVC.AdditionStatus = .normal
+                    if type == .imageToPdf {
+                        addition = .imageToPDF
+                    }
+                    owner.selectAction(type: type, delegateCloud: owner, additionStatus: addition, additionDelegate: owner)
                 default:
                     let item = owner.source.value[idx.row]
                     owner.moveToFolder(url: item.url, delegate: owner)
@@ -104,12 +109,22 @@ extension BaseTabbarVC {
     }
     
 }
+extension BaseTabbarVC: AdditionDelegate {
+    func moveToAction(url: URL) {
+        self.moveToImagePDF(url: url)
+    }
+}
 extension BaseTabbarVC: UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         guard let first = urls.first else {
             return
         }
-        self.moveToActionFiles(url: urls, status: .cloud)
+        switch self.additionStatis {
+        case .normal: self.moveToActionFiles(url: urls, status: .cloud)
+        case .imageToPDF: self.moveToImagePDF(url: first)
+            
+        }
+        
     }
 }
 extension BaseTabbarVC: FilesMenuDelegate {

@@ -83,6 +83,7 @@ extension ActionFilesVC {
             self.headerView.setTitleUrl(url: first)
         }
         self.navigationController?.removeViewController(NotePadVC.self)
+        self.navigationController?.removeViewController(ImagePDFVC.self)
     }
     
     private func setupUI() {

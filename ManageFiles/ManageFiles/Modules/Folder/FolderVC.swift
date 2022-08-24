@@ -136,7 +136,6 @@ extension FolderVC {
         self.addViewNavigationBar(titleView: self.titleView)
         self.hideBackButton()
         self.titleView.delegate = self
-        
     }
 }
 extension FolderVC: NavigationSearchDelegate {

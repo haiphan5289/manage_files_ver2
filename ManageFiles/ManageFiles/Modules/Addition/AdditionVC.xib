@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdditionVC" customModule="ManageFiles" customModuleProvider="target">
             <connections>
                 <outlet property="btClose" destination="6RX-ha-PFy" id="lal-MY-FcJ"/>
+                <outlet property="lbTitle" destination="37b-Mn-ywJ" id="MFL-4I-p6E"/>
                 <outlet property="stackView" destination="kNw-aL-u7M" id="iNW-Ue-6I7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -92,7 +93,7 @@
     <resources>
         <image name="ic_close" width="24" height="24"/>
         <namedColor name="black60">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
