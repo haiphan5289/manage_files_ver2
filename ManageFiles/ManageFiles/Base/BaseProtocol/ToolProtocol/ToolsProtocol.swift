@@ -41,7 +41,9 @@ extension ToolsProtocol {
             vc.delegate = additionDelegate
             vc.additionStatus = .imageToPDF
             topVC.present(vc, animated: true, completion: nil)
-        case .fileTransfer: break
+        case .fileTransfer:
+            let vc = TransferWifiVC.createVC()
+            topVC.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

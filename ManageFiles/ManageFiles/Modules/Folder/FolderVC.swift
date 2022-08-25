@@ -60,6 +60,7 @@ extension FolderVC {
         }
         self.folders()
         self.navigationController?.removeViewController(ActionFilesVC.self)
+        self.navigationController?.removeViewController(TransferWifiVC.self)
     }
     
     private func setupRX() {

@@ -36,6 +36,46 @@
 		93897DA728B6747900F3C1AE /* ImagePDFVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93897DA428B6747900F3C1AE /* ImagePDFVC.xib */; };
 		93897DA828B6747900F3C1AE /* ImagePDFVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93897DA528B6747900F3C1AE /* ImagePDFVM.swift */; };
 		93897DA928B6747900F3C1AE /* ImagePDFVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93897DA628B6747900F3C1AE /* ImagePDFVC.swift */; };
+		93900C8F28B7AF3E003439FB /* SGWiFiUploadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C3D28B7AF3E003439FB /* SGWiFiUploadManager.m */; };
+		93900C9028B7AF3E003439FB /* HYBIPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C3F28B7AF3E003439FB /* HYBIPHelper.m */; };
+		93900C9128B7AF3E003439FB /* HTTPErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C4A28B7AF3E003439FB /* HTTPErrorResponse.m */; };
+		93900C9228B7AF3E003439FB /* HTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C4B28B7AF3E003439FB /* HTTPDataResponse.m */; };
+		93900C9328B7AF3E003439FB /* HTTPDynamicFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C4D28B7AF3E003439FB /* HTTPDynamicFileResponse.m */; };
+		93900C9428B7AF3E003439FB /* HTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C4E28B7AF3E003439FB /* HTTPFileResponse.m */; };
+		93900C9528B7AF3E003439FB /* HTTPAsyncFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C4F28B7AF3E003439FB /* HTTPAsyncFileResponse.m */; };
+		93900C9628B7AF3E003439FB /* HTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C5028B7AF3E003439FB /* HTTPRedirectResponse.m */; };
+		93900C9728B7AF3E003439FB /* HTTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C5628B7AF3E003439FB /* HTTPMessage.m */; };
+		93900C9828B7AF3E003439FB /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C5728B7AF3E003439FB /* HTTPConnection.m */; };
+		93900C9928B7AF3E003439FB /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C5828B7AF3E003439FB /* WebSocket.m */; };
+		93900C9A28B7AF3E003439FB /* MultipartMessageHeaderField.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C5D28B7AF3E003439FB /* MultipartMessageHeaderField.m */; };
+		93900C9B28B7AF3E003439FB /* MultipartFormDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C5E28B7AF3E003439FB /* MultipartFormDataParser.m */; };
+		93900C9C28B7AF3E003439FB /* MultipartMessageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C5F28B7AF3E003439FB /* MultipartMessageHeader.m */; };
+		93900C9D28B7AF3E003439FB /* HTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C6128B7AF3E003439FB /* HTTPAuthenticationRequest.m */; };
+		93900C9E28B7AF3E003439FB /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C6328B7AF3E003439FB /* DDNumber.m */; };
+		93900C9F28B7AF3E003439FB /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C6428B7AF3E003439FB /* DDData.m */; };
+		93900CA028B7AF3E003439FB /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C6728B7AF3E003439FB /* DDRange.m */; };
+		93900CA128B7AF3E003439FB /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C6928B7AF3E003439FB /* HTTPServer.m */; };
+		93900CA228B7AF3E003439FB /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93900C6B28B7AF3E003439FB /* Manager.swift */; };
+		93900CA328B7AF3E003439FB /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 93900C6C28B7AF3E003439FB /* index.html */; };
+		93900CA428B7AF3E003439FB /* upload.html in Resources */ = {isa = PBXBuildFile; fileRef = 93900C6D28B7AF3E003439FB /* upload.html */; };
+		93900CA528B7AF3E003439FB /* SGWiFiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C7128B7AF3E003439FB /* SGWiFiViewController.m */; };
+		93900CA628B7AF3E003439FB /* SGWiFiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C7328B7AF3E003439FB /* SGWiFiView.m */; };
+		93900CA728B7AF3E003439FB /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C7728B7AF3E003439FB /* DDTTYLogger.m */; };
+		93900CA828B7AF3F003439FB /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C7A28B7AF3E003439FB /* DDASLLogger.m */; };
+		93900CA928B7AF3F003439FB /* CocoaLumberjack-About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93900C7B28B7AF3E003439FB /* CocoaLumberjack-About.txt */; };
+		93900CAA28B7AF3F003439FB /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C8028B7AF3E003439FB /* ContextFilterLogFormatter.m */; };
+		93900CAB28B7AF3F003439FB /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C8128B7AF3E003439FB /* DispatchQueueLogFormatter.m */; };
+		93900CAC28B7AF3F003439FB /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93900C8228B7AF3E003439FB /* README.txt */; };
+		93900CAD28B7AF3F003439FB /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C8328B7AF3E003439FB /* DDLog.m */; };
+		93900CAE28B7AF3F003439FB /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C8528B7AF3E003439FB /* DDAbstractDatabaseLogger.m */; };
+		93900CAF28B7AF3F003439FB /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C8628B7AF3E003439FB /* DDFileLogger.m */; };
+		93900CB028B7AF3F003439FB /* SGConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C8828B7AF3E003439FB /* SGConst.m */; };
+		93900CB128B7AF3F003439FB /* SGHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C8A28B7AF3E003439FB /* SGHTTPConnection.m */; };
+		93900CB228B7AF3F003439FB /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 93900C8C28B7AF3E003439FB /* GCDAsyncSocket.m */; };
+		93900CB328B7AF3F003439FB /* CocoaAsyncSocket-About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93900C8D28B7AF3E003439FB /* CocoaAsyncSocket-About.txt */; };
+		93900CB828B7AFE3003439FB /* TransferWifiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93900CB528B7AFE3003439FB /* TransferWifiVC.xib */; };
+		93900CB928B7AFE3003439FB /* TransferWifiVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93900CB628B7AFE3003439FB /* TransferWifiVM.swift */; };
+		93900CBA28B7AFE3003439FB /* TransferWifiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93900CB728B7AFE3003439FB /* TransferWifiVC.swift */; };
 		9390847328AD340A002B835B /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390847128AD340A002B835B /* HomeCell.swift */; };
 		9390847428AD340A002B835B /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9390847228AD340A002B835B /* HomeCell.xib */; };
 		9390847728AD3BDD002B835B /* ToolsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390847628AD3BDD002B835B /* ToolsProtocol.swift */; };
@@ -151,6 +191,80 @@
 		93897DA428B6747900F3C1AE /* ImagePDFVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePDFVC.xib; sourceTree = "<group>"; };
 		93897DA528B6747900F3C1AE /* ImagePDFVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePDFVM.swift; sourceTree = "<group>"; };
 		93897DA628B6747900F3C1AE /* ImagePDFVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePDFVC.swift; sourceTree = "<group>"; };
+		93900C3928B7AF2D003439FB /* ManageFiles-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ManageFiles-Bridging-Header.h"; sourceTree = "<group>"; };
+		93900C3D28B7AF3E003439FB /* SGWiFiUploadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGWiFiUploadManager.m; sourceTree = "<group>"; };
+		93900C3F28B7AF3E003439FB /* HYBIPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBIPHelper.m; sourceTree = "<group>"; };
+		93900C4028B7AF3E003439FB /* HYBIPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBIPHelper.h; sourceTree = "<group>"; };
+		93900C4128B7AF3E003439FB /* SGConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGConst.h; sourceTree = "<group>"; };
+		93900C4328B7AF3E003439FB /* HTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPConnection.h; sourceTree = "<group>"; };
+		93900C4428B7AF3E003439FB /* HTTPLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPLogging.h; sourceTree = "<group>"; };
+		93900C4528B7AF3E003439FB /* HTTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPMessage.h; sourceTree = "<group>"; };
+		93900C4628B7AF3E003439FB /* WebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocket.h; sourceTree = "<group>"; };
+		93900C4728B7AF3E003439FB /* HTTPAuthenticationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPAuthenticationRequest.h; sourceTree = "<group>"; };
+		93900C4928B7AF3E003439FB /* HTTPAsyncFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPAsyncFileResponse.h; sourceTree = "<group>"; };
+		93900C4A28B7AF3E003439FB /* HTTPErrorResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPErrorResponse.m; sourceTree = "<group>"; };
+		93900C4B28B7AF3E003439FB /* HTTPDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPDataResponse.m; sourceTree = "<group>"; };
+		93900C4C28B7AF3E003439FB /* HTTPRedirectResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRedirectResponse.h; sourceTree = "<group>"; };
+		93900C4D28B7AF3E003439FB /* HTTPDynamicFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPDynamicFileResponse.m; sourceTree = "<group>"; };
+		93900C4E28B7AF3E003439FB /* HTTPFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPFileResponse.m; sourceTree = "<group>"; };
+		93900C4F28B7AF3E003439FB /* HTTPAsyncFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPAsyncFileResponse.m; sourceTree = "<group>"; };
+		93900C5028B7AF3E003439FB /* HTTPRedirectResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPRedirectResponse.m; sourceTree = "<group>"; };
+		93900C5128B7AF3E003439FB /* HTTPDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPDataResponse.h; sourceTree = "<group>"; };
+		93900C5228B7AF3E003439FB /* HTTPErrorResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPErrorResponse.h; sourceTree = "<group>"; };
+		93900C5328B7AF3E003439FB /* HTTPFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPFileResponse.h; sourceTree = "<group>"; };
+		93900C5428B7AF3E003439FB /* HTTPDynamicFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPDynamicFileResponse.h; sourceTree = "<group>"; };
+		93900C5528B7AF3E003439FB /* HTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPServer.h; sourceTree = "<group>"; };
+		93900C5628B7AF3E003439FB /* HTTPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPMessage.m; sourceTree = "<group>"; };
+		93900C5728B7AF3E003439FB /* HTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPConnection.m; sourceTree = "<group>"; };
+		93900C5828B7AF3E003439FB /* WebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocket.m; sourceTree = "<group>"; };
+		93900C5928B7AF3E003439FB /* HTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPResponse.h; sourceTree = "<group>"; };
+		93900C5B28B7AF3E003439FB /* MultipartFormDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipartFormDataParser.h; sourceTree = "<group>"; };
+		93900C5C28B7AF3E003439FB /* MultipartMessageHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipartMessageHeader.h; sourceTree = "<group>"; };
+		93900C5D28B7AF3E003439FB /* MultipartMessageHeaderField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipartMessageHeaderField.m; sourceTree = "<group>"; };
+		93900C5E28B7AF3E003439FB /* MultipartFormDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipartFormDataParser.m; sourceTree = "<group>"; };
+		93900C5F28B7AF3E003439FB /* MultipartMessageHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipartMessageHeader.m; sourceTree = "<group>"; };
+		93900C6028B7AF3E003439FB /* MultipartMessageHeaderField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipartMessageHeaderField.h; sourceTree = "<group>"; };
+		93900C6128B7AF3E003439FB /* HTTPAuthenticationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPAuthenticationRequest.m; sourceTree = "<group>"; };
+		93900C6328B7AF3E003439FB /* DDNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNumber.m; sourceTree = "<group>"; };
+		93900C6428B7AF3E003439FB /* DDData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDData.m; sourceTree = "<group>"; };
+		93900C6528B7AF3E003439FB /* DDRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDRange.h; sourceTree = "<group>"; };
+		93900C6628B7AF3E003439FB /* DDNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNumber.h; sourceTree = "<group>"; };
+		93900C6728B7AF3E003439FB /* DDRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDRange.m; sourceTree = "<group>"; };
+		93900C6828B7AF3E003439FB /* DDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDData.h; sourceTree = "<group>"; };
+		93900C6928B7AF3E003439FB /* HTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPServer.m; sourceTree = "<group>"; };
+		93900C6B28B7AF3E003439FB /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		93900C6C28B7AF3E003439FB /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		93900C6D28B7AF3E003439FB /* upload.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = upload.html; sourceTree = "<group>"; };
+		93900C7028B7AF3E003439FB /* SGWiFiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGWiFiViewController.h; sourceTree = "<group>"; };
+		93900C7128B7AF3E003439FB /* SGWiFiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGWiFiViewController.m; sourceTree = "<group>"; };
+		93900C7328B7AF3E003439FB /* SGWiFiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGWiFiView.m; sourceTree = "<group>"; };
+		93900C7428B7AF3E003439FB /* SGWiFiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGWiFiView.h; sourceTree = "<group>"; };
+		93900C7528B7AF3E003439FB /* SGHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGHTTPConnection.h; sourceTree = "<group>"; };
+		93900C7728B7AF3E003439FB /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
+		93900C7828B7AF3E003439FB /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		93900C7928B7AF3E003439FB /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		93900C7A28B7AF3E003439FB /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
+		93900C7B28B7AF3E003439FB /* CocoaLumberjack-About.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CocoaLumberjack-About.txt"; sourceTree = "<group>"; };
+		93900C7C28B7AF3E003439FB /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		93900C7E28B7AF3E003439FB /* ContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		93900C7F28B7AF3E003439FB /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		93900C8028B7AF3E003439FB /* ContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		93900C8128B7AF3E003439FB /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		93900C8228B7AF3E003439FB /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		93900C8328B7AF3E003439FB /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
+		93900C8428B7AF3E003439FB /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		93900C8528B7AF3E003439FB /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		93900C8628B7AF3E003439FB /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
+		93900C8728B7AF3E003439FB /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		93900C8828B7AF3E003439FB /* SGConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGConst.m; sourceTree = "<group>"; };
+		93900C8928B7AF3E003439FB /* SGWiFiUploadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGWiFiUploadManager.h; sourceTree = "<group>"; };
+		93900C8A28B7AF3E003439FB /* SGHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGHTTPConnection.m; sourceTree = "<group>"; };
+		93900C8C28B7AF3E003439FB /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		93900C8D28B7AF3E003439FB /* CocoaAsyncSocket-About.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CocoaAsyncSocket-About.txt"; sourceTree = "<group>"; };
+		93900C8E28B7AF3E003439FB /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		93900CB528B7AFE3003439FB /* TransferWifiVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferWifiVC.xib; sourceTree = "<group>"; };
+		93900CB628B7AFE3003439FB /* TransferWifiVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferWifiVM.swift; sourceTree = "<group>"; };
+		93900CB728B7AFE3003439FB /* TransferWifiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferWifiVC.swift; sourceTree = "<group>"; };
 		9390847128AD340A002B835B /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		9390847228AD340A002B835B /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
 		9390847628AD3BDD002B835B /* ToolsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsProtocol.swift; sourceTree = "<group>"; };
@@ -287,6 +401,7 @@
 		3EBAF491289D1E2300C59679 /* ManageFiles */ = {
 			isa = PBXGroup;
 			children = (
+				93900C3C28B7AF3E003439FB /* TransferWifi */,
 				9386D44928A7F5B500CC9335 /* font */,
 				93B66442289ED559001BFA47 /* JSON */,
 				93B663F9289E5D7E001BFA47 /* SwiftGen */,
@@ -305,6 +420,7 @@
 				3EBAF49B289D1E2400C59679 /* Assets.xcassets */,
 				3EBAF49D289D1E2400C59679 /* LaunchScreen.storyboard */,
 				3EBAF4A0289D1E2400C59679 /* Info.plist */,
+				93900C3928B7AF2D003439FB /* ManageFiles-Bridging-Header.h */,
 			);
 			path = ManageFiles;
 			sourceTree = "<group>";
@@ -404,6 +520,189 @@
 			path = ImagePDF;
 			sourceTree = "<group>";
 		};
+		93900C3C28B7AF3E003439FB /* TransferWifi */ = {
+			isa = PBXGroup;
+			children = (
+				93900C3D28B7AF3E003439FB /* SGWiFiUploadManager.m */,
+				93900C3E28B7AF3E003439FB /* HYBIPHelper */,
+				93900C4128B7AF3E003439FB /* SGConst.h */,
+				93900C4228B7AF3E003439FB /* Core */,
+				93900C6A28B7AF3E003439FB /* Web */,
+				93900C6E28B7AF3E003439FB /* WiFiPage */,
+				93900C7528B7AF3E003439FB /* SGHTTPConnection.h */,
+				93900C7628B7AF3E003439FB /* CocoaLumberjack */,
+				93900C8828B7AF3E003439FB /* SGConst.m */,
+				93900C8928B7AF3E003439FB /* SGWiFiUploadManager.h */,
+				93900C8A28B7AF3E003439FB /* SGHTTPConnection.m */,
+				93900C8B28B7AF3E003439FB /* CocoaAsyncSocket */,
+			);
+			path = TransferWifi;
+			sourceTree = "<group>";
+		};
+		93900C3E28B7AF3E003439FB /* HYBIPHelper */ = {
+			isa = PBXGroup;
+			children = (
+				93900C3F28B7AF3E003439FB /* HYBIPHelper.m */,
+				93900C4028B7AF3E003439FB /* HYBIPHelper.h */,
+			);
+			path = HYBIPHelper;
+			sourceTree = "<group>";
+		};
+		93900C4228B7AF3E003439FB /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				93900C4328B7AF3E003439FB /* HTTPConnection.h */,
+				93900C4428B7AF3E003439FB /* HTTPLogging.h */,
+				93900C4528B7AF3E003439FB /* HTTPMessage.h */,
+				93900C4628B7AF3E003439FB /* WebSocket.h */,
+				93900C4728B7AF3E003439FB /* HTTPAuthenticationRequest.h */,
+				93900C4828B7AF3E003439FB /* Responses */,
+				93900C5528B7AF3E003439FB /* HTTPServer.h */,
+				93900C5628B7AF3E003439FB /* HTTPMessage.m */,
+				93900C5728B7AF3E003439FB /* HTTPConnection.m */,
+				93900C5828B7AF3E003439FB /* WebSocket.m */,
+				93900C5928B7AF3E003439FB /* HTTPResponse.h */,
+				93900C5A28B7AF3E003439FB /* Mime */,
+				93900C6128B7AF3E003439FB /* HTTPAuthenticationRequest.m */,
+				93900C6228B7AF3E003439FB /* Categories */,
+				93900C6928B7AF3E003439FB /* HTTPServer.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		93900C4828B7AF3E003439FB /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				93900C4928B7AF3E003439FB /* HTTPAsyncFileResponse.h */,
+				93900C4A28B7AF3E003439FB /* HTTPErrorResponse.m */,
+				93900C4B28B7AF3E003439FB /* HTTPDataResponse.m */,
+				93900C4C28B7AF3E003439FB /* HTTPRedirectResponse.h */,
+				93900C4D28B7AF3E003439FB /* HTTPDynamicFileResponse.m */,
+				93900C4E28B7AF3E003439FB /* HTTPFileResponse.m */,
+				93900C4F28B7AF3E003439FB /* HTTPAsyncFileResponse.m */,
+				93900C5028B7AF3E003439FB /* HTTPRedirectResponse.m */,
+				93900C5128B7AF3E003439FB /* HTTPDataResponse.h */,
+				93900C5228B7AF3E003439FB /* HTTPErrorResponse.h */,
+				93900C5328B7AF3E003439FB /* HTTPFileResponse.h */,
+				93900C5428B7AF3E003439FB /* HTTPDynamicFileResponse.h */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		93900C5A28B7AF3E003439FB /* Mime */ = {
+			isa = PBXGroup;
+			children = (
+				93900C5B28B7AF3E003439FB /* MultipartFormDataParser.h */,
+				93900C5C28B7AF3E003439FB /* MultipartMessageHeader.h */,
+				93900C5D28B7AF3E003439FB /* MultipartMessageHeaderField.m */,
+				93900C5E28B7AF3E003439FB /* MultipartFormDataParser.m */,
+				93900C5F28B7AF3E003439FB /* MultipartMessageHeader.m */,
+				93900C6028B7AF3E003439FB /* MultipartMessageHeaderField.h */,
+			);
+			path = Mime;
+			sourceTree = "<group>";
+		};
+		93900C6228B7AF3E003439FB /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				93900C6328B7AF3E003439FB /* DDNumber.m */,
+				93900C6428B7AF3E003439FB /* DDData.m */,
+				93900C6528B7AF3E003439FB /* DDRange.h */,
+				93900C6628B7AF3E003439FB /* DDNumber.h */,
+				93900C6728B7AF3E003439FB /* DDRange.m */,
+				93900C6828B7AF3E003439FB /* DDData.h */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		93900C6A28B7AF3E003439FB /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				93900C6B28B7AF3E003439FB /* Manager.swift */,
+				93900C6C28B7AF3E003439FB /* index.html */,
+				93900C6D28B7AF3E003439FB /* upload.html */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		93900C6E28B7AF3E003439FB /* WiFiPage */ = {
+			isa = PBXGroup;
+			children = (
+				93900C6F28B7AF3E003439FB /* Controller */,
+				93900C7228B7AF3E003439FB /* View */,
+			);
+			path = WiFiPage;
+			sourceTree = "<group>";
+		};
+		93900C6F28B7AF3E003439FB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				93900C7028B7AF3E003439FB /* SGWiFiViewController.h */,
+				93900C7128B7AF3E003439FB /* SGWiFiViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		93900C7228B7AF3E003439FB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				93900C7328B7AF3E003439FB /* SGWiFiView.m */,
+				93900C7428B7AF3E003439FB /* SGWiFiView.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		93900C7628B7AF3E003439FB /* CocoaLumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				93900C7728B7AF3E003439FB /* DDTTYLogger.m */,
+				93900C7828B7AF3E003439FB /* DDLog.h */,
+				93900C7928B7AF3E003439FB /* DDAbstractDatabaseLogger.h */,
+				93900C7A28B7AF3E003439FB /* DDASLLogger.m */,
+				93900C7B28B7AF3E003439FB /* CocoaLumberjack-About.txt */,
+				93900C7C28B7AF3E003439FB /* DDFileLogger.h */,
+				93900C7D28B7AF3E003439FB /* Extensions */,
+				93900C8328B7AF3E003439FB /* DDLog.m */,
+				93900C8428B7AF3E003439FB /* DDTTYLogger.h */,
+				93900C8528B7AF3E003439FB /* DDAbstractDatabaseLogger.m */,
+				93900C8628B7AF3E003439FB /* DDFileLogger.m */,
+				93900C8728B7AF3E003439FB /* DDASLLogger.h */,
+			);
+			path = CocoaLumberjack;
+			sourceTree = "<group>";
+		};
+		93900C7D28B7AF3E003439FB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				93900C7E28B7AF3E003439FB /* ContextFilterLogFormatter.h */,
+				93900C7F28B7AF3E003439FB /* DispatchQueueLogFormatter.h */,
+				93900C8028B7AF3E003439FB /* ContextFilterLogFormatter.m */,
+				93900C8128B7AF3E003439FB /* DispatchQueueLogFormatter.m */,
+				93900C8228B7AF3E003439FB /* README.txt */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		93900C8B28B7AF3E003439FB /* CocoaAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				93900C8C28B7AF3E003439FB /* GCDAsyncSocket.m */,
+				93900C8D28B7AF3E003439FB /* CocoaAsyncSocket-About.txt */,
+				93900C8E28B7AF3E003439FB /* GCDAsyncSocket.h */,
+			);
+			path = CocoaAsyncSocket;
+			sourceTree = "<group>";
+		};
+		93900CB428B7AFAF003439FB /* TransferWifi */ = {
+			isa = PBXGroup;
+			children = (
+				93900CB528B7AFE3003439FB /* TransferWifiVC.xib */,
+				93900CB628B7AFE3003439FB /* TransferWifiVM.swift */,
+				93900CB728B7AFE3003439FB /* TransferWifiVC.swift */,
+			);
+			path = TransferWifi;
+			sourceTree = "<group>";
+		};
 		9390847028AD3394002B835B /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,6 +763,7 @@
 		939DA46D289D57C000AEEF49 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				93900CB428B7AFAF003439FB /* TransferWifi */,
 				93897DA328B6746400F3C1AE /* ImagePDF */,
 				93890DBE28B2641F00A8F467 /* Camera */,
 				93890DB728B257DF00A8F467 /* NotePad */,
@@ -818,6 +1118,7 @@
 				TargetAttributes = {
 					3EBAF48E289D1E2300C59679 = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
 					};
 				};
 			};
@@ -849,6 +1150,7 @@
 				93B66406289E75CF001BFA47 /* FilesVC.xib in Resources */,
 				9386D45328A7F5B500CC9335 /* FontsFree-Net-SFProDisplay-Bold.ttf in Resources */,
 				93AA03C228AFC1490064EFA7 /* NavigationSearchView.xib in Resources */,
+				93900CA328B7AF3E003439FB /* index.html in Resources */,
 				93897DA728B6747900F3C1AE /* ImagePDFVC.xib in Resources */,
 				93890DBB28B257F300A8F467 /* NotePadVC.xib in Resources */,
 				93890DAF28B1D55400A8F467 /* RenameView.xib in Resources */,
@@ -856,6 +1158,9 @@
 				9390848228AD4746002B835B /* SortView.xib in Resources */,
 				3EBAF49F289D1E2400C59679 /* LaunchScreen.storyboard in Resources */,
 				93F85C8728B0CBD3009A6A66 /* image_check.png in Resources */,
+				93900CB328B7AF3F003439FB /* CocoaAsyncSocket-About.txt in Resources */,
+				93900CA928B7AF3F003439FB /* CocoaLumberjack-About.txt in Resources */,
+				93900CAC28B7AF3F003439FB /* README.txt in Resources */,
 				93A847F528A3FD89004519CF /* Addition.json in Resources */,
 				93B66400289E710D001BFA47 /* SearchView.xib in Resources */,
 				93A9602F28AE90AF00A1986D /* FolderVC.xib in Resources */,
@@ -868,11 +1173,13 @@
 				93890DC228B2643400A8F467 /* CameraVC.xib in Resources */,
 				939DA4A5289D604800AEEF49 /* ListFontVC.xib in Resources */,
 				93A847FA28A3FE48004519CF /* AdditionVC.xib in Resources */,
+				93900CA428B7AF3E003439FB /* upload.html in Resources */,
 				9386D45228A7F5B500CC9335 /* FontsFree-Net-SFProText-Medium.ttf in Resources */,
 				9386D44128A78BBA00CC9335 /* ActionFilesVC.xib in Resources */,
 				3EBAF49C289D1E2400C59679 /* Assets.xcassets in Resources */,
 				93AA03C728AFC8A90064EFA7 /* FilesMenuVC.xib in Resources */,
 				3EBAF49A289D1E2300C59679 /* Main.storyboard in Resources */,
+				93900CB828B7AFE3003439FB /* TransferWifiVC.xib in Resources */,
 				93B663F8289E5C32001BFA47 /* swiftgen.yml in Resources */,
 				93B66433289ECCCD001BFA47 /* SettingView.xib in Resources */,
 				9386D44628A7905F00CC9335 /* NavigationActionView.xib in Resources */,
@@ -936,50 +1243,76 @@
 				93B33E0028B3BBFC005C46C2 /* MultiSelectView.swift in Sources */,
 				939DA47E289D5C6B00AEEF49 /* UIFont+Extension.swift in Sources */,
 				939DA499289D5D8B00AEEF49 /* Encode+Extension.swift in Sources */,
+				93900CAB28B7AF3F003439FB /* DispatchQueueLogFormatter.m in Sources */,
 				93B6641D289E8A24001BFA47 /* BaseTabbarVM.swift in Sources */,
+				93900CAD28B7AF3F003439FB /* DDLog.m in Sources */,
 				93890DC328B2643400A8F467 /* CameraVM.swift in Sources */,
+				93900C9828B7AF3E003439FB /* HTTPConnection.m in Sources */,
 				93890DB628B235BF00A8F467 /* InfoVC.swift in Sources */,
 				9390848028AD46FA002B835B /* SortView.swift in Sources */,
 				9390847A28AD3D85002B835B /* Array+Extension.swift in Sources */,
+				93900CA628B7AF3E003439FB /* SGWiFiView.m in Sources */,
+				93900C9328B7AF3E003439FB /* HTTPDynamicFileResponse.m in Sources */,
 				939DA485289D5CA600AEEF49 /* SettingDefaultFont.swift in Sources */,
+				93900C8F28B7AF3E003439FB /* SGWiFiUploadManager.m in Sources */,
 				93AA03C928AFC8A90064EFA7 /* FilesMenuVC.swift in Sources */,
 				93897DA828B6747900F3C1AE /* ImagePDFVM.swift in Sources */,
+				93900CAA28B7AF3F003439FB /* ContextFilterLogFormatter.m in Sources */,
 				93B66426289EC327001BFA47 /* ToolsVC.swift in Sources */,
 				93B4603428A92B8200E21A9E /* AutoLayout+Extension.swift in Sources */,
 				939DA490289D5CEB00AEEF49 /* OptionalMessageDTO.swift in Sources */,
 				9390848828AD4A33002B835B /* SortVM.swift in Sources */,
 				93B6640A289E7759001BFA47 /* BaseVC.swift in Sources */,
+				93900CA028B7AF3E003439FB /* DDRange.m in Sources */,
 				93B6640F289E78DD001BFA47 /* FilesCellView.swift in Sources */,
+				93900C9028B7AF3E003439FB /* HYBIPHelper.m in Sources */,
 				9390848928AD4A33002B835B /* SortVC.swift in Sources */,
 				93B66425289EC327001BFA47 /* ToolsVM.swift in Sources */,
 				939DA4A7289D604800AEEF49 /* ListFontVC.swift in Sources */,
 				3EBAF497289D1E2300C59679 /* ViewController.swift in Sources */,
+				93900CAE28B7AF3F003439FB /* DDAbstractDatabaseLogger.m in Sources */,
 				9390847328AD340A002B835B /* HomeCell.swift in Sources */,
 				93AA03C028AFC12F0064EFA7 /* NavigationSearchView.swift in Sources */,
+				93900C9428B7AF3E003439FB /* HTTPFileResponse.m in Sources */,
 				939DA477289D594A00AEEF49 /* HomeVC.swift in Sources */,
 				939DA491289D5CEB00AEEF49 /* ReadJson.swift in Sources */,
 				9390847D28AD3FFB002B835B /* MoveToProtocol.swift in Sources */,
+				93900CB928B7AFE3003439FB /* TransferWifiVM.swift in Sources */,
+				93900C9128B7AF3E003439FB /* HTTPErrorResponse.m in Sources */,
+				93900C9D28B7AF3E003439FB /* HTTPAuthenticationRequest.m in Sources */,
 				93B66402289E7174001BFA47 /* SearchView.swift in Sources */,
 				93B663FB289E5D9D001BFA47 /* Assets.swift in Sources */,
 				939DA48E289D5CEB00AEEF49 /* APILink.swift in Sources */,
+				93900CA828B7AF3F003439FB /* DDASLLogger.m in Sources */,
+				93900CB028B7AF3F003439FB /* SGConst.m in Sources */,
+				93900C9E28B7AF3E003439FB /* DDNumber.m in Sources */,
 				93AA03C828AFC8A90064EFA7 /* FilesMenuVM.swift in Sources */,
 				93B66412289E79E8001BFA47 /* BaseViewSetUp.swift in Sources */,
 				939DA492289D5CEB00AEEF49 /* Request.swift in Sources */,
 				93B66440289ECF2C001BFA47 /* BaseSettingModel.swift in Sources */,
 				93890DAD28B1D51400A8F467 /* RenameView.swift in Sources */,
+				93900C9F28B7AF3E003439FB /* DDData.m in Sources */,
 				939DA483289D5CA600AEEF49 /* Constant.swift in Sources */,
 				939DA49C289D5D9A00AEEF49 /* PropertyWapper.swift in Sources */,
+				93900CBA28B7AFE3003439FB /* TransferWifiVC.swift in Sources */,
+				93900CB128B7AF3F003439FB /* SGHTTPConnection.m in Sources */,
 				93897DA928B6747900F3C1AE /* ImagePDFVC.swift in Sources */,
 				93B6643D289ECEB4001BFA47 /* BaseSetting.swift in Sources */,
+				93900CA728B7AF3E003439FB /* DDTTYLogger.m in Sources */,
 				93890DBC28B257F300A8F467 /* NotePadVM.swift in Sources */,
 				93890DC428B2643400A8F467 /* CameraVC.swift in Sources */,
 				93B66431289ECCC4001BFA47 /* SettingView.swift in Sources */,
 				93A847FC28A3FE48004519CF /* AdditionVC.swift in Sources */,
 				939DA4A6289D604800AEEF49 /* ListFontVM.swift in Sources */,
+				93900C9B28B7AF3E003439FB /* MultipartFormDataParser.m in Sources */,
 				93A9603128AE90AF00A1986D /* FolderVC.swift in Sources */,
+				93900CB228B7AF3F003439FB /* GCDAsyncSocket.m in Sources */,
 				939DA495289D5D0300AEEF49 /* RealmManager.swift in Sources */,
 				93A847FF28A40E07004519CF /* AdditionProtocol.swift in Sources */,
 				9386D44828A790D000CC9335 /* NavigationActionView.swift in Sources */,
+				93900C9728B7AF3E003439FB /* HTTPMessage.m in Sources */,
+				93900CA228B7AF3E003439FB /* Manager.swift in Sources */,
+				93900C9A28B7AF3E003439FB /* MultipartMessageHeaderField.m in Sources */,
 				93B6643A289ECD22001BFA47 /* SettingVC.swift in Sources */,
 				939DA479289D59C400AEEF49 /* TabbarVC.swift in Sources */,
 				93F85C8528B0C82E009A6A66 /* GlobalAppProtocol.swift in Sources */,
@@ -990,14 +1323,20 @@
 				93B6641F289EA1A2001BFA47 /* GlobalApp.swift in Sources */,
 				939DA497289D5D1F00AEEF49 /* RealmModel.swift in Sources */,
 				93890DB528B235BF00A8F467 /* InfoVM.swift in Sources */,
+				93900C9228B7AF3E003439FB /* HTTPDataResponse.m in Sources */,
 				93B6642D289ECC41001BFA47 /* SettingCell.swift in Sources */,
 				939DA49D289D5D9A00AEEF49 /* Obserable+Extension.swift in Sources */,
 				93B6641B289E87AC001BFA47 /* BaseTabbarVC.swift in Sources */,
 				93A9603028AE90AF00A1986D /* FolderVM.swift in Sources */,
 				3EBAF493289D1E2300C59679 /* AppDelegate.swift in Sources */,
 				93B663F4289E582F001BFA47 /* Utility.swift in Sources */,
+				93900C9C28B7AF3E003439FB /* MultipartMessageHeader.m in Sources */,
 				9386D44328A78BBA00CC9335 /* ActionFilesVC.swift in Sources */,
+				93900C9628B7AF3E003439FB /* HTTPRedirectResponse.m in Sources */,
 				3EBAF495289D1E2300C59679 /* SceneDelegate.swift in Sources */,
+				93900CA528B7AF3E003439FB /* SGWiFiViewController.m in Sources */,
+				93900C9928B7AF3E003439FB /* WebSocket.m in Sources */,
+				93900CA128B7AF3E003439FB /* HTTPServer.m in Sources */,
 				9390847728AD3BDD002B835B /* ToolsProtocol.swift in Sources */,
 				9386D44228A78BBA00CC9335 /* ActionFilesVM.swift in Sources */,
 				93B66407289E75CF001BFA47 /* FilesVM.swift in Sources */,
@@ -1005,6 +1344,8 @@
 				939DA476289D594A00AEEF49 /* HomeVM.swift in Sources */,
 				93A847FB28A3FE48004519CF /* AdditionVM.swift in Sources */,
 				939DA484289D5CA600AEEF49 /* GetHeightSafeArea.swift in Sources */,
+				93900C9528B7AF3E003439FB /* HTTPAsyncFileResponse.m in Sources */,
+				93900CAF28B7AF3F003439FB /* DDFileLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1150,6 +1491,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZX8LBHXXZB;
@@ -1169,6 +1511,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = haiphan.ManageFiles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ManageFiles/ManageFiles-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1180,6 +1524,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZX8LBHXXZB;
@@ -1199,6 +1544,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = haiphan.ManageFiles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ManageFiles/ManageFiles-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
