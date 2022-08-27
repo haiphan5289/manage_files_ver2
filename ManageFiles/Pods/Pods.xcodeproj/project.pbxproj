@@ -1243,6 +1243,7 @@
 		9354751C9C09937C61844AA9521CEF4F /* FastArrowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2625EA3D83E0D417865CE962B722769B /* FastArrowLayer.swift */; };
 		935F56FA037AD0679CF66D440EC4734B /* GDTCORMetricsMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 5906B80A329B854006CC1E561D07C059 /* GDTCORMetricsMetadata.m */; };
 		93850FD9DC5225F7040CF4254D6BE41A /* NSButton+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43DF256B5467BA2C73D49A9F4006EF4 /* NSButton+Kingfisher.swift */; };
+		9385EEA428B98A8D00370E26 /* InAppPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9385EEA328B98A8C00370E26 /* InAppPurchase.swift */; };
 		938A8BA47C3E16FE17E3719F6988CD03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A329D932450B96C0C39FFD95717B11B6 /* UIKit.framework */; };
 		93A7B1B80F996A74021BBE4BFFAA40ED /* NVActivityIndicatorView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4867F357D66BEF55820E1D47956D11EE /* NVActivityIndicatorView-dummy.m */; };
 		93BB2A612C534AB82AFC458F78DBDC5F /* FIRAppInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDE9873B0080CBA629B54EF46F4C3D7 /* FIRAppInternal.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -4275,6 +4276,7 @@
 		9336FD2C74ABE4787F36CB25CA691E5C /* RLMAccessor.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMAccessor.mm; path = Realm/RLMAccessor.mm; sourceTree = "<group>"; };
 		934195247CDE448D46FA129C49241E71 /* sync_permission.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = sync_permission.cpp; path = Realm/ObjectStore/src/sync/sync_permission.cpp; sourceTree = "<group>"; };
 		934C442BAD0574985000EAC60D14BE02 /* Sink.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Sink.swift; path = RxSwift/Observables/Sink.swift; sourceTree = "<group>"; };
+		9385EEA328B98A8C00370E26 /* InAppPurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppPurchase.swift; sourceTree = "<group>"; };
 		93D082C84DF5EA5577782DCF110CD784 /* Range.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Range.swift; path = RxSwift/Observables/Range.swift; sourceTree = "<group>"; };
 		93F026B21AF6753FF533E5C118992612 /* SwiftyGif.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyGif.modulemap; sourceTree = "<group>"; };
 		93F85C9028B0D617009A6A66 /* UIStackViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensions.swift; sourceTree = "<group>"; };
@@ -8084,6 +8086,7 @@
 		9359103DEA98B12F95D9D56B0A41EC61 /* EasyBaseCodes */ = {
 			isa = PBXGroup;
 			children = (
+				9385EEA328B98A8C00370E26 /* InAppPurchase.swift */,
 				93F85C9628B0D624009A6A66 /* CALayer+Extension.swift */,
 				93F85C9728B0D625009A6A66 /* Collection+Safe.swift */,
 				376929F4021011CE42801B59BBF14A05 /* ArrayExxtension.swift */,
@@ -14492,6 +14495,7 @@
 				7392B68DB57A52B2215F30AAB787E242 /* UINavigationControllerExtensions.swift in Sources */,
 				9E844A66FBEE67BE40AA2919B8D8F78B /* UINavigationItemExtensions.swift in Sources */,
 				34631FB1452AC936886A9E89AF0CBD35 /* UIRefreshControlExtensions.swift in Sources */,
+				9385EEA428B98A8D00370E26 /* InAppPurchase.swift in Sources */,
 				8FBB07364D50AE6D750B7115C1F6264C /* UIScrollViewExtensions.swift in Sources */,
 				DD7D2B03E1EC9981FF252E8902997EC2 /* UISearchBarExtensions.swift in Sources */,
 				54DE0607CD6C95CC441A42459EB5600E /* UISegmentedControlExtensions.swift in Sources */,

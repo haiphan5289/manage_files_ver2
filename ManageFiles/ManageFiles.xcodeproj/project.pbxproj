@@ -13,6 +13,10 @@
 		3EBAF49A289D1E2300C59679 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBAF498289D1E2300C59679 /* Main.storyboard */; };
 		3EBAF49C289D1E2400C59679 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBAF49B289D1E2400C59679 /* Assets.xcassets */; };
 		3EBAF49F289D1E2400C59679 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBAF49D289D1E2400C59679 /* LaunchScreen.storyboard */; };
+		9385EE9428B9739A00370E26 /* INAPPVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9385EE9128B9739A00370E26 /* INAPPVC.xib */; };
+		9385EE9528B9739A00370E26 /* INAPPVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9385EE9228B9739A00370E26 /* INAPPVM.swift */; };
+		9385EE9628B9739A00370E26 /* INAPPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9385EE9328B9739A00370E26 /* INAPPVC.swift */; };
+		9385EE9B28B9888100370E26 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9385EE9928B9888100370E26 /* Configuration.swift */; };
 		9386D44128A78BBA00CC9335 /* ActionFilesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9386D43E28A78BBA00CC9335 /* ActionFilesVC.xib */; };
 		9386D44228A78BBA00CC9335 /* ActionFilesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9386D43F28A78BBA00CC9335 /* ActionFilesVM.swift */; };
 		9386D44328A78BBA00CC9335 /* ActionFilesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9386D44028A78BBA00CC9335 /* ActionFilesVC.swift */; };
@@ -168,6 +172,10 @@
 		3EBAF49B289D1E2400C59679 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EBAF49E289D1E2400C59679 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EBAF4A0289D1E2400C59679 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9385EE9128B9739A00370E26 /* INAPPVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = INAPPVC.xib; sourceTree = "<group>"; };
+		9385EE9228B9739A00370E26 /* INAPPVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INAPPVM.swift; sourceTree = "<group>"; };
+		9385EE9328B9739A00370E26 /* INAPPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INAPPVC.swift; sourceTree = "<group>"; };
+		9385EE9928B9888100370E26 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		9386D43E28A78BBA00CC9335 /* ActionFilesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionFilesVC.xib; sourceTree = "<group>"; };
 		9386D43F28A78BBA00CC9335 /* ActionFilesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionFilesVM.swift; sourceTree = "<group>"; };
 		9386D44028A78BBA00CC9335 /* ActionFilesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionFilesVC.swift; sourceTree = "<group>"; };
@@ -423,6 +431,24 @@
 				93900C3928B7AF2D003439FB /* ManageFiles-Bridging-Header.h */,
 			);
 			path = ManageFiles;
+			sourceTree = "<group>";
+		};
+		9385EE9028B9738500370E26 /* INAPP */ = {
+			isa = PBXGroup;
+			children = (
+				9385EE9128B9739A00370E26 /* INAPPVC.xib */,
+				9385EE9228B9739A00370E26 /* INAPPVM.swift */,
+				9385EE9328B9739A00370E26 /* INAPPVC.swift */,
+			);
+			path = INAPP;
+			sourceTree = "<group>";
+		};
+		9385EE9728B9888100370E26 /* InApp */ = {
+			isa = PBXGroup;
+			children = (
+				9385EE9928B9888100370E26 /* Configuration.swift */,
+			);
+			path = InApp;
 			sourceTree = "<group>";
 		};
 		9386D43D28A78BA500CC9335 /* ActionFiles */ = {
@@ -763,6 +789,7 @@
 		939DA46D289D57C000AEEF49 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9385EE9028B9738500370E26 /* INAPP */,
 				93900CB428B7AFAF003439FB /* TransferWifi */,
 				93897DA328B6746400F3C1AE /* ImagePDF */,
 				93890DBE28B2641F00A8F467 /* Camera */,
@@ -851,6 +878,7 @@
 		939DA4A0289D5E3F00AEEF49 /* Manage */ = {
 			isa = PBXGroup;
 			children = (
+				9385EE9728B9888100370E26 /* InApp */,
 				93B663F3289E582F001BFA47 /* Utility.swift */,
 				93B6641E289EA1A2001BFA47 /* GlobalApp.swift */,
 				93F85C8428B0C82E009A6A66 /* GlobalAppProtocol.swift */,
@@ -1167,6 +1195,7 @@
 				939DA475289D594A00AEEF49 /* HomeVC.xib in Resources */,
 				9390848728AD4A33002B835B /* SortVC.xib in Resources */,
 				9386D45028A7F5B500CC9335 /* FontsFree-Net-SFProText-Regular.ttf in Resources */,
+				9385EE9428B9739A00370E26 /* INAPPVC.xib in Resources */,
 				93B66438289ECD22001BFA47 /* SettingVC.xib in Resources */,
 				93B6640D289E7887001BFA47 /* FilesCellView.xib in Resources */,
 				9386D45128A7F5B500CC9335 /* FontsFree-Net-SFProText-Semibold.ttf in Resources */,
@@ -1295,10 +1324,12 @@
 				939DA483289D5CA600AEEF49 /* Constant.swift in Sources */,
 				939DA49C289D5D9A00AEEF49 /* PropertyWapper.swift in Sources */,
 				93900CBA28B7AFE3003439FB /* TransferWifiVC.swift in Sources */,
+				9385EE9B28B9888100370E26 /* Configuration.swift in Sources */,
 				93900CB128B7AF3F003439FB /* SGHTTPConnection.m in Sources */,
 				93897DA928B6747900F3C1AE /* ImagePDFVC.swift in Sources */,
 				93B6643D289ECEB4001BFA47 /* BaseSetting.swift in Sources */,
 				93900CA728B7AF3E003439FB /* DDTTYLogger.m in Sources */,
+				9385EE9628B9739A00370E26 /* INAPPVC.swift in Sources */,
 				93890DBC28B257F300A8F467 /* NotePadVM.swift in Sources */,
 				93890DC428B2643400A8F467 /* CameraVC.swift in Sources */,
 				93B66431289ECCC4001BFA47 /* SettingView.swift in Sources */,
@@ -1310,6 +1341,7 @@
 				939DA495289D5D0300AEEF49 /* RealmManager.swift in Sources */,
 				93A847FF28A40E07004519CF /* AdditionProtocol.swift in Sources */,
 				9386D44828A790D000CC9335 /* NavigationActionView.swift in Sources */,
+				9385EE9528B9739A00370E26 /* INAPPVM.swift in Sources */,
 				93900C9728B7AF3E003439FB /* HTTPMessage.m in Sources */,
 				93900CA228B7AF3E003439FB /* Manager.swift in Sources */,
 				93900C9A28B7AF3E003439FB /* MultipartMessageHeaderField.m in Sources */,

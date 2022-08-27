@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
       UIFont.overrideInitialize()
       GlobalApp.shared.start()
+      InAppPerchaseManager.shared.insertIdentifiers(productIdentifiers: ProductID.allCases.map { $0.rawValue })
       moveToTabbar()
     return true
   }

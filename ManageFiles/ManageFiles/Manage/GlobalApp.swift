@@ -101,6 +101,17 @@ final class GlobalApp: GlobalAppProtocol {
                 
         }.disposed(by: disposeBag)
     }
+    
+    func listRawSKProduct() -> [SKProductModel] {
+        var list: [SKProductModel] = []
+        let w = SKProductModel(productID: ProductID.weekly.rawValue, price: 0.99)
+        let m = SKProductModel(productID: ProductID.monthly.rawValue, price: 1.99)
+        let y = SKProductModel(productID: ProductID.yearly.rawValue, price: 9.99)
+        list.append(w)
+        list.append(m)
+        list.append(y)
+        return list
+    }
 
     private func setValueDefault() {
         let icons = FolderName.allCases.map { $0.nameImage }

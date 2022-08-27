@@ -258,16 +258,17 @@ extension ActionFilesVC: NavigationActionDelegate {
         case .save:
             actionTrigger.onNext(())
         case .plus:
-            if self.selectFolder.isEmpty {
-                self.showAlert(title: nil, message: "Vui lòng chọn folder")
-                return
-            }
-            let renameView: RenameView = .loadXib()
-            renameView.delegate = self
-            renameView.ranmeStatus = .create
-            renameView.show()
-            let url = EasyFilesManage.shared.gettURL(folder: self.selectFolder)
-            renameView.setValue(url: url, folderName: url.getName())
+            self.moveToInApp()
+//            if self.selectFolder.isEmpty {
+//                self.showAlert(title: nil, message: "Vui lòng chọn folder")
+//                return
+//            }
+//            let renameView: RenameView = .loadXib()
+//            renameView.delegate = self
+//            renameView.ranmeStatus = .create
+//            renameView.show()
+//            let url = EasyFilesManage.shared.gettURL(folder: self.selectFolder)
+//            renameView.setValue(url: url, folderName: url.getName())
         }
     }
 }
